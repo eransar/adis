@@ -5,12 +5,14 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Database {
 
-    public  void createNewDatabase(String fileName) {
+    public void createNewDatabase(String fileName) {
         String url = "jdbc:sqlite:" + fileName + ".db";
-        File f = new File(fileName+".db");
+        File f = new File(fileName + ".db");
         if (!f.exists()) {
             try (Connection conn = DriverManager.getConnection(url)) {
                 if (conn != null) {
@@ -22,7 +24,7 @@ public class Database {
         }
     }
 
-    public  void connect() {
+    public Connection connect() {
         Connection conn = null;
         try {
             // db parameters
@@ -41,7 +43,33 @@ public class Database {
                 System.out.println(ex.getMessage());
             }
         }
+        return conn;
     }
 
+    public void selectAll(String table_name, String ... Parameters) {
+        String fields="";
+        for (int i = 0; i < Parameters.length ; i++) {
+            if(i==0){
+                fields=Parameters[i];
+            }
+            fields=fields+", "+Parameters[i];
+        }
+        String sql = "SELECT "+fields+" FROM"+ table_name;
 
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            // loop through the result set
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") + "\t" +
+                        rs.getString("name") + "\t" +
+                        rs.getDouble("capacity"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
 }
