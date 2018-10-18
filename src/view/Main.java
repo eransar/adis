@@ -25,7 +25,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("V4U");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Scene scene = new Scene(root, 600  , 400);
+        Scene scene = new Scene(root, 800  , 400);
         scene.getStylesheets().add(getClass().getResource("viewCSS.css").toExternalForm());
         primaryStage.setScene(scene);
         view.setStage(primaryStage);

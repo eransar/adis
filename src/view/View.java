@@ -15,6 +15,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,6 +31,8 @@ public class View extends java.util.Observable implements Initializable {
 
     private Stage stage;
     public ChoiceBox<String> Choose = new ChoiceBox<>();
+
+
 
     ObservableList<String> list = FXCollections.observableArrayList();
 

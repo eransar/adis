@@ -1,6 +1,5 @@
 .root{
     -fx-background-color: bisque;
-    -fx-background-image: url("../images/15098_rd.jpg");
     -fx-background-size: 100% 100%;
 }
 
@@ -15,12 +14,6 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 
-.label {
-    -fx-font-family: "Times New Roman", Times, serif;
-    -fx-font-weight: bolder;
-    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
-    -fx-font-size: 18;
-}
 
 .menu-barton {
     -fx-text-fill: white;
@@ -30,4 +23,6 @@
     -fx-background-color: linear-gradient(#61a2b1, #2A5058);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 
-}
+}#viewP{
+     -fx-background-image: url("/images/beach.jpg");
+ }
