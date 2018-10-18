@@ -14,8 +14,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.View">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.View">
    <children>
       <GridPane fx:id="searchGP" layoutX="45.0" layoutY="217.0" prefHeight="105.0" prefWidth="264.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="291.0" AnchorPane.topAnchor="217.0">
         <columnConstraints>
@@ -44,12 +45,14 @@
       </GridPane>
       <Pane prefHeight="91.0" prefWidth="700.0" style="-fx-background-color: #00BFFF;">
          <children>
-            <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="552.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="471.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <effect>
                   <Shadow />
                </effect>
             </ImageView>
-            <Label layoutX="23.0" layoutY="29.0" prefHeight="36.0" prefWidth="68.0" text="Label" />
+            <Label layoutX="23.0" layoutY="29.0" prefHeight="36.0" prefWidth="68.0" text="Label" textAlignment="RIGHT" />
+            <Line endX="100.0" layoutX="600.0" layoutY="46.0" startX="-50.0" />
+            <TextField layoutX="545.0" layoutY="21.0" promptText="Search" style="-fx-background-color: #00BFFF;" />
          </children>
          <effect>
             <DropShadow height="38.2" radius="21.7125" width="50.65" />
