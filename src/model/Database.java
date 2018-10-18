@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 public class Database {
 
@@ -52,7 +53,9 @@ public class Database {
             if(i==0){
                 fields=Parameters[i];
             }
-            fields=fields+", "+Parameters[i];
+            else {
+                fields = fields + ", " + Parameters[i];
+            }
         }
         String sql = "SELECT "+fields+" FROM"+ table_name;
 
@@ -69,7 +72,5 @@ public class Database {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 }
