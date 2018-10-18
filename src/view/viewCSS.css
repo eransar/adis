@@ -23,4 +23,15 @@
     -fx-font-weight: bolder;
     -fx-text-fill: #FF0000;
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+    -fx-font-size: 18;
+}
+
+.menu-barton {
+    -fx-text-fill: white;
+    -fx-shape: "M0,1 L1,0 L2,1 L1,2 Z";
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+
 }
