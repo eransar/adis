@@ -44,8 +44,8 @@ public class View extends java.util.Observable implements Initializable {
 
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = fxmlLoader.load(getClass().getResource("Register.fxml").openStream());
-        Scene scene = new Scene(root,400,300);
+        Parent a = fxmlLoader.load(getClass().getResource("Register.fxml").openStream());
+        Scene scene = new Scene(a,800,400);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
         scene.getStylesheets().add(getClass().getResource("MyCSS.css").toExternalForm());
