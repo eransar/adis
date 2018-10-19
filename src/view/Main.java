@@ -13,18 +13,17 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Model model = new Model();
         Controller controller= new Controller();
-        controller.init(primaryStage,model);
+        controller.init(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("V4U");
         Scene scene = new Scene(root, 800  , 400);
         scene.getStylesheets().add(getClass().getResource("viewCSS.css").toExternalForm());
         primaryStage.setScene(scene);
 //        controller.setStage(primaryStage);
-        Database d = new Database();
-        d.createNewDatabase("vacation4u");
-        d.connect();
+//        Database d = new Database();
+//        d.createNewDatabase("vacation4u");
+//        d.connect();
         primaryStage.show();
     }
 

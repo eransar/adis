@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Model;
 
@@ -19,9 +18,9 @@ public class Controller extends Observable implements Observer {
     private Model model;
     private Stage stage;
 
-    public void init(Stage stage,Model model){
+    public void init(Stage stage){
         this.stage=stage;
-        this.model=model;
+        this.model= Model.getInstance();
     }
 
 

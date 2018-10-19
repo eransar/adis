@@ -1,5 +1,7 @@
 package model;
 
+import Entities.IEntity;
+
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
@@ -43,6 +45,22 @@ public class Database {
         }
         return conn;
     }
+
+    public void Insert (IEntity entity){
+            String sql = "INSERT INTO"+ entity.GetDBName()+"("+entity.getFieldsForDB()+")"+" VALUES"+"("+entity.getValuesForDB()+")";
+
+            try (Connection conn = this.connect();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                for (int i = 0; i < entity.getFields().size(); i++) {
+                    pstmt.setString(i+1,entity.getFields().get(i));
+                }
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
 
     public ArrayList<String> selectAll(String table_name, String... Parameters) {
         String fields = "";
