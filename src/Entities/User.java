@@ -11,6 +11,13 @@ public class User extends AEntity{
     private String lastname;
 
     public User(String username,String password,String birthday, String city, String firstname, String lastname){
+        super();
+    this.username=username;
+    this.password=password;
+    this.birthday=birthday;
+    this.city=city;
+    this.firstname=firstname;
+    this.lastname=lastname;
 
     }
 
@@ -61,6 +68,7 @@ public class User extends AEntity{
     public void InsertTODB() {
 
     }
+
 
     @Override
     public void DeleteFromDB() {

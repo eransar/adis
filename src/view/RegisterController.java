@@ -45,6 +45,8 @@ public class RegisterController implements Initializable{
     }
 
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
+        BuildUserEntity();
+        model.InsertToDB(user);
 //    model.Insert();
     }
 

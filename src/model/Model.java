@@ -15,7 +15,7 @@ public class Model {
         db.connect();
     }
 
-    public void Insert(IEntity entity){
-//        db.
+    public void InsertToDB(IEntity entity){
+        db.Insert(entity);
     }
 }
