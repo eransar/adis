@@ -35,28 +35,30 @@ public class Database {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+//            try {
+////                if (conn != null) {
+////                    conn.close();
+////                }
+//            } catch (SQLException ex) {
+//                System.out.println(ex.getMessage());
+//            }
         }
         return conn;
     }
 
     public void Insert (IEntity entity){
-            String sql = "INSERT INTO"+ entity.GetDBName()+"("+entity.getFieldsForDB()+")"+" VALUES"+"("+entity.getValuesForDB()+")";
+            String sql = "INSERT INTO "+ entity.GetDBName()+"("+entity.getFieldsForDB()+")"+" VALUES"+"("+entity.getValuesForDB()+")";
 
-            try (Connection conn = this.connect();
+            try (
+                 Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                for (int i = 0; i < entity.getFields().size(); i++) {
-                    pstmt.setString(i+1,entity.getFields().get(i));
+                for (int i = 0; i < entity.getFieldsValue().size(); i++) {
+                    pstmt.setString(i+1,entity.getFieldsValue().get(i));
                 }
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
+                System.out.println(e.getSQLState());
             }
         }
 
