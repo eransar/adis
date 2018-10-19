@@ -11,7 +11,7 @@ public abstract class AEntity implements IEntity {
 
     public AEntity(){
         fields=new ArrayList<>();
-        Field[] fieldarray = this.getClass().getFields();
+        Field[] fieldarray = this.getClass().getDeclaredFields();
         for (int i = 0; i <fieldarray.length ; i++) {
             fields.add(fieldarray[i].getName());
         }

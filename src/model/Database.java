@@ -47,7 +47,7 @@ public class Database {
     }
 
     public void Insert (IEntity entity){
-            String sql = "INSERT INTO"+ entity.GetDBName()+"("+entity.getFieldsForDB()+")"+" VALUES"+"("+entity.getValuesForDB()+")";
+            String sql = "INSERT INTO "+ entity.GetDBName()+"("+entity.getFieldsForDB()+")"+" VALUES"+"("+entity.getValuesForDB()+")";
 
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
