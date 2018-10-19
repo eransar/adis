@@ -16,12 +16,12 @@ import java.util.Observer;
 public class Controller extends Observable implements Observer {
 
 
-    private Model model = new Model();
+    private Model model;
     private Stage stage;
 
-
-    public void setStage(Stage stage){
-        this.stage = stage;
+    public void init(Stage stage,Model model){
+        this.stage=stage;
+        this.model=model;
     }
 
 

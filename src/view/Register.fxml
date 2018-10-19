@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="hey" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
+<AnchorPane fx:id="hey" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RegisterController">
    <children>
       <Label layoutX="82.0" layoutY="31.0" prefHeight="28.0" prefWidth="91.0" text="Sign UP">
          <font>
@@ -53,7 +53,7 @@
       <Line endX="38.0" layoutX="131.0" layoutY="291.0" startX="-100.0" />
       <Line endX="38.0" layoutX="301.0" layoutY="291.0" startX="-100.0" />
       <Line endX="-114.0" endY="229.0" layoutX="470.0" layoutY="171.0" startX="-114.0" startY="-171.0" />
-      <Button layoutX="36.0" layoutY="329.0" mnemonicParsing="false" style="-fx-background-color: #00BFFF;" text="Sign UP" />
+      <Button layoutX="36.0" layoutY="329.0" mnemonicParsing="false" style="-fx-background-color: #00BFFF;" text="Sign UP" fx:id="sign_up" />
       <ImageView fitHeight="168.0" fitWidth="245.0" layoutX="356.0" layoutY="103.0" pickOnBounds="true">
          <image>
             <Image url="@../images/sumemrfun.jpg" />
