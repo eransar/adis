@@ -12,7 +12,7 @@ public class Model {
 
     private Model() {
         this.db=new Database();
-        db.connect();
+//        db.connect();
     }
 
     public void InsertToDB(IEntity entity){
