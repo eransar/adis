@@ -1,23 +1,25 @@
 package Entities;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class User extends AEntity{
     private String username;
     private String password;
-    private String birthday;
+    private String birth;
+    private String first_name;
+    private String last_name;
     private String city;
-    private String firstname;
-    private String lastname;
 
-    public User(String username,String password,String birthday, String city, String firstname, String lastname){
+
+    public User(String username,String password,String birth, String city, String firstname, String lastname){
         super();
     this.username=username;
     this.password=password;
-    this.birthday=birthday;
+    this.birth =birth;
     this.city=city;
-    this.firstname=firstname;
-    this.lastname=lastname;
+    this.first_name =firstname;
+    this.last_name =lastname;
 
     }
 
@@ -25,6 +27,17 @@ public class User extends AEntity{
     public ArrayList<String> getFields() {
         return fields;
 
+    }
+    public ArrayList<String> getFieldsValue(){
+        ArrayList<String> result = new ArrayList<>();
+        result.add(this.username);
+        result.add(this.password);
+        result.add(this.birth);
+        result.add(this.city);
+        result.add(this.first_name);
+        result.add(this.last_name);
+
+        return result;
     }
 
     @Override
