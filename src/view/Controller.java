@@ -2,6 +2,7 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -26,12 +27,10 @@ public class Controller extends Observable implements Observer {
 
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
         Parent a = FXMLLoader.load(getClass().getResource("/view/Register.fxml"));
-        Scene scene = new Scene(a,800,400);
-
-        stage.setScene(scene);
-        stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
-        scene.getStylesheets().add(getClass().getResource("MyCSS.css").toExternalForm());
-        stage.show();
+        Scene scene = new Scene(a);
+        Stage s = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        s.setScene(scene);
+        s.show();
     }
 
 
