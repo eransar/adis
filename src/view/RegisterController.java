@@ -42,6 +42,7 @@ public class RegisterController implements Initializable{
         this.model=Model.getInstance();
         try {
             BackButtonListener();
+            setSign_up();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,10 +57,42 @@ public class RegisterController implements Initializable{
             @Override
             public void handle(MouseEvent event) {
 
-                //TODO Switch scene to home
+                Parent a = null;
+                try {
+                    a = FXMLLoader.load(getClass().getResource("/view/View.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(a);
+                scene.getStylesheets().add(getClass().getResource("viewCSS.css").toExternalForm());
+                Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
+                s.setScene(scene);
+                s.show();
             }
         });
     }
+
+    public void setSign_up() throws IOException{
+        sign_up.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+
+                Parent a = null;
+                try {
+                    a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(a);
+                scene.getStylesheets().add(getClass().getResource("user.css").toExternalForm());
+                Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
+                s.setScene(scene);
+                s.show();
+            }
+        });
+    }
+
 
     public void BuildUserEntity(){
         this.user=new User(
