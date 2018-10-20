@@ -77,7 +77,6 @@ public class Database {
             for (int j = 0; rs.next(); j++) {
                 for (int k = 0; k < entity.getFields().size() ; k++) {
                     read.add(rs.getString(fields_name.get(k)));
-                    System.out.println(read.get(k));
                 }
             }
 
