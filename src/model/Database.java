@@ -96,7 +96,6 @@ public class Database {
 
 
 
-
     public ArrayList<String> selectAll(String table_name, String... Parameters) {
         String fields = "";
         ArrayList<String> arr = new ArrayList<String>();
