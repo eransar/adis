@@ -4,7 +4,12 @@ import Entities.IEntity;
 
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
+/*
+Representing the Model class in our project.
+The model communicate with the database and get commands from the Controllers
 
+Model is designed to be a Singleton so there is only one Model when the program runs and every controller can access it.
+ */
 public class Model {
     private static Model ourInstance = new Model();
 

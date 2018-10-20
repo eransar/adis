@@ -24,13 +24,7 @@ public class User extends AEntity{
     }
 
     @Override
-    /*
-    Return the fields names in arraylist
-     */
-    public ArrayList<String> getFields() {
-        return fields;
 
-    }
     /*
     Returns the fields value in arraylist
      */
@@ -45,39 +39,6 @@ public class User extends AEntity{
 
         return result;
     }
-
-    @Override
-    /*
-    Returns the fields in a long string with delimiters
-     */
-    public String getFieldsForDB() {
-        String result ="";
-        for (int i = 0; i < fields.size(); i++) {
-            if (i == 0) {
-                result = fields.get(i);
-            } else {
-                result = result + ", " + fields.get(i);
-            }
-        }
-        return result;
-    }
-
-    @Override
-    /*
-    Returns String of question marks (?) for the database query
-     */
-    public String getValuesForDB() {
-        String result="";
-        for (int i = 0; i < fields.size(); i++) {
-            if (i == 0) {
-                result = "?";
-            } else {
-                result = result + ", " + "?";
-            }
-        }
-        return result;
-    }
-
 
     @Override
     /*
@@ -101,26 +62,5 @@ public class User extends AEntity{
      */
     public String getPrimaryKeyName() {
         return "username";
-    }
-
-    @Override
-    public void ReadFromDB() {
-
-    }
-
-    @Override
-    public void InsertTODB() {
-
-    }
-
-
-    @Override
-    public void DeleteFromDB() {
-
-    }
-
-    @Override
-    public void UpdateFromDB() {
-
     }
 }

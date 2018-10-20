@@ -11,9 +11,5 @@ public interface IEntity {
     public String GetDBName();
     public String getPrimaryKeyValue();
     public String getPrimaryKeyName();
-    public void ReadFromDB();
-    public void InsertTODB();
-    public void DeleteFromDB();
-    public void UpdateFromDB();
 
 }

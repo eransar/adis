@@ -18,7 +18,5 @@ public class testdb {
 
         System.out.println(result.size());
 
-
-        int i = 5;
     }
 }

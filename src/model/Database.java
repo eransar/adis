@@ -8,7 +8,10 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Database {
-
+/*
+Create new Database
+param @fileName - the name of the database file
+ */
     public void createNewDatabase(String fileName) {
         String url = "jdbc:sqlite:" + fileName + ".db";
         File f = new File(fileName + ".db");
@@ -22,7 +25,9 @@ public class Database {
             }
         }
     }
-
+/*
+Connect to vacation database
+ */
     public Connection connect() {
         Connection conn = null;
         try {
@@ -45,7 +50,10 @@ public class Database {
         }
         return conn;
     }
-
+/*
+Insert Entity to the database
+param @IEntity - interface for the objects in the database
+ */
     public void Insert (IEntity entity){
             String sql = "INSERT INTO "+ entity.GetDBName()+"("+entity.getFieldsForDB()+")"+" VALUES"+"("+entity.getValuesForDB()+")";
 
@@ -61,7 +69,11 @@ public class Database {
                 System.out.println(e.getSQLState());
             }
         }
-
+    /*
+    read entity primary key from the database
+    param @IEntity - interface for the objects in the database
+    returns arraylist with the rows
+     */
     public ArrayList<String> read(IEntity entity){
         ArrayList<String> read = new ArrayList<String>();
         ArrayList<String> fields_name = entity.getFields();
