@@ -68,5 +68,10 @@
       <TextField fx:id="city" layoutX="201.0" layoutY="196.0" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #ffffff;" />
       <TextField fx:id="username" layoutX="27.0" layoutY="264.0" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #ffffff;" />
       <PasswordField fx:id="password" layoutX="196.0" layoutY="264.0" style="-fx-background-color: #ffffff;" />
+      <ImageView fx:id="back" fitHeight="52.0" fitWidth="72.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/back_button.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

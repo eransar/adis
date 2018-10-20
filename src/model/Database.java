@@ -4,8 +4,8 @@ import Entities.IEntity;
 
 import java.io.File;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Database {
 
@@ -61,6 +61,39 @@ public class Database {
                 System.out.println(e.getSQLState());
             }
         }
+
+    public ArrayList<String> read(IEntity entity){
+        ArrayList<String> read = new ArrayList<String>();
+        ArrayList<String> fields_name = entity.getFields();
+        String sql = "SELECT * FROM "+entity.GetDBName()+" "
+                +"WHERE "+entity.getPrimaryKeyName()+"=\""+entity.getPrimaryKeyValue()+"\"";
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+             ResultSetMetaData rsMetaData = rs.getMetaData(); // for debug purposes
+            // loop through the result set
+
+            for (int j = 0; rs.next(); j++) {
+                for (int k = 0; k < entity.getFields().size() ; k++) {
+                    read.add(rs.getString(fields_name.get(k)));
+                    System.out.println(read.get(k));
+                }
+            }
+
+
+//            for (int i = 0; rs.next() ; i++) {
+//                dict_read.put(fields_name.get(i),rs.getString(i+1));
+//                System.out.println("added "+i);
+//            }
+        } catch (SQLException e) {
+            String k = e.getMessage();
+            System.out.println(e.getMessage());
+        }
+        return read;
+    }
+
+
 
 
 

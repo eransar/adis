@@ -2,6 +2,9 @@ package model;
 
 import Entities.IEntity;
 
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class Model {
     private static Model ourInstance = new Model();
 
@@ -17,5 +20,8 @@ public class Model {
 
     public void InsertToDB(IEntity entity){
         db.Insert(entity);
+    }
+    public ArrayList<String> ReadFromDB(IEntity entity){
+        return db.read(entity);
     }
 }

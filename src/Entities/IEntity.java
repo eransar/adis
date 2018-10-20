@@ -9,6 +9,8 @@ public interface IEntity {
     public String getFieldsForDB();
     public String getValuesForDB();
     public String GetDBName();
+    public String getPrimaryKeyValue();
+    public String getPrimaryKeyName();
     public void ReadFromDB();
     public void InsertTODB();
     public void DeleteFromDB();

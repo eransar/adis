@@ -2,11 +2,19 @@ package view;
 
 import Entities.User;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import model.Model;
 
 import java.io.IOException;
@@ -22,14 +30,35 @@ public class RegisterController implements Initializable{
     public TextField birthday;
     public TextField username;
     public PasswordField password;
+    public ImageView back;
 
     Model model;
     User user;
+    Stage stage;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.model=Model.getInstance();
+        try {
+            BackButtonListener();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void setStage(Stage stage){
+        this.stage=stage;
+    }
+
+    public void BackButtonListener() throws IOException{
+        back.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+
+                //TODO Switch scene to home
+            }
+        });
     }
 
     public void BuildUserEntity(){
