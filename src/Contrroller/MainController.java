@@ -2,12 +2,19 @@ package Contrroller;
 
 import Entities.User;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import model.Model;
 
 import java.io.IOException;
@@ -54,7 +61,29 @@ public class MainController implements Initializable {
         BuildUserEntity();
         model.InsertToDB(user);
         System.out.println("oooo");
+        setSign_up();
 //    model.Insert();
+    }
+
+    public void setSign_up() throws IOException{
+        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+
+                Parent a = null;
+                try {
+                    a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(a);
+                scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
+                Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
+                s.setScene(scene);
+                s.show();
+            }
+        });
     }
 
 

@@ -46,7 +46,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="button_LogIN" layoutX="661.0" layoutY="41.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Log In" />
+            <Button fx:id="button_LogIN" layoutX="661.0" layoutY="41.0" mnemonicParsing="false" onAction="#setSign_up" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Log In" />
          </children></AnchorPane>
       <AnchorPane layoutX="51.0" layoutY="135.0" opacity="0.81" prefHeight="232.0" prefWidth="364.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
