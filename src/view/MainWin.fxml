@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.MainController">
+   <children>
+      <AnchorPane opacity="0.41" prefHeight="84.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="68.0" fitWidth="194.0" layoutX="56.0" layoutY="8.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/logoNew.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="logIn_Password" layoutX="492.0" layoutY="44.0" prefHeight="31.0" prefWidth="142.0" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="logIn_User" layoutX="328.0" layoutY="44.0" prefHeight="31.0" prefWidth="142.0" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="342.0" layoutY="8.0" prefHeight="31.0" prefWidth="115.0" text="User Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="505.0" layoutY="8.0" prefHeight="31.0" prefWidth="115.0" text="Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_LogIN" layoutX="661.0" layoutY="41.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Log In" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="51.0" layoutY="135.0" opacity="0.81" prefHeight="232.0" prefWidth="364.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+         <children>
+            <TextField fx:id="search" layoutX="32.0" layoutY="127.0" prefHeight="38.0" prefWidth="280.0" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="114.0" layoutY="22.0" prefHeight="31.0" prefWidth="115.0" style="-fx-background-radius: 30;" text="Search">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="search_options" layoutX="95.0" layoutY="71.0" prefWidth="150.0" />
+            <Button fx:id="button_Search" layoutX="121.0" layoutY="174.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Search" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="472.0" layoutY="97.0" opacity="0.84" prefHeight="291.0" prefWidth="290.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+         <children>
+            <TextField fx:id="lastName" layoutX="164.0" layoutY="58.0" prefHeight="31.0" prefWidth="108.0" promptText="Last Name" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="108.0" layoutY="14.0" prefHeight="25.0" prefWidth="94.0" style="-fx-background-radius: 30;" text="Sign Up">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstName" layoutX="38.0" layoutY="58.0" prefHeight="31.0" prefWidth="108.0" promptText="First Name" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="city" layoutX="38.0" layoutY="114.0" prefHeight="31.0" prefWidth="108.0" promptText="City" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="birthday" layoutX="164.0" layoutY="114.0" prefHeight="31.0" prefWidth="108.0" promptText="Birthday" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="userName" layoutX="38.0" layoutY="167.0" prefHeight="31.0" prefWidth="108.0" promptText="User Name" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="password" layoutX="164.0" layoutY="170.0" prefHeight="25.0" prefWidth="108.0" promptText="Password" style="-fx-background-radius: 30;">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="button_SignUp" layoutX="108.0" layoutY="225.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

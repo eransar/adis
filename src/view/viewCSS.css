@@ -26,3 +26,7 @@
 }#viewP{
      -fx-background-image: url("/images/beach.jpg");
  }
+
+ #screen{
+     -fx-background-image: url("/images/beach.jpg");
+ }
