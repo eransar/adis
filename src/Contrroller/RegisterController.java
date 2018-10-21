@@ -85,7 +85,7 @@ public class RegisterController implements Initializable{
                     e.printStackTrace();
                 }
                 Scene scene = new Scene(a);
-                scene.getStylesheets().add(getClass().getResource("user.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("/view/user.css").toExternalForm());
                 Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
                 s.setScene(scene);
                 s.show();
