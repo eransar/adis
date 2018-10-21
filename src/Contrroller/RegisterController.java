@@ -1,4 +1,4 @@
-package view;
+package Contrroller;
 
 import Entities.User;
 import javafx.event.ActionEvent;
@@ -64,7 +64,7 @@ public class RegisterController implements Initializable{
                     e.printStackTrace();
                 }
                 Scene scene = new Scene(a);
-                scene.getStylesheets().add(getClass().getResource("viewCSS.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("/view/viewCSS.css").toExternalForm());
                 Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
                 s.setScene(scene);
                 s.show();

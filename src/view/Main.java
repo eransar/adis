@@ -1,12 +1,11 @@
 package view;
 
+import Contrroller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Database;
-import model.Model;
 
 
 public class Main extends Application {
