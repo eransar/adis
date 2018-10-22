@@ -1,5 +1,6 @@
 package Contrroller;
 
+import Entities.User;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 public class Profile implements Initializable {
 
     public Label home;
+    private User user;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,5 +43,9 @@ public class Profile implements Initializable {
                 s.show();
             }
         });
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -82,6 +82,8 @@ public class MainController implements Initializable {
                 Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
                 s.setScene(scene);
                 s.show();
+                Profile profile = new Profile();
+                profile.setUser(user);
             }
         });
     }

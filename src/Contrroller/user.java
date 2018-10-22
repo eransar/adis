@@ -1,5 +1,6 @@
 package Contrroller;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -24,6 +26,7 @@ public class user implements Initializable {
 
     public Circle profileImage;
     public Label Profile;
+    public AnchorPane winS;
 
     public void initialize(URL location, ResourceBundle resources) {
         profileImage.setStroke(Color.SEAGREEN);
@@ -33,7 +36,7 @@ public class user implements Initializable {
 
     }
 
-    public void ProfileFunc() throws IOException {
+    /*public void ProfileFunc() throws IOException {
         Profile.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
@@ -52,6 +55,12 @@ public class user implements Initializable {
                 s.show();
             }
         });
+    }*/
+
+    public void SubScene(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Profile.fxml"));
+        winS.getChildren().setAll(pane);
+        winS.getScene().getStylesheets().add(getClass().getResource("/view/viewCSS.css").toExternalForm());
     }
 
 
