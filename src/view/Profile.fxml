@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.user">
+<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.Profile">
    <children>
       <AnchorPane opacity="0.41" prefHeight="84.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -21,28 +17,6 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane layoutX="400.0" layoutY="124.0" opacity="0.81" prefHeight="232.0" prefWidth="364.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
-         <children>
-            <TextField fx:id="search" layoutX="32.0" layoutY="127.0" prefHeight="38.0" prefWidth="280.0" style="-fx-background-radius: 30;">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </TextField>
-            <Label alignment="CENTER" layoutX="114.0" layoutY="22.0" prefHeight="31.0" prefWidth="115.0" style="-fx-background-radius: 30;" text="Search">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="search_options" layoutX="95.0" layoutY="71.0" prefWidth="150.0" />
-            <Button fx:id="button_Search" layoutX="121.0" layoutY="174.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Search" />
-         </children>
-      </AnchorPane>
       <AnchorPane opacity="0.81" prefHeight="400.0" prefWidth="246.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
             <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="94.0" layoutY="55.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
@@ -51,7 +25,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="Profile" alignment="CENTER" layoutX="1.0" layoutY="215.0" onKeyPressed="#ProfileFunc" onMouseClicked="#ProfileFunc" prefHeight="38.0" prefWidth="246.0" text="Profile">
+            <Label fx:id="Profile" alignment="CENTER" layoutX="1.0" layoutY="215.0" prefHeight="38.0" prefWidth="246.0" text="Profile">
                <font>
                   <Font size="13.0" />
                </font>
@@ -81,7 +55,7 @@
                   <Image url="@../images/out.png" />
                </image>
             </ImageView>
-            <Label fx:id="Profile1" alignment="CENTER" layoutX="2.0" layoutY="155.0" onKeyPressed="#ProfileFunc" onMouseClicked="#ProfileFunc" prefHeight="38.0" prefWidth="246.0" text="Home">
+            <Label fx:id="home" alignment="CENTER" layoutX="2.0" layoutY="155.0" onKeyPressed="#Home" prefHeight="38.0" prefWidth="246.0" text="Home">
                <font>
                   <Font size="13.0" />
                </font>
@@ -92,5 +66,6 @@
                </image>
             </ImageView>
          </children></AnchorPane>
+      <AnchorPane layoutX="332.0" layoutY="92.0" opacity="0.84" prefHeight="293.0" prefWidth="411.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
    </children>
 </AnchorPane>
