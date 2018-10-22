@@ -63,4 +63,53 @@ public class User extends AEntity{
     public String getPrimaryKeyName() {
         return "username";
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getUsername() {
+
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getCity() {
+        return city;
+    }
 }
