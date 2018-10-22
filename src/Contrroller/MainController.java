@@ -38,7 +38,17 @@ public class MainController implements Initializable {
     public TextField logIn_Password;
     public TextField search;
     public ChoiceBox<String> search_options;
-    private User user;
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        MainController.user = user;
+    }
+
+    private static User user;
+
 
 
     @Override
@@ -77,13 +87,15 @@ public class MainController implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 Scene scene = new Scene(a);
                 scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
                 Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
                 s.setScene(scene);
                 s.show();
-                Profile profile = new Profile();
-                profile.setUser(user);
+                
+
+
             }
         });
     }

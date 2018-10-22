@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -18,11 +19,11 @@ import java.util.ResourceBundle;
 public class Profile implements Initializable {
 
     public Label home;
-    private User user;
+    public TextField name;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+    name.setText(MainController.getUser().getFirst_name());
     }
 
 
@@ -45,7 +46,4 @@ public class Profile implements Initializable {
         });
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

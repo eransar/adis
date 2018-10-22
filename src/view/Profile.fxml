@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="ScreenAnker" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.Profile">
    <children>
-      <TextField alignment="CENTER" layoutX="67.0" layoutY="90.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 30;" />
+      <TextField fx:id="name" alignment="CENTER" layoutX="67.0" layoutY="90.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 30;" />
       <TextField alignment="CENTER" layoutX="279.0" layoutY="188.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 30;" />
       <TextField alignment="CENTER" layoutX="279.0" layoutY="141.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 30;" />
       <TextField alignment="CENTER" layoutX="279.0" layoutY="89.0" style="-fx-background-color: #FAEBD7; -fx-background-radius: 30;" />

@@ -1,5 +1,6 @@
 package Contrroller;
 
+import Entities.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -22,11 +23,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class user implements Initializable {
+public class UserController implements Initializable {
 
     public Circle profileImage;
     public Label Profile;
     public AnchorPane winS;
+
 
     public void initialize(URL location, ResourceBundle resources) {
         profileImage.setStroke(Color.SEAGREEN);
@@ -62,6 +64,7 @@ public class user implements Initializable {
         winS.getChildren().setAll(pane);
         winS.getScene().getStylesheets().add(getClass().getResource("/view/viewCSS.css").toExternalForm());
     }
+
 
 
 }
