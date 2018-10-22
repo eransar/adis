@@ -29,4 +29,5 @@ public class Model {
     public ArrayList<String> ReadFromDB(IEntity entity){
         return db.read(entity);
     }
+    public boolean isExist(IEntity entity){return db.isExist(entity);}
 }

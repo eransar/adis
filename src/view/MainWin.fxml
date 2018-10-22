@@ -129,6 +129,7 @@
                </font>
             </PasswordField>
             <Button fx:id="button_SignUp" layoutX="108.0" layoutY="225.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
+            <Label fx:id="error_username" layoutX="38.0" layoutY="201.0" prefHeight="17.0" prefWidth="179.0" text="Username already taken" textFill="#c93232" visible="false" />
          </children>
       </AnchorPane>
    </children>

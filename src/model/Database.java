@@ -104,6 +104,25 @@ param @IEntity - interface for the objects in the database
         return read;
     }
 
+    public boolean isExist(IEntity entity) {
+        boolean res;
+        String sql = "SELECT" + " " + entity.getPrimaryKeyName() + " " + "FROM" + " " + entity.GetDBName() +" "+
+                "WHERE"+" " + entity.getPrimaryKeyName() + "=" + '"' + entity.getPrimaryKeyValue() + '"';
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            ResultSetMetaData rsMetaData = rs.getMetaData(); // for debug purposes
+
+            res = !(rsMetaData.getColumnCount() == 0);
+
+
+        } catch (SQLException e) {
+            String k = e.getMessage();
+            System.out.println(e.getMessage());
+            return  false;
+        }
+        return res;
+    }
 
 
 
