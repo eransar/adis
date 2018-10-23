@@ -21,10 +21,10 @@
       <AnchorPane fx:id="winS" layoutX="302.0" layoutY="118.0" opacity="0.92" prefHeight="262.0" prefWidth="462.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
       <AnchorPane opacity="0.81" prefHeight="400.0" prefWidth="163.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="79.0" layoutY="53.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label alignment="CENTER" layoutX="43.0" layoutY="104.0" prefHeight="21.0" prefWidth="78.0" text="Label">
+            <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="76.0" layoutY="42.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="userLabel" alignment="CENTER" layoutX="37.0" layoutY="81.0" prefHeight="21.0" prefWidth="78.0" text="Label">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Italic" size="17.0" />
                </font>
             </Label>
             <Label fx:id="Profile" alignment="CENTER" layoutX="8.0" layoutY="215.0" onMouseClicked="#SubScene" prefHeight="38.0" prefWidth="142.0" text="Profile">

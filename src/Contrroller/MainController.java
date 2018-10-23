@@ -67,6 +67,12 @@ public class MainController implements Initializable {
         );
 
     }
+
+    public void LogInClick(){
+        System.out.println(logIn_User.getText());
+        System.out.println(logIn_Password.getText());
+    }
+
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
         BuildUserEntity();
         model.InsertToDB(user);
@@ -80,7 +86,7 @@ public class MainController implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-
+                LogInClick();
                 Parent a = null;
                 try {
                     a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
