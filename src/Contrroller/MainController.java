@@ -74,13 +74,19 @@ public class MainController implements Initializable {
         );
 
     }
-
+    /*
+    log to user
+     */
     public void LogInClick(ActionEvent event) throws IOException {
         System.out.println(logIn_User.getText());
         System.out.println(logIn_Password.getText());
-        setSign_up();
+        // צריך להוסיף listener לקשר לuser fxml
+        //setSign_up();
     }
 
+    /*
+        create new user
+     */
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
         BuildUserEntity();
         model.InsertToDB(user);
@@ -89,11 +95,17 @@ public class MainController implements Initializable {
 //    model.Insert();
     }
 
+    /*
+        search fxml
+     */
     public void Search() throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
         searchAncer.getChildren().setAll(pane);
     }
 
+    /*
+        set sign up -
+     */
     public void setSign_up() throws IOException{
         button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
         {
@@ -112,9 +124,6 @@ public class MainController implements Initializable {
                 Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
                 s.setScene(scene);
                 s.show();
-                
-
-
             }
         });
     }

@@ -32,7 +32,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="8.0" layoutY="264.0" prefHeight="38.0" prefWidth="142.0" text="Activities">
+            <Label alignment="CENTER" layoutX="8.0" layoutY="264.0" opacity="0.29" prefHeight="38.0" prefWidth="142.0" text="Activities">
                <font>
                   <Font size="13.0" />
                </font>
@@ -57,7 +57,7 @@
                   <Image url="@../images/out.png" />
                </image>
             </ImageView>
-            <Label fx:id="HomeLabal" alignment="CENTER" layoutX="9.0" layoutY="155.0" onDragDetected="#SetBackGround" onMouseClicked="#HomeScene" onMouseDragged="#SetBackGround" prefHeight="38.0" prefWidth="142.0" text="Home">
+            <Label fx:id="HomeLabal" alignment="CENTER" layoutX="9.0" layoutY="155.0" onMouseClicked="#HomeScene" prefHeight="38.0" prefWidth="142.0" text="Home">
                <font>
                   <Font size="13.0" />
                </font>

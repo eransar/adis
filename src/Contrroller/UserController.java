@@ -49,24 +49,23 @@ public class UserController implements Initializable {
     }
 
     /*
-    open sub scene in the user era that use as menu
+    open sub scene in the user fxml that use as menu
      */
     public void SubScene(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Profile.fxml"));
         winS.getChildren().setAll(pane);
     }
-
+    /*
+    open home scene in the user fxml
+     */
     public void HomeScene(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
         winS.getChildren().setAll(pane);
 
     }
-
-
-    public void SetBackGround(MouseDragEvent dragEvent){
-        //HomeLabel.setBackground(new Background(new BackgroundFill(Color.ORANGERED, new CornerRadii(2), new Insets(2))));
-    }
-
+    /*
+    log out screen
+     */
     public void LogOut(MouseEvent event) throws IOException {
         Parent a = FXMLLoader.load(getClass().getResource("/view/MainWin.fxml"));
         Scene scene = new Scene(a);

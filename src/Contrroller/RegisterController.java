@@ -112,6 +112,9 @@ public class RegisterController implements Initializable{
 
     }
 
+    /*
+        register button
+     */
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
         BuildUserEntity();
         model.InsertToDB(user);
