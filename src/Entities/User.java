@@ -10,6 +10,7 @@ public class User extends AEntity{
     private String first_name;
     private String last_name;
     private String city;
+    private byte[] picture;
 
 
     public User(String username,String password,String birth, String city, String firstname, String lastname){
@@ -20,6 +21,7 @@ public class User extends AEntity{
     this.city=city;
     this.first_name =firstname;
     this.last_name =lastname;
+    this.picture=null;
 
     }
 
