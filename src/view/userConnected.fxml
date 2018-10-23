@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,7 +37,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="316.0" prefHeight="38.0" prefWidth="142.0" text="Log Out">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="316.0" onMouseClicked="#LogOut" prefHeight="38.0" prefWidth="142.0" text="Log Out">
                <font>
                   <Font size="13.0" />
                </font>
@@ -56,10 +57,13 @@
                   <Image url="@../images/out.png" />
                </image>
             </ImageView>
-            <Label fx:id="Profile1" alignment="CENTER" layoutX="9.0" layoutY="155.0" prefHeight="38.0" prefWidth="142.0" text="Home">
+            <Label fx:id="HomeLabal" alignment="CENTER" layoutX="9.0" layoutY="155.0" onDragDetected="#SetBackGround" onMouseClicked="#HomeScene" onMouseDragged="#SetBackGround" prefHeight="38.0" prefWidth="142.0" text="Home">
                <font>
                   <Font size="13.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
             <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
                <image>

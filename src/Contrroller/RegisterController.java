@@ -51,6 +51,9 @@ public class RegisterController implements Initializable{
         this.stage=stage;
     }
 
+    /*
+    back button using to go to main scene
+     */
     public void BackButtonListener() throws IOException{
         back.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
@@ -72,6 +75,9 @@ public class RegisterController implements Initializable{
         });
     }
 
+    /*
+    using sign up button to open new fxml - the user window
+     */
     public void setSign_up() throws IOException{
         sign_up.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 

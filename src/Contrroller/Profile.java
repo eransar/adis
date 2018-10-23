@@ -1,6 +1,7 @@
 package Contrroller;
 
 import Entities.User;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.Model;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,30 +22,28 @@ public class Profile implements Initializable {
 
     public Label home;
     public TextField name;
+    public TextField last;
+    public TextField city;
+    public TextField birth;
+    public TextField userPro;
+    public TextField pass;
+
+    Model model;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    name.setText(MainController.getUser().getFirst_name());
+        this.model = Model.getInstance();
+        name.setText(MainController.getUser().getFirst_name());
+        last.setText(MainController.getUser().getLast_name());
+        city.setText(MainController.getUser().getCity());
+        birth.setText(MainController.getUser().getBirth());
+        userPro.setText(MainController.getUser().getUsername());
+        pass.setText(MainController.getUser().getPassword());
+
     }
 
-
-    public void Home() throws IOException {
-        home.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                Parent a = null;
-                try {
-                    a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Scene scene = new Scene(a);
-                Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
-                s.setScene(scene);
-                s.show();
-            }
-        });
+    public void updateProfile(ActionEvent event){
+        //model.update()
     }
 
 }
