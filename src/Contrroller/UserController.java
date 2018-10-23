@@ -32,12 +32,20 @@ public class UserController implements Initializable {
 
 
     public void initialize(URL location, ResourceBundle resources) {
+        //Image Profile
         profileImage.setStroke(Color.SEAGREEN);
         Image im = new Image("images/sumemrfun.jpg",false);
         profileImage.setFill(new ImagePattern((im)));
         profileImage.setEffect(new DropShadow(+25d ,0d,+2d,Color.SNOW));
         userLabel.setText(MainController.getUser().getUsername());
-
+        //Search Scene
+        AnchorPane pane = null;
+        try {
+            pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        winS.getChildren().setAll(pane);
     }
 
     /*
@@ -49,12 +57,9 @@ public class UserController implements Initializable {
     }
 
     public void HomeScene(MouseEvent event) throws IOException {
-        Parent a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
-        Scene scene = new Scene(a);
-        scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
-        Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
-        s.setScene(scene);
-        s.show();
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
+        winS.getChildren().setAll(pane);
+
     }
 
 

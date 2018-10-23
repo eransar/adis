@@ -14,6 +14,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Model;
 
@@ -38,6 +39,7 @@ public class MainController implements Initializable {
     public TextField logIn_Password;
     public TextField search;
     public ChoiceBox<String> search_options;
+    public AnchorPane searchAncer;
 
     public static User getUser() {
         return user;
@@ -54,6 +56,11 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         model = Model.getInstance();
+        try {
+            Search();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void BuildUserEntity(){
@@ -68,9 +75,10 @@ public class MainController implements Initializable {
 
     }
 
-    public void LogInClick(){
+    public void LogInClick(ActionEvent event) throws IOException {
         System.out.println(logIn_User.getText());
         System.out.println(logIn_Password.getText());
+        setSign_up();
     }
 
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
@@ -81,12 +89,17 @@ public class MainController implements Initializable {
 //    model.Insert();
     }
 
+    public void Search() throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
+        searchAncer.getChildren().setAll(pane);
+    }
+
     public void setSign_up() throws IOException{
-        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
+        {
 
             @Override
             public void handle(MouseEvent event) {
-                LogInClick();
                 Parent a = null;
                 try {
                     a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
@@ -105,6 +118,4 @@ public class MainController implements Initializable {
             }
         });
     }
-
-
 }
