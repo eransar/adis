@@ -46,6 +46,7 @@ public class Profile implements Initializable {
 
     public void updateProfile(ActionEvent event){
         User user = new User(userPro.getText(),pass.getText(),birth.getText(),city.getText(),name.getText(),last.getText());
+        MainController.setUser(user);
         model.update(user);
     }
 
