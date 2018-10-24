@@ -1,5 +1,6 @@
 package Contrroller;
 
+import Contrroller.Handlers.LoginHandler;
 import Entities.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,10 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -20,6 +18,7 @@ import model.Model;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -40,6 +39,7 @@ public class MainController implements Initializable {
     public TextField search;
     public ChoiceBox<String> search_options;
     public AnchorPane searchAncer;
+    public Label unCorrect;
 
     public static User getUser() {
         return user;
@@ -56,6 +56,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         model = Model.getInstance();
+        unCorrect.setDisable(true);
         try {
             Search();
         } catch (IOException e) {
@@ -78,10 +79,17 @@ public class MainController implements Initializable {
     log to user
      */
     public void LogInClick(ActionEvent event) throws IOException {
-        System.out.println(logIn_User.getText());
-        System.out.println(logIn_Password.getText());
-        // צריך להוסיף listener לקשר לuser fxml
-        //setSign_up();
+        User userLoginCheck = new User(logIn_User.getText(),logIn_Password.getText(),"","","","");
+        ArrayList<String> loginList = model.login(userLoginCheck);
+        if(loginList.size() == 0){
+            unCorrect.setDisable(false);
+        }
+        else{
+            User userLogin = new User(loginList);
+            MainController.setUser(userLogin);
+            setSign_up();
+
+        }
     }
 
     /*
@@ -91,7 +99,8 @@ public class MainController implements Initializable {
         BuildUserEntity();
         model.InsertToDB(user);
         System.out.println("oooo");
-        setSign_up();
+        button_LogIN.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
+        //setSign_up();
 //    model.Insert();
     }
 
@@ -107,24 +116,6 @@ public class MainController implements Initializable {
         set sign up -
      */
     public void setSign_up() throws IOException{
-        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
-        {
-
-            @Override
-            public void handle(MouseEvent event) {
-                Parent a = null;
-                try {
-                    a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Scene scene = new Scene(a);
-                scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
-                Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
-                s.setScene(scene);
-                s.show();
-            }
-        });
+        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
     }
 }

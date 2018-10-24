@@ -39,11 +39,10 @@ public class Profile implements Initializable {
         birth.setText(MainController.getUser().getBirth());
         userPro.setText(MainController.getUser().getUsername());
         pass.setText(MainController.getUser().getPassword());
-
     }
 
     public void updateProfile(ActionEvent event){
-        //model.update()
+
     }
 
 }

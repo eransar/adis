@@ -25,6 +25,17 @@ public class User extends AEntity{
 
     }
 
+    public User(ArrayList<String> LoginArray){
+        super();
+        this.username=LoginArray.get(0);
+        this.password=LoginArray.get(1);
+        this.birth =LoginArray.get(2);
+        this.city=LoginArray.get(3);
+        this.first_name =LoginArray.get(4);
+        this.last_name =LoginArray.get(5);
+        this.picture = LoginArray.get(6);
+    }
+
     @Override
 
     /*
