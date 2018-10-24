@@ -1,6 +1,7 @@
 package model;
 
 import Entities.IEntity;
+import com.sun.xml.internal.fastinfoset.algorithm.IEEE754FloatingPointEncodingAlgorithm;
 
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
@@ -34,4 +35,5 @@ public class Model {
     public void update(IEntity entity){
         db.update(entity);
     }
+    public ArrayList<String> login(IEntity entity){return db.login(entity);}
 }

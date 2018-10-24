@@ -18,10 +18,13 @@ public class testdb {
         Model model = Model.getInstance();
         User u1 = new User("test16", "1111", "abc", "test", "abc", "aaa");
         User u2 = new User("test16", "112222", "abc", "test", "abc", "aaa");
-        Database db = new Database();
+        User u3 = new User("test16", "112222","","","","");
+//        Database db = new Database();
 //        model.InsertToDB(u1);
 //        model.delete(u1);
-        model.update(u2);
+//        model.update(u2);
+        ArrayList<String> a = model.login(u3);
+        int i=5;
     }
 
 //        ArrayList<String> result = model.ReadFromDB(u1);

@@ -73,5 +73,6 @@ public class UserController implements Initializable {
         Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
         s.setScene(scene);
         s.show();
+        MainController.setUser(null);
     }
 }

@@ -21,7 +21,7 @@ public class User extends AEntity{
     this.city=city;
     this.first_name =firstname;
     this.last_name =lastname;
-    this.picture="a";
+    this.picture="";
 
     }
 

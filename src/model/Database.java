@@ -1,6 +1,8 @@
 package model;
 
+import Entities.AEntity;
 import Entities.IEntity;
+import Entities.User;
 
 import java.io.File;
 import java.sql.*;
@@ -123,6 +125,30 @@ param @IEntity - interface for the objects in the database
             return  false;
         }
         return res;
+    }
+
+    public ArrayList<String> login(IEntity entity){
+        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> fields_name = entity.getFields();
+        String sql = "SELECT "+"*"+" "+"FROM"+" "+entity.GetDBName()+" "+"WHERE"+" "+
+                entity.getPrimaryKeyName()+"="+'"'+entity.getPrimaryKeyValue()+'"'+" "
+                +"AND"+" "+"password"+"="+'"'+ ((User) entity).getPassword()+'"';
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            ResultSetMetaData rsMetaData = rs.getMetaData(); // for debug purposes
+            // loop through the result set
+
+            for (int j = 0; rs.next(); j++) {
+                for (int k = 0; k < entity.getFields().size() ; k++) {
+                    result.add(rs.getString(fields_name.get(k)));
+                }
+            }
+        } catch (SQLException e) {
+            String k = e.getMessage();
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 
     public void delete(IEntity entity){
