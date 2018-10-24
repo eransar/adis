@@ -51,7 +51,7 @@
             <Image url="@../images/lastName.png" />
          </image>
       </ImageView>
-      <Button fx:id="update" contentDisplay="CENTER" layoutX="194.0" layoutY="221.0" mnemonicParsing="false" opacity="0.66" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #00FFFF; -fx-background-radius: 30;" text="Update" textAlignment="CENTER">
+      <Button fx:id="updateUser" contentDisplay="CENTER" layoutX="194.0" layoutY="221.0" mnemonicParsing="false" onAction="#updateProfile" opacity="0.66" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #00FFFF; -fx-background-radius: 30;" text="Update" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +28,7 @@ public class Profile implements Initializable {
     public TextField birth;
     public TextField userPro;
     public TextField pass;
+    public Button updateUser;
 
     Model model;
 
@@ -39,10 +41,12 @@ public class Profile implements Initializable {
         birth.setText(MainController.getUser().getBirth());
         userPro.setText(MainController.getUser().getUsername());
         pass.setText(MainController.getUser().getPassword());
+        userPro.setDisable(true);
     }
 
     public void updateProfile(ActionEvent event){
-
+        User user = new User(userPro.getText(),pass.getText(),birth.getText(),city.getText(),name.getText(),last.getText());
+        model.update(user);
     }
 
 }
