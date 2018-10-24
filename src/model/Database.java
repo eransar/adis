@@ -143,36 +143,37 @@ param @IEntity - interface for the objects in the database
         }
     }
 //
-//    public void update(IEntity entity){
-//        String query="";
-//        for (int i = 0; i < entity.getFields().size() ; i++) {
-//            if(query.equals("")){
-//                query=entity.getFields().get(i)+" = ?";
-//            }
-//            else{
-//                query=query+" "+","+" "+entity.getFields().get(i)+" = ?";
-//            }
-//
-//        }
-////        String sql ="UPDATE"+" "+entity.GetDBName()+" "+"SET"+" "+query+" "+"WHERE"+" "+entity.getPrimaryKeyName()+" "+"="+
-//
-//        try (Connection conn = this.connect();
-////             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-//
-//            // set the corresponding param
-//            int i=0;
-//            for (i = 0; i < entity.getFields().size() ; i++) {
-//                pstmt.setString(i+1,entity.getFieldsValue().get(i));
-//            }
-////            pstmt.setString(i+1,entity.getPrimaryKeyName());
-//            // update
-//            pstmt.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//
-//    }
+    public void update(IEntity entity){
+        String query="";
+        for (int i = 0; i < entity.getFields().size() ; i++) {
+            if(query.equals("")){
+                query=entity.getFields().get(i)+" = ?";
+            }
+            else{
+                query=query+" "+","+" "+entity.getFields().get(i)+" = ?";
+            }
+
+        }
+        String sql ="UPDATE"+" "+entity.GetDBName()+" "+"SET"+" "+query+" "+"WHERE"+" "+entity.getPrimaryKeyName()+" "+"="
+                +'"'+entity.getPrimaryKeyValue()+'"';
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            int i=0;
+            for (i = 0; i < entity.getFields().size() ; i++) {
+                pstmt.setString(i+1,entity.getFieldsValue().get(i));
+            }
+//            pstmt.setString(i+1,entity.getPrimaryKeyName());
+            // update
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
 
 
 

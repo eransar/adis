@@ -19,7 +19,7 @@ public class testdb {
         User u1 = new User("test16", "1111", "abc", "test", "abc", "aaa");
         User u2 = new User("test16", "112222", "abc", "test", "abc", "aaa");
         Database db = new Database();
-        model.InsertToDB(u1);
+//        model.InsertToDB(u1);
 //        model.delete(u1);
         model.update(u2);
     }

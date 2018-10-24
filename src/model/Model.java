@@ -32,6 +32,6 @@ public class Model {
     public boolean isExist(IEntity entity){return db.isExist(entity);}
     public void delete(IEntity entity){db.delete(entity);}
     public void update(IEntity entity){
-//        db.update(entity);
+        db.update(entity);
     }
 }
