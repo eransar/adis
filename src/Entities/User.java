@@ -24,6 +24,10 @@ public class User extends AEntity{
     this.picture="";
 
     }
+    public User(String username){
+        super();
+        this.username=username;
+    }
 
     public User(ArrayList<String> LoginArray){
         super();

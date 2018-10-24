@@ -27,8 +27,8 @@ public class Model {
     public void InsertToDB(IEntity entity){
         db.Insert(entity);
     }
-    public ArrayList<String> ReadFromDB(IEntity entity){
-        return db.read(entity);
+    public ArrayList<String> ReadFromDB(IEntity entity,String search,String searchFor){
+        return db.read(entity,search,searchFor);
     }
     public boolean isExist(IEntity entity){return db.isExist(entity);}
     public void delete(IEntity entity){db.delete(entity);}

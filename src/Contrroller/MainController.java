@@ -56,7 +56,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         model = Model.getInstance();
-        unCorrect.setDisable(true);
+        unCorrect.setVisible(false);
         try {
             Search();
         } catch (IOException e) {
@@ -82,24 +82,27 @@ public class MainController implements Initializable {
         User userLoginCheck = new User(logIn_User.getText(),logIn_Password.getText(),"","","","");
         ArrayList<String> loginList = model.login(userLoginCheck);
         if(loginList.size() == 0){
-            unCorrect.setDisable(false);
+            unCorrect.setVisible(true);
         }
         else{
             User userLogin = new User(loginList);
             MainController.setUser(userLogin);
+            button_LogIN.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
             setSign_up();
 
         }
+//        unCorrect.setVisible(false);
     }
 
     /*
         create new user
      */
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
+        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
         BuildUserEntity();
         model.InsertToDB(user);
-        System.out.println("oooo");
-        button_LogIN.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
+
+
         //setSign_up();
 //    model.Insert();
     }

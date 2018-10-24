@@ -77,11 +77,11 @@ param @IEntity - interface for the objects in the database
     param @IEntity - interface for the objects in the database
     returns arraylist with the rows
      */
-    public ArrayList<String> read(IEntity entity){
+    public ArrayList<String> read(IEntity entity, String searchName,String searchFor){
         ArrayList<String> read = new ArrayList<String>();
         ArrayList<String> fields_name = entity.getFields();
         String sql = "SELECT * FROM "+entity.GetDBName()+" "
-                +"WHERE "+entity.getPrimaryKeyName()+"=\""+entity.getPrimaryKeyValue()+"\"";
+                +"WHERE "+searchName+"=\""+searchFor+"\"";
 
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();

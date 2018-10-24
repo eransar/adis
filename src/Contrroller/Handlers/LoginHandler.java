@@ -15,6 +15,7 @@ public class LoginHandler implements EventHandler {
 
     @Override
     public void handle(Event event) {
+        System.out.println("a");
         Parent a = null;
         try {
             a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
