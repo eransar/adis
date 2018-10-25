@@ -1,43 +1,47 @@
 package Entities;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class User extends AEntity{
-    private String username;
-    private String password;
-    private String birth;
-    private String first_name;
-    private String last_name;
-    private String city;
-    private String picture;
+    private SimpleStringProperty username;
+    private SimpleStringProperty password;
+    private SimpleStringProperty birth;
+    private SimpleStringProperty first_name;
+    private SimpleStringProperty last_name;
+    private SimpleStringProperty city;
+    private SimpleStringProperty picture;
+
 
 
     public User(String username,String password,String birth, String city, String firstname, String lastname){
         super();
-    this.username=username;
-    this.password=password;
-    this.birth =birth;
-    this.city=city;
-    this.first_name =firstname;
-    this.last_name =lastname;
-    this.picture="";
+    this.username=new SimpleStringProperty(username);
+    this.password=new SimpleStringProperty(password);
+    this.birth =new SimpleStringProperty(birth);
+    this.city=new SimpleStringProperty(city);
+    this.first_name =new SimpleStringProperty(firstname);
+    this.last_name =new SimpleStringProperty(lastname);
+    this.picture=new SimpleStringProperty("");
+
 
     }
     public User(String username){
         super();
-        this.username=username;
+        this.username=new SimpleStringProperty(username);
     }
 
     public User(ArrayList<String> LoginArray){
         super();
-        this.username=LoginArray.get(0);
-        this.password=LoginArray.get(1);
-        this.birth =LoginArray.get(2);
-        this.city=LoginArray.get(3);
-        this.first_name =LoginArray.get(4);
-        this.last_name =LoginArray.get(5);
-        this.picture = LoginArray.get(6);
+        this.username=new SimpleStringProperty(LoginArray.get(0));
+        this.password=new SimpleStringProperty(LoginArray.get(1));
+        this.birth =new SimpleStringProperty(LoginArray.get(2));
+        this.city=new SimpleStringProperty(LoginArray.get(3));
+        this.first_name =new SimpleStringProperty(LoginArray.get(4));
+        this.last_name =new SimpleStringProperty(LoginArray.get(5));
+        this.picture=new SimpleStringProperty(LoginArray.get(6));
     }
 
     @Override
@@ -47,13 +51,13 @@ public class User extends AEntity{
      */
     public ArrayList<String> getFieldsValue(){
         ArrayList<String> result = new ArrayList<>();
-        result.add(this.username);
-        result.add(this.password);
-        result.add(this.birth);
-        result.add(this.city);
-        result.add(this.first_name);
-        result.add(this.last_name);
-        result.add(this.picture);
+        result.add(this.username.getValue());
+        result.add(this.password.getValue());
+        result.add(this.birth.getValue());
+        result.add(this.city.getValue());
+        result.add(this.first_name.getValue());
+        result.add(this.last_name.getValue());
+        result.add(this.picture.getValue());
 
         return result;
     }
@@ -71,63 +75,45 @@ public class User extends AEntity{
     Returns primary key value of the user entity
      */
     public String getPrimaryKeyValue() {
-        return username;
+        return username.getValue();
     }
 
     @Override
     /*
     Returns primary key name of the user entity
      */
-    public String getPrimaryKeyName() {
-        return "username";
-    }
+    public String getPrimaryKeyName() { return "username"; }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public String getUsername() { return username.getValue(); }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setUsername(String username) { this.username.set(username); }
 
-    public void setBirth(String birth) {
-        this.birth = birth;
-    }
+    public void setPassword(String password) { this.password.set(password); }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
+    public void setBirth(String birth) { this.birth.set(birth); }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
+    public void setFirst_name(String first_name) { this.first_name.set(first_name); }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setLast_name(String last_name) { this.last_name.set(last_name); }
 
-    public String getUsername() {
+    public void setCity(String city) { this.city.set(city); }
 
-        return username;
-    }
 
     public String getPassword() {
-        return password;
+        return this.password.getValue();
     }
 
-    public String getBirth() {
-        return birth;
-    }
+    public String getBirth() { return this.birth.getValue(); }
 
     public String getFirst_name() {
-        return first_name;
+        return this.first_name.getValue();
     }
 
     public String getLast_name() {
-        return last_name;
+        return this.last_name.getValue();
     }
 
     public String getCity() {
-        return city;
+        return this.city.getValue();
     }
 }
