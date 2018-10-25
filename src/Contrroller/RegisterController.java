@@ -105,9 +105,9 @@ public class RegisterController implements Initializable{
                 username.getText(),
                 password.getText(),
                 birthday.getText(),
-                city.getText(),
                 firstname.getText(),
-                lastname.getText()
+                lastname.getText(),
+                city.getText()
         );
 
     }
