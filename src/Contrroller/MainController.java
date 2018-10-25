@@ -98,9 +98,52 @@ public class MainController implements Initializable {
         create new user
      */
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
-        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
-        BuildUserEntity();
-        model.InsertToDB(user);
+
+        boolean register = false;
+
+        if(
+                !userName.getText().isEmpty()
+                        && !password.getText().isEmpty()
+                        && !firstName.getText().isEmpty()
+                        && !lastName.getText().isEmpty()
+                        && !city.getText().isEmpty()
+                        && !birthday.getText().isEmpty())
+        {
+            if(
+                    ((Character.isLetter(userName.getText().charAt(0))))
+                            &&   (Character.isLetter(lastName.getText().charAt(0)))
+                            &&   (Character.isLetter(city.getText().charAt(0)))
+                            &&   (Character.isLetter(firstName.getText().charAt(0)))
+                    ){
+
+                if(
+                        !city.getText().matches(".*\\d+.*")
+                                &&     !firstName.getText().matches(".*\\d+.*")
+                                &&     !lastName.getText().matches(".*\\d+.*")
+
+
+                        ){if(password.getText().length() >=5){
+                    register=true;
+                }
+                }
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+        if(register){
+            button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
+            BuildUserEntity();
+            model.InsertToDB(user);
+        }
+
 
 
         //setSign_up();
