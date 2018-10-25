@@ -29,5 +29,10 @@
       <ChoiceBox fx:id="search_options" layoutX="142.0" layoutY="11.0" prefWidth="150.0" />
       <Button fx:id="button_Search" layoutX="170.0" layoutY="39.0" mnemonicParsing="false" onAction="#Search_click" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Search" />
       <AnchorPane fx:id="tablepane" layoutY="88.0" prefHeight="252.0" prefWidth="301.0" style="-fx-background-radius: 30;" />
+      <Label fx:id="noResult" layoutX="272.0" layoutY="50.0" prefHeight="16.0" prefWidth="55.0" text="No Result" textFill="RED">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -21,10 +22,12 @@ public class Search implements Initializable {
     public ChoiceBox<String> search_options;
     public TextField field_search;
     public AnchorPane tablepane;
+    public Label noResult;
     private Model model;
     private User search_user;
     private  ArrayList<String> result;
     private static ArrayList<User> Users;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,20 +37,26 @@ public class Search implements Initializable {
         search_options.setValue("user");
         search_options.getItems().addAll("user");
          model = Model.getInstance();
+         noResult.setVisible(false);
     }
     public void Search_click(ActionEvent actionEvent) throws IOException {
-
-        if(search_options.getValue().equals("user")){
-             search_user = new User(field_search.getText());
-            result=model.ReadFromDB(search_user,"username",field_search.getText());
-            System.out.println(result.get(0));
+        if (!(field_search.getText().equals(""))) {
+            if (search_options.getValue().equals("user")) {
+                search_user = new User(field_search.getText());
+                result = model.ReadFromDB(search_user, "username", field_search.getText());
+            }
+            Users = listToUser(result);
+            if (result.size()>0) {
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/UserTableView.fxml"));
+                tablepane.getChildren().setAll(pane);
+                noResult.setVisible(false);
+            }
+            else
+                noResult.setVisible(true);
         }
-        Users=listToUser(result);
-
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/UserTableView.fxml"));
-        tablepane.getChildren().setAll(pane);
     }
-    public ArrayList<User> listToUser(ArrayList<String> arrayList){
+
+    private ArrayList<User> listToUser(ArrayList<String> arrayList){
 
         ArrayList<String> temp = new ArrayList<>();
         for (int i = 0; i <arrayList.size()/search_user.getFields().size() ; i++) {
@@ -56,7 +65,6 @@ public class Search implements Initializable {
             }
             Users.add(new User(temp));
             temp.clear();
-
         }
         return Users;
     }

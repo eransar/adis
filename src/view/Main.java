@@ -16,7 +16,7 @@ public class Main extends Application {
         controller.init(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
         primaryStage.setTitle("V4U");
-        Scene scene = new Scene(root, 800  , 400);
+        Scene scene = new Scene(root, 800  , 600);
         scene.getStylesheets().add(getClass().getResource("mainWin.css").toExternalForm());
         primaryStage.setScene(scene);
 //        controller.setStage(primaryStage);

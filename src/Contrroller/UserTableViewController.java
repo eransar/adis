@@ -30,19 +30,15 @@ public class UserTableViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //data.removeAll(MainController.getUser());
-       // table.getSelectionModel().clearSelection();
+        // table.getSelectionModel().clearSelection();
         username.setCellValueFactory(new PropertyValueFactory<User,String>("username"));
         birth.setCellValueFactory(new PropertyValueFactory<User,String>("birth"));
 //        password.setCellValueFactory(new PropertyValueFactory<User,String>("password"));
         firstname.setCellValueFactory(new PropertyValueFactory<User,String>("first_name"));
         lastname.setCellValueFactory(new PropertyValueFactory<User,String>("last_name"));
         city.setCellValueFactory(new PropertyValueFactory<User,String>("city"));
-
         table.setItems(data);
-//        picture.setCellValueFactory(new PropertyValueFactory<User,String>("picture"));
-
-
+//      picture.setCellValueFactory(new PropertyValueFactory<User,String>("picture"));
     }
 
 }
