@@ -56,5 +56,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <Button fx:id="DeleteUser" contentDisplay="CENTER" layoutX="346.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteProfile" opacity="0.66" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #FF0000; -fx-background-radius: 30;" text="DeleteUser" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -5,11 +5,13 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Model;
 
 import javax.xml.soap.Text;
@@ -48,6 +50,7 @@ public class Search implements Initializable {
             Users = listToUser(result);
             if (result.size()>0) {
                 AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/UserTableView.fxml"));
+                //pane.setPrefSize(((Node)actionEvent.getSource()).getScene().getWindow().getWidth(),((Node)actionEvent.getSource()).getScene().getWindow().getWidth());
                 tablepane.getChildren().setAll(pane);
                 noResult.setVisible(false);
             }
@@ -69,7 +72,24 @@ public class Search implements Initializable {
         return Users;
     }
 
+    public void setSearch_user(User search_user) {
+        this.search_user = search_user;
+    }
+
+    public void setResult(ArrayList<String> result) {
+        this.result = result;
+    }
+
+    public static void setUsers() {
+        Users.clear();
+    }
+
     public static ArrayList<User> getUsers() {
         return Users;
+
+    }
+
+    public void setSize(double x,double y){
+        tablepane.setPrefSize(x,y);
     }
 }

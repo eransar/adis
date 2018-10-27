@@ -60,8 +60,8 @@ public class UserController implements Initializable {
      */
     public void HomeScene(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
+        pane.setPrefSize(500,200);
         winS.getChildren().setAll(pane);
-
     }
     /*
     log out screen

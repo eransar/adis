@@ -50,4 +50,15 @@ public class Profile implements Initializable {
         model.update(user);
     }
 
+    public void deleteProfile(ActionEvent event) throws IOException {
+        model.delete(MainController.getUser());
+        Parent a = FXMLLoader.load(getClass().getResource("/view/MainWin.fxml"));
+        Scene scene = new Scene(a);
+        scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
+        Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
+        s.setScene(scene);
+        s.show();
+        MainController.setUser(null);
+    }
+
 }

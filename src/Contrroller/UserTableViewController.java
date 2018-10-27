@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,15 +23,15 @@ public class UserTableViewController implements Initializable {
     public TableColumn<User,String> city;
     public TableColumn<User,String> birth;
     public TableColumn<User,String> picture;
+    public AnchorPane tableAnchor;
 
     ObservableList<User> data = FXCollections.observableArrayList(Search.getUsers());
 
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // table.getSelectionModel().clearSelection();
+        Search.setUsers();
         username.setCellValueFactory(new PropertyValueFactory<User,String>("username"));
         birth.setCellValueFactory(new PropertyValueFactory<User,String>("birth"));
 //        password.setCellValueFactory(new PropertyValueFactory<User,String>("password"));
@@ -40,5 +41,4 @@ public class UserTableViewController implements Initializable {
         table.setItems(data);
 //      picture.setCellValueFactory(new PropertyValueFactory<User,String>("picture"));
     }
-
 }

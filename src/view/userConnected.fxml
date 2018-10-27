@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.UserController">
+<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.UserController">
    <children>
       <AnchorPane opacity="0.41" prefHeight="84.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -18,8 +18,8 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="winS" layoutX="302.0" layoutY="118.0" opacity="0.92" prefHeight="262.0" prefWidth="462.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
-      <AnchorPane opacity="0.81" prefHeight="400.0" prefWidth="163.0" style="-fx-background-color: #ffffff;">
+      <AnchorPane fx:id="winS" layoutX="262.0" layoutY="118.0" opacity="0.92" prefHeight="400.0" prefWidth="502.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+      <AnchorPane opacity="0.81" prefHeight="606.0" prefWidth="157.0" style="-fx-background-color: #ffffff;">
          <children>
             <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="76.0" layoutY="42.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
             <Label fx:id="userLabel" alignment="CENTER" layoutX="37.0" layoutY="81.0" prefHeight="21.0" prefWidth="78.0" text="Label">
@@ -27,37 +27,37 @@
                   <Font name="System Italic" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="Profile" alignment="CENTER" layoutX="8.0" layoutY="215.0" onMouseClicked="#SubScene" prefHeight="38.0" prefWidth="142.0" text="Profile">
+            <Label fx:id="Profile" alignment="CENTER" layoutX="8.0" layoutY="240.0" onMouseClicked="#SubScene" prefHeight="38.0" prefWidth="142.0" text="Profile">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="8.0" layoutY="264.0" opacity="0.29" prefHeight="38.0" prefWidth="142.0" text="Activities">
+            <Label alignment="CENTER" layoutX="8.0" layoutY="289.0" opacity="0.29" prefHeight="38.0" prefWidth="142.0" text="Activities">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="316.0" onMouseClicked="#LogOut" prefHeight="38.0" prefWidth="142.0" text="Log Out">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="341.0" onMouseClicked="#LogOut" prefHeight="38.0" prefWidth="142.0" text="Log Out">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sign-in.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/TRANSCTION.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/out.png" />
                </image>
             </ImageView>
-            <Label fx:id="HomeLabal" alignment="CENTER" layoutX="9.0" layoutY="155.0" onMouseClicked="#HomeScene" prefHeight="38.0" prefWidth="142.0" text="Home">
+            <Label fx:id="HomeLabal" alignment="CENTER" layoutX="9.0" layoutY="180.0" onMouseClicked="#HomeScene" prefHeight="38.0" prefWidth="142.0" text="Home">
                <font>
                   <Font size="13.0" />
                </font>
@@ -65,7 +65,7 @@
                   <Glow />
                </effect>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/home.png" />
                </image>
