@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -41,7 +40,7 @@ public class UserController implements Initializable {
         //Search Scene
         AnchorPane pane = null;
         try {
-            pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
+            pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,14 +51,14 @@ public class UserController implements Initializable {
     open sub scene in the user fxml that use as menu
      */
     public void SubScene(MouseEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Profile.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Profile.fxml"));
         winS.getChildren().setAll(pane);
     }
     /*
     open home scene in the user fxml
      */
     public void HomeScene(MouseEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
         winS.getChildren().setAll(pane);
 
     }
@@ -67,9 +66,9 @@ public class UserController implements Initializable {
     log out screen
      */
     public void LogOut(MouseEvent event) throws IOException {
-        Parent a = FXMLLoader.load(getClass().getResource("/view/MainWin.fxml"));
+        Parent a = FXMLLoader.load(getClass().getResource("/MainWin.fxml"));
         Scene scene = new Scene(a);
-        scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/mainWin.css").toExternalForm());
         Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
         s.setScene(scene);
         s.show();

@@ -3,17 +3,12 @@ package Contrroller;
 import Contrroller.Handlers.LoginHandler;
 import Entities.User;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import model.Model;
 
 import java.io.IOException;
@@ -154,7 +149,7 @@ public class MainController implements Initializable {
         search fxml
      */
     public void Search() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Search.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
         searchAncer.getChildren().setAll(pane);
     }
 

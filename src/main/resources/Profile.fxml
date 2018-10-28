@@ -23,32 +23,32 @@
       </Label>
       <ImageView fitHeight="25.0" fitWidth="37.0" layoutX="14.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/nameIcon.png" />
+            <Image url="@images/nameIcon.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="37.0" layoutX="14.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/city.png" />
+            <Image url="@images/city.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="37.0" layoutX="238.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/birthday.png" />
+            <Image url="@images/birthday.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="37.0" layoutX="14.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/user.png" />
+            <Image url="@images/user.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="37.0" layoutX="238.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/passIcon.png" />
+            <Image url="@images/passIcon.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="37.0" layoutX="238.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/lastName.png" />
+            <Image url="@images/lastName.png" />
          </image>
       </ImageView>
       <Button fx:id="updateUser" contentDisplay="CENTER" layoutX="194.0" layoutY="221.0" mnemonicParsing="false" onAction="#updateProfile" opacity="0.66" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #00FFFF; -fx-background-radius: 30;" text="Update" textAlignment="CENTER">

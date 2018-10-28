@@ -14,10 +14,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Controller controller= new Controller();
         controller.init(primaryStage);
-        Parent root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
         primaryStage.setTitle("V4U");
         Scene scene = new Scene(root, 800  , 600);
-        scene.getStylesheets().add(getClass().getResource("mainWin.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
         primaryStage.setScene(scene);
 //        controller.setStage(primaryStage);
 //        Database d = new Database();

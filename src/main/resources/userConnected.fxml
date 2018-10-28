@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="68.0" fitWidth="194.0" layoutX="540.0" layoutY="8.0" pickOnBounds="true">
                <image>
-                  <Image url="@../images/logoNew.png" />
+                  <Image url="@images/logoNew.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
@@ -44,17 +44,17 @@
             </Label>
             <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/sign-in.png" />
+                  <Image url="@images/sign-in.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/TRANSCTION.png" />
+                  <Image url="@images/TRANSCTION.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/out.png" />
+                  <Image url="@images/out.png" />
                </image>
             </ImageView>
             <Label fx:id="HomeLabal" alignment="CENTER" layoutX="9.0" layoutY="155.0" onMouseClicked="#HomeScene" prefHeight="38.0" prefWidth="142.0" text="Home">
@@ -67,7 +67,7 @@
             </Label>
             <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="14.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/home.png" />
+                  <Image url="@images/home.png" />
                </image>
             </ImageView>
          </children></AnchorPane>

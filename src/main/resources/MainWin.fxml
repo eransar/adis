@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="68.0" fitWidth="194.0" layoutX="56.0" layoutY="8.0" pickOnBounds="true">
                <image>
-                  <Image url="@../images/logoNew.png" />
+                  <Image url="@images/logoNew.png" />
                </image>
             </ImageView>
             <TextField fx:id="logIn_User" layoutX="328.0" layoutY="44.0" prefHeight="31.0" prefWidth="142.0" style="-fx-background-radius: 30;">

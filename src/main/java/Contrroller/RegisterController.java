@@ -62,12 +62,12 @@ public class RegisterController implements Initializable{
 
                 Parent a = null;
                 try {
-                    a = FXMLLoader.load(getClass().getResource("/view/View.fxml"));
+                    a = FXMLLoader.load(getClass().getResource("/View.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 Scene scene = new Scene(a);
-                scene.getStylesheets().add(getClass().getResource("/view/viewCSS.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("/viewCSS.css").toExternalForm());
                 Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
                 s.setScene(scene);
                 s.show();
@@ -86,12 +86,12 @@ public class RegisterController implements Initializable{
 
                 Parent a = null;
                 try {
-                    a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
+                    a = FXMLLoader.load(getClass().getResource("/userConnected.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 Scene scene = new Scene(a);
-                scene.getStylesheets().add(getClass().getResource("/view/user.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("/user.css").toExternalForm());
                 Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
                 s.setScene(scene);
                 s.show();

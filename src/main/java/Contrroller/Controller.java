@@ -25,7 +25,7 @@ public class Controller extends Observable implements Observer {
 
 
     public void RegisterClick(ActionEvent actionEvent) throws IOException {
-        Parent a = FXMLLoader.load(getClass().getResource("/view/Register.fxml"));
+        Parent a = FXMLLoader.load(getClass().getResource("/Register.fxml"));
         Scene scene = new Scene(a);
         Stage s = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         s.setScene(scene);

@@ -50,7 +50,7 @@ public class User extends AEntity{
     Returns the fields value in arraylist
      */
     public ArrayList<String> getFieldsValue(){
-        ArrayList<String> result = new ArrayList<>();
+        ArrayList<String> result = new ArrayList<String>();
         result.add(this.username.getValue());
         result.add(this.password.getValue());
         result.add(this.birth.getValue());

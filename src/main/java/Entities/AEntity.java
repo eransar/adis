@@ -13,7 +13,7 @@ Constructor Creating fields based on declearedfield of the class.
 when we initialize new Entity it will correspond to it's fields and not the parent.
  */
     public AEntity(){
-        fields=new ArrayList<>();
+        fields=new ArrayList<String>();
         Field[] fieldarray = this.getClass().getDeclaredFields();
         for (int i = 0; i <fieldarray.length ; i++) {
             fields.add(fieldarray[i].getName());

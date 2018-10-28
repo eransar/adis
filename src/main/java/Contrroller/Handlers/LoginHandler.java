@@ -18,13 +18,13 @@ public class LoginHandler implements EventHandler {
         System.out.println("a");
         Parent a = null;
         try {
-            a = FXMLLoader.load(getClass().getResource("/view/userConnected.fxml"));
+            a = FXMLLoader.load(getClass().getResource("/userConnected.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Scene scene = new Scene(a);
-        scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/mainWin.css").toExternalForm());
         Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
         s.setScene(scene);
         s.show();

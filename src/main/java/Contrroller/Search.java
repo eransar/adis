@@ -1,18 +1,15 @@
 package Contrroller;
 
 import Entities.User;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.Model;
 
-import javax.xml.soap.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -47,7 +44,7 @@ public class Search implements Initializable {
             }
             Users = listToUser(result);
             if (result.size()>0) {
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/UserTableView.fxml"));
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
                 tablepane.getChildren().setAll(pane);
                 noResult.setVisible(false);
             }
@@ -58,7 +55,7 @@ public class Search implements Initializable {
 
     private ArrayList<User> listToUser(ArrayList<String> arrayList){
 
-        ArrayList<String> temp = new ArrayList<>();
+        ArrayList<String> temp = new ArrayList<String>();
         for (int i = 0; i <arrayList.size()/search_user.getFields().size() ; i++) {
             for (int j = 0; j < search_user.getFields().size() ; j++) {
                 temp.add(arrayList.get(j));
