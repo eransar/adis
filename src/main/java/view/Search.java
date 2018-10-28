@@ -1,5 +1,6 @@
-package Contrroller;
+package view;
 
+import Contrroller.MasterController;
 import Entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +9,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import model.Model;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +20,7 @@ public class Search implements Initializable {
     public TextField field_search;
     public AnchorPane tablepane;
     public Label noResult;
-    private Model model;
+    private MasterController mc;
     private User search_user;
     private  ArrayList<String> result;
     private static ArrayList<User> Users;
@@ -29,11 +29,11 @@ public class Search implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //set ChoiceSearch
+        mc = MasterController.getInstance();
         result = new ArrayList<String>();
         Users = new ArrayList<User>();
         search_options.setValue("user");
         search_options.getItems().addAll("user");
-         model = Model.getInstance();
          noResult.setVisible(false);
     }
     public static void setUsers(){
@@ -43,7 +43,7 @@ public class Search implements Initializable {
         if (!(field_search.getText().equals(""))) {
             if (search_options.getValue().equals("user")) {
                 search_user = new User(field_search.getText());
-                result = model.ReadFromDB(search_user, "username", field_search.getText());
+                result = mc.read(search_user, "username", field_search.getText());
             }
             Users = listToUser(result);
             if (result.size()>0) {

@@ -1,6 +1,5 @@
 package view;
 
-import Contrroller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,8 +11,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Controller controller= new Controller();
-        controller.init(primaryStage);
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
         primaryStage.setTitle("V4U");
         Scene scene = new Scene(root, 800  , 600);

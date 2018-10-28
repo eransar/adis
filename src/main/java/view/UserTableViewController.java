@@ -1,4 +1,4 @@
-package Contrroller;
+package view;
 
 import Entities.User;
 import javafx.collections.FXCollections;

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.Search">
+<AnchorPane fx:id="pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Search">
    <children>
       <TextField fx:id="field_search" layoutX="14.0" layoutY="39.0" prefHeight="38.0" prefWidth="133.0" style="-fx-background-radius: 30;">
          <effect>

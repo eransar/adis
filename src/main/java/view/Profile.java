@@ -1,8 +1,8 @@
-package Contrroller;
+package view;
 
+import Contrroller.MasterController;
 import Entities.User;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -11,9 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import model.Model;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,12 +27,12 @@ public class Profile implements Initializable {
     public TextField userPro;
     public TextField pass;
     public Button updateUser;
+    private MasterController mc;
 
-    Model model;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.model = Model.getInstance();
+        this.mc = MasterController.getInstance();
         name.setText(MainController.getUser().getFirst_name());
         last.setText(MainController.getUser().getLast_name());
         city.setText(MainController.getUser().getCity());
@@ -47,14 +45,15 @@ public class Profile implements Initializable {
     public void updateProfile(ActionEvent event){
         User user = new User(userPro.getText(),pass.getText(),birth.getText(),city.getText(),name.getText(),last.getText());
         MainController.setUser(user);
-        model.update(user);
+
+        mc.update(user);
     }
 
     public void deleteProfile(ActionEvent event) throws IOException {
-        model.delete(MainController.getUser());
-        Parent a = FXMLLoader.load(getClass().getResource("/view/MainWin.fxml"));
+        mc.delete(MainController.getUser());
+        Parent a = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
         Scene scene = new Scene(a);
-        scene.getStylesheets().add(getClass().getResource("/view/mainWin.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
         Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
         s.setScene(scene);
         s.show();

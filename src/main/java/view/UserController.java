@@ -1,4 +1,4 @@
-package Contrroller;
+package view;
 
 
 import javafx.fxml.FXMLLoader;

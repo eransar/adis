@@ -38,9 +38,9 @@ public class User extends AEntity{
         this.username=new SimpleStringProperty(LoginArray.get(0));
         this.password=new SimpleStringProperty(LoginArray.get(1));
         this.birth =new SimpleStringProperty(LoginArray.get(2));
-        this.city=new SimpleStringProperty(LoginArray.get(3));
-        this.first_name =new SimpleStringProperty(LoginArray.get(4));
-        this.last_name =new SimpleStringProperty(LoginArray.get(5));
+        this.first_name =new SimpleStringProperty(LoginArray.get(3));
+        this.last_name =new SimpleStringProperty(LoginArray.get(4));
+        this.city=new SimpleStringProperty(LoginArray.get(5));
         this.picture=new SimpleStringProperty(LoginArray.get(6));
     }
 
@@ -54,9 +54,9 @@ public class User extends AEntity{
         result.add(this.username.getValue());
         result.add(this.password.getValue());
         result.add(this.birth.getValue());
-        result.add(this.city.getValue());
         result.add(this.first_name.getValue());
         result.add(this.last_name.getValue());
+        result.add(this.city.getValue());
         result.add(this.picture.getValue());
 
         return result;

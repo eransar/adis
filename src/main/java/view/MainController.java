@@ -1,6 +1,7 @@
-package Contrroller;
+package view;
 
 import Contrroller.Handlers.LoginHandler;
+import Contrroller.MasterController;
 import Entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,21 +10,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import model.Model;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
     @FXML
-    private Model model;
+
+    private MasterController mc = MasterController.getInstance();
 //    private Date date_before_18_years;
     private LocalDate date_before_18_years;
     public Button button_LogIN;
@@ -57,7 +56,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        model = Model.getInstance();
         unCorrect.setVisible(false);
         try {
             Search();
@@ -87,7 +85,7 @@ public class MainController implements Initializable {
      */
     public void LogInClick(ActionEvent event) throws IOException {
         User userLoginCheck = new User(logIn_User.getText(),logIn_Password.getText(),"","","","");
-        ArrayList<String> loginList = model.login(userLoginCheck);
+        ArrayList<String> loginList = mc.login(userLoginCheck);
 
         if(loginList.size() == 0){
             unCorrect.setVisible(true);
@@ -183,7 +181,7 @@ public class MainController implements Initializable {
         if(register){
             button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
             BuildUserEntity();
-            model.InsertToDB(user);
+            mc.insert(user);
         }
 
 

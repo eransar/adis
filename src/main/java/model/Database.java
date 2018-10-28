@@ -189,6 +189,8 @@ param @IEntity - interface for the objects in the database
             // set the corresponding param
             int i=0;
             for (i = 0; i < entity.getFields().size() ; i++) {
+                System.out.println(sql);
+                System.out.println(i+1+" "+entity.getFieldsValue().get(i));
                 pstmt.setString(i+1,entity.getFieldsValue().get(i));
             }
 //            pstmt.setString(i+1,entity.getPrimaryKeyName());
