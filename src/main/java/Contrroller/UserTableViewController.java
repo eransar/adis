@@ -31,7 +31,7 @@ public class UserTableViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        Search.setUsers();
+        Search.setUsers();
         username.setCellValueFactory(new PropertyValueFactory<User,String>("username"));
         birth.setCellValueFactory(new PropertyValueFactory<User,String>("birth"));
 //        password.setCellValueFactory(new PropertyValueFactory<User,String>("password"));

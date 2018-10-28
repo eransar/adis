@@ -36,6 +36,9 @@ public class Search implements Initializable {
          model = Model.getInstance();
          noResult.setVisible(false);
     }
+    public static void setUsers(){
+        Users.clear();
+    }
     public void Search_click(ActionEvent actionEvent) throws IOException {
         if (!(field_search.getText().equals(""))) {
             if (search_options.getValue().equals("user")) {
