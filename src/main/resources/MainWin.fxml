@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="453.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.MainController">
+<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Contrroller.MainController">
    <children>
       <AnchorPane opacity="0.41" prefHeight="84.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -53,9 +54,9 @@
             </Label>
          </children></AnchorPane>
       <AnchorPane fx:id="searchAncer" layoutX="51.0" layoutY="135.0" opacity="0.81" prefHeight="232.0" prefWidth="364.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
-      <AnchorPane layoutX="472.0" layoutY="97.0" opacity="0.84" prefHeight="291.0" prefWidth="290.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane layoutX="472.0" layoutY="131.0" opacity="0.84" prefHeight="379.0" prefWidth="291.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
-            <TextField fx:id="lastName" layoutX="164.0" layoutY="58.0" prefHeight="31.0" prefWidth="108.0" promptText="Last Name" style="-fx-background-radius: 30;">
+            <TextField fx:id="lastName" layoutX="164.0" layoutY="109.0" prefHeight="31.0" prefWidth="108.0" promptText="Last Name" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -71,7 +72,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="firstName" layoutX="38.0" layoutY="58.0" prefHeight="31.0" prefWidth="108.0" promptText="First Name" style="-fx-background-radius: 30;">
+            <TextField fx:id="firstName" layoutX="38.0" layoutY="109.0" prefHeight="31.0" prefWidth="108.0" promptText="First Name" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -79,7 +80,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="city" layoutX="38.0" layoutY="114.0" prefHeight="31.0" prefWidth="108.0" promptText="City" style="-fx-background-radius: 30;">
+            <TextField fx:id="city" layoutX="38.0" layoutY="165.0" prefHeight="31.0" prefWidth="108.0" promptText="City" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -87,7 +88,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="birthday" layoutX="164.0" layoutY="114.0" prefHeight="31.0" prefWidth="108.0" promptText="Birthday" style="-fx-background-radius: 30;">
+            <TextField fx:id="userName" layoutX="38.0" layoutY="218.0" prefHeight="31.0" prefWidth="108.0" promptText="User Name" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -95,15 +96,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="userName" layoutX="38.0" layoutY="167.0" prefHeight="31.0" prefWidth="108.0" promptText="User Name" style="-fx-background-radius: 30;">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="password" layoutX="164.0" layoutY="170.0" prefHeight="25.0" prefWidth="108.0" promptText="Password" style="-fx-background-radius: 30;">
+            <PasswordField fx:id="password" layoutX="164.0" layoutY="221.0" prefHeight="25.0" prefWidth="108.0" promptText="Password" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -111,8 +104,14 @@
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <Button fx:id="button_SignUp" layoutX="108.0" layoutY="225.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
-            <Label fx:id="error_username" layoutX="38.0" layoutY="201.0" prefHeight="17.0" prefWidth="179.0" text="Username already taken" textFill="#c93232" visible="false" />
+            <Button fx:id="button_SignUp" layoutX="99.0" layoutY="280.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
+            <Label fx:id="error_username" layoutX="38.0" layoutY="252.0" prefHeight="17.0" prefWidth="179.0" text="Username already taken" textFill="#c93232" visible="false" />
+            <Label fx:id="error_signup" alignment="CENTER" layoutX="1.0" layoutY="60.0" prefHeight="38.0" prefWidth="290.0" textAlignment="CENTER" textFill="#ee0404" visible="false" wrapText="true">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="birthday" accessibleText="Please Pick a Date " layoutX="165.0" layoutY="167.0" prefHeight="27.0" prefWidth="108.0" style="-fx-background-radius: 5;" />
          </children>
       </AnchorPane>
    </children>
