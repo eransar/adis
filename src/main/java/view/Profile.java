@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Profile implements Initializable {
+public class Profile implements Initializable, IView {
 
     public Label home;
     public TextField name;
@@ -60,4 +60,8 @@ public class Profile implements Initializable {
         MainController.setUser(null);
     }
 
+    @Override
+    public void setCurrentView() {
+        mc.setIview(this);
+    }
 }

@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController implements Initializable, IView {
 
     @FXML
 
@@ -203,5 +203,10 @@ public class MainController implements Initializable {
      */
     public void setSign_up() throws IOException{
         button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
+    }
+
+    @Override
+    public void setCurrentView() {
+        mc.setIview(this);
     }
 }

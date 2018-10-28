@@ -1,6 +1,7 @@
 package view;
 
 
+import Contrroller.MasterController;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -22,16 +23,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UserController implements Initializable {
+public class UserController implements Initializable, IView {
 
     public Circle profileImage;
     public Label Profile;
     public AnchorPane winS;
     public Label userLabel;
+    private MasterController mc;
 
 
     public void initialize(URL location, ResourceBundle resources) {
         //Image Profile
+        mc = MasterController.getInstance();
         profileImage.setStroke(Color.SEAGREEN);
         Image im = new Image("images/sumemrfun.jpg",false);
         profileImage.setFill(new ImagePattern((im)));
@@ -73,5 +76,11 @@ public class UserController implements Initializable {
         s.setScene(scene);
         s.show();
         MainController.setUser(null);
+    }
+
+    @Override
+    public void setCurrentView() {
+        mc.setIview(this);
+
     }
 }

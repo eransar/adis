@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Search implements Initializable {
+public class Search implements Initializable, IView {
     public ChoiceBox<String> search_options;
     public TextField field_search;
     public AnchorPane tablepane;
@@ -71,5 +71,10 @@ public class Search implements Initializable {
 
     public static ArrayList<User> getUsers() {
         return Users;
+    }
+
+    @Override
+    public void setCurrentView() {
+        mc.setIview(this);
     }
 }
