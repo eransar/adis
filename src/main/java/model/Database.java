@@ -158,7 +158,6 @@ param @IEntity - interface for the objects in the database
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // set the corresponding param
-            System.out.println(entity.getPrimaryKeyName());
             pstmt.setString(1, entity.getPrimaryKeyValue());
             // execute the delete statement
             pstmt.executeUpdate();

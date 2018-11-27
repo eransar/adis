@@ -2,6 +2,7 @@ package test;
 
 import Entities.IEntity;
 import Entities.User;
+import Entities.Vacation;
 import model.Database;
 import model.Model;
 
@@ -11,20 +12,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static java.lang.Thread.sleep;
+
 public class testdb {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Model model = Model.getInstance();
-        User u1 = new User("test16", "1111", "abc", "test", "abc", "aaa");
-        User u2 = new User("test16", "112222", "abc", "test", "abc", "aaa");
-        User u3 = new User("test16", "112222","","","","");
-//        Database db = new Database();
-//        model.InsertToDB(u1);
+        Vacation v = new Vacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
+        Vacation e = new Vacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
+        Database db = new Database();
+        model.InsertToDB(v);
+        model.InsertToDB(e);
+
 //        model.delete(u1);
 //        model.update(u2);
-        ArrayList<String> a = model.login(u3);
-        int i=5;
+//        ArrayList<String> a = model.login(u3);
+//        int i=5;
     }
 
 //        ArrayList<String> result = model.ReadFromDB(u1);

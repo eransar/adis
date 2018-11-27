@@ -15,10 +15,14 @@ when we initialize new Entity it will correspond to it's fields and not the pare
     public AEntity(){
         fields=new ArrayList<String>();
         Field[] fieldarray = this.getClass().getDeclaredFields();
-        for (int i = 0; i <fieldarray.length ; i++) {
-            fields.add(fieldarray[i].getName());
-        }
 
+
+        for (int i = 0; i <fieldarray.length ; i++) {
+            if(!java.lang.reflect.Modifier.isStatic(fieldarray[i].getModifiers())){
+                fields.add(fieldarray[i].getName());
+            }
+
+        }
     }
     /*
     Returns the fields in a long string with delimiters
