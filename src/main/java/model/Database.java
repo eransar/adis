@@ -62,10 +62,13 @@ param @IEntity - interface for the objects in the database
             try (
                  Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                String s = sql;
                 for (int i = 0; i < entity.getFieldsValue().size(); i++) {
+                    s+=s+(i+1)+","+entity.getFieldsValue().get(i);
                     pstmt.setString(i+1,entity.getFieldsValue().get(i));
 
                 }
+
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
