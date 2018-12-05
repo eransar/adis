@@ -10,6 +10,9 @@ public class MasterController {
     private static MasterController ourInstance = new MasterController();
     private Model model = Model.getInstance();
     private IView iview;
+    private double PrefWidthSerach =0;
+    private double PrefHeightSearch =0;
+
 
     public static MasterController getInstance() {
         return ourInstance;
@@ -29,6 +32,31 @@ public class MasterController {
     public ArrayList<String> read(IEntity entity,String search,String searchFor){
         return model.ReadFromDB(entity,search,searchFor);
     }
+
+
+    /**
+     * Search init size
+     * @param prefWidthSerach
+     */
+    public void setPrefWidthSerach(double prefWidthSerach) {
+        this.PrefWidthSerach = prefWidthSerach;
+    }
+
+    public void setPrefHeightSearch(double prefHeightSearch) {
+        this.PrefHeightSearch = prefHeightSearch;
+    }
+
+    public double getPrefWidthSerach() {
+        return PrefWidthSerach;
+    }
+
+    public double getPrefHeightSearch() {
+        return PrefHeightSearch;
+    }
+
+    ///////////////////////////////////////////////////////////////
+
+
     public boolean isExist(IEntity entity){return model.isExist(entity);}
     public void delete(IEntity entity){model.delete(entity);}
     public void update(IEntity entity){

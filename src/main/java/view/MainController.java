@@ -202,6 +202,7 @@ public class MainController implements Initializable, IView {
         set sign up -
      */
     public void setSign_up() throws IOException{
+
         button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
     }
 

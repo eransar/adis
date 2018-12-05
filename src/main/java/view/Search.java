@@ -20,6 +20,7 @@ public class Search implements Initializable, IView {
     public TextField field_search;
     public AnchorPane tablepane;
     public Label noResult;
+    public AnchorPane pane;
     private MasterController mc;
     private User search_user;
     private  ArrayList<String> result;
@@ -33,26 +34,35 @@ public class Search implements Initializable, IView {
         result = new ArrayList<String>();
         Users = new ArrayList<User>();
         search_options.setValue("user");
-        search_options.getItems().addAll("user");
+        search_options.getItems().addAll("user","vacation");
          noResult.setVisible(false);
     }
     public static void setUsers(){
         Users.clear();
     }
+
+
     public void Search_click(ActionEvent actionEvent) throws IOException {
         if (!(field_search.getText().equals(""))) {
             if (search_options.getValue().equals("user")) {
                 search_user = new User(field_search.getText());
                 result = mc.read(search_user, "username", field_search.getText());
+                Users = listToUser(result);
+                if (result.size()>0) {
+                    mc.setPrefHeightSearch(tablepane.getPrefHeight());
+                    mc.setPrefWidthSerach(tablepane.getPrefWidth());
+                    AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
+                    tablepane.getChildren().setAll(pane11);
+                    noResult.setVisible(false);
+                }
+                else
+                    noResult.setVisible(true);
             }
-            Users = listToUser(result);
-            if (result.size()>0) {
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
+            else if (search_options.getValue().equals("vacation")){
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
                 tablepane.getChildren().setAll(pane);
-                noResult.setVisible(false);
             }
-            else
-                noResult.setVisible(true);
+
         }
     }
 

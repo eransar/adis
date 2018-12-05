@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Search">
+<AnchorPane fx:id="pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Search">
    <children>
-      <TextField fx:id="field_search" layoutX="14.0" layoutY="39.0" prefHeight="38.0" prefWidth="133.0" style="-fx-background-radius: 30;">
+      <TextField fx:id="field_search" layoutX="115.0" layoutY="37.0" prefHeight="38.0" prefWidth="246.0" style="-fx-background-radius: 30;">
          <effect>
             <Blend />
          </effect>
@@ -18,7 +18,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutY="7.0" prefHeight="31.0" prefWidth="115.0" style="-fx-background-radius: 30;" text="Search">
+      <Label alignment="CENTER" layoutY="14.0" prefHeight="31.0" prefWidth="115.0" style="-fx-background-radius: 30;" text="Search">
          <effect>
             <Blend />
          </effect>
@@ -26,13 +26,13 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="search_options" layoutX="142.0" layoutY="11.0" prefWidth="150.0" />
-      <Button fx:id="button_Search" layoutX="170.0" layoutY="46.0" mnemonicParsing="false" onAction="#Search_click" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Search" />
-      <AnchorPane fx:id="tablepane" layoutY="88.0" prefHeight="252.0" prefWidth="327.0" style="-fx-background-radius: 30;" />
-      <Label fx:id="noResult" layoutX="272.0" layoutY="50.0" prefHeight="16.0" prefWidth="55.0" text="No Result" textFill="RED">
+      <Button fx:id="button_Search" layoutX="405.0" layoutY="19.0" mnemonicParsing="false" onAction="#Search_click" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Search" />
+      <AnchorPane fx:id="tablepane" layoutY="139.0" prefHeight="323.0" prefWidth="703.0" style="-fx-background-radius: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="139.0" />
+      <Label fx:id="noResult" layoutX="405.0" layoutY="76.0" prefHeight="16.0" prefWidth="55.0" text="No Result" textFill="RED">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
+      <ChoiceBox fx:id="search_options" layoutX="173.0" layoutY="92.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

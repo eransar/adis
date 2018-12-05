@@ -4,16 +4,16 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="tableAnchor" prefHeight="201.0" prefWidth="365.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserTableViewController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserTableViewController">
    <children>
-      <TableView fx:id="table" layoutX="94.0" layoutY="-7.0" style="-fx-background-radius: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columns>
+      <TableView fx:id="table" layoutY="3.0" prefWidth="367.0" style="-fx-background-radius: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columns>
             <TableColumn fx:id="username" prefWidth="72.0" text="Username" />
             <TableColumn fx:id="firstname" text="First name" />
-            <TableColumn fx:id="lastname" prefWidth="81.0" text="Last name" />
-            <TableColumn fx:id="city" prefWidth="52.0" text="City" />
+            <TableColumn fx:id="lastname" prefWidth="80.79998779296875" text="Last name" />
+            <TableColumn fx:id="city" prefWidth="52.80006408691406" text="City" />
             <TableColumn fx:id="birth" prefWidth="79.0" text="Birthday" />
-        </columns>
+         </columns>
       </TableView>
    </children>
 </AnchorPane>

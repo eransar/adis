@@ -26,6 +26,7 @@ public class UserTableViewController implements Initializable, IView {
     public TableColumn<User,String> picture;
     public AnchorPane tableAnchor;
     private MasterController mc;
+    public AnchorPane pane;
 
     ObservableList<User> data = FXCollections.observableArrayList(Search.getUsers());
 
@@ -42,6 +43,8 @@ public class UserTableViewController implements Initializable, IView {
         lastname.setCellValueFactory(new PropertyValueFactory<User,String>("last_name"));
         city.setCellValueFactory(new PropertyValueFactory<User,String>("city"));
         table.setItems(data);
+        pane.setPrefHeight(mc.getPrefHeightSearch());
+        pane.setPrefWidth(mc.getPrefWidthSerach());
 //      picture.setCellValueFactory(new PropertyValueFactory<User,String>("picture"));
     }
 
