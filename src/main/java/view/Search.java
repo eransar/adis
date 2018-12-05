@@ -44,27 +44,29 @@ public class Search implements Initializable, IView {
 
     public void Search_click(ActionEvent actionEvent) throws IOException {
         if (!(field_search.getText().equals(""))) {
+            mc.setPrefHeightSearch(tablepane.getPrefHeight());
+            mc.setPrefWidthSerach(tablepane.getPrefWidth());
             if (search_options.getValue().equals("user")) {
+                /////master controller?
                 search_user = new User(field_search.getText());
                 result = mc.read(search_user, "username", field_search.getText());
                 Users = listToUser(result);
-                if (result.size()>0) {
-                    mc.setPrefHeightSearch(tablepane.getPrefHeight());
-                    mc.setPrefWidthSerach(tablepane.getPrefWidth());
+                ////
+                if (result.size() > 0) {
                     AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
                     tablepane.getChildren().setAll(pane11);
                     noResult.setVisible(false);
-                }
-                else
+                } else
                     noResult.setVisible(true);
             }
-            else if (search_options.getValue().equals("vacation")){
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
-                tablepane.getChildren().setAll(pane);
+            else if(search_options.getValue().equals("vacation")){
+                AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
+                tablepane.getChildren().setAll(pane11);
+                noResult.setVisible(false);
             }
-
         }
     }
+
 
     private ArrayList<User> listToUser(ArrayList<String> arrayList){
 

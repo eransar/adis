@@ -1,5 +1,6 @@
 package view;
 
+import Contrroller.MasterController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -9,6 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ShowVacation implements Initializable {
+
+    private MasterController mc;
 
     @FXML
     public AnchorPane a0;
@@ -20,7 +23,7 @@ public class ShowVacation implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        mc = MasterController.getInstance();
     }
 
     public void clickOnVacation(javafx.event.ActionEvent event) {
