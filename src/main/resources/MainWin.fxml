@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainController">
+<AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainController">
    <children>
-      <AnchorPane opacity="0.41" prefHeight="84.0" prefWidth="800.0" style="-fx-background-color: #ffffff;">
+      <AnchorPane opacity="0.41" prefHeight="118.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="68.0" fitWidth="194.0" layoutX="56.0" layoutY="8.0" pickOnBounds="true">
                <image>
@@ -53,10 +53,10 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <AnchorPane fx:id="searchAncer" layoutX="51.0" layoutY="135.0" opacity="0.81" prefHeight="232.0" prefWidth="364.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
-      <AnchorPane layoutX="472.0" layoutY="131.0" opacity="0.84" prefHeight="379.0" prefWidth="291.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane fx:id="searchAncer" layoutX="155.0" layoutY="236.0" opacity="0.81" prefHeight="349.0" prefWidth="542.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+      <AnchorPane layoutX="818.0" layoutY="174.0" opacity="0.84" prefHeight="473.0" prefWidth="390.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <children>
-            <TextField fx:id="lastName" layoutX="164.0" layoutY="109.0" prefHeight="31.0" prefWidth="108.0" promptText="Last Name" style="-fx-background-radius: 30;">
+            <TextField fx:id="lastName" layoutX="195.0" layoutY="131.0" prefHeight="55.0" prefWidth="136.0" promptText="Last Name" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -64,15 +64,15 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" layoutX="108.0" layoutY="14.0" prefHeight="25.0" prefWidth="94.0" style="-fx-background-radius: 30;" text="Sign Up">
+            <Label alignment="CENTER" layoutX="135.0" layoutY="60.0" prefHeight="38.0" prefWidth="115.0" style="-fx-background-radius: 30;" text="Sign Up">
                <effect>
                   <Blend />
                </effect>
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="firstName" layoutX="38.0" layoutY="109.0" prefHeight="31.0" prefWidth="108.0" promptText="First Name" style="-fx-background-radius: 30;">
+            <TextField fx:id="firstName" layoutX="54.0" layoutY="131.0" prefHeight="55.0" prefWidth="128.0" promptText="First Name" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -80,7 +80,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="city" layoutX="38.0" layoutY="165.0" prefHeight="31.0" prefWidth="108.0" promptText="City" style="-fx-background-radius: 30;">
+            <TextField fx:id="city" layoutX="54.0" layoutY="194.0" prefHeight="55.0" prefWidth="128.0" promptText="City" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -88,7 +88,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="userName" layoutX="38.0" layoutY="218.0" prefHeight="31.0" prefWidth="108.0" promptText="User Name" style="-fx-background-radius: 30;">
+            <TextField fx:id="userName" layoutX="54.0" layoutY="267.0" prefHeight="55.0" prefWidth="128.0" promptText="User Name" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -96,7 +96,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="password" layoutX="164.0" layoutY="221.0" prefHeight="25.0" prefWidth="108.0" promptText="Password" style="-fx-background-radius: 30;">
+            <PasswordField fx:id="password" layoutX="191.0" layoutY="267.0" prefHeight="55.0" prefWidth="136.0" promptText="Password" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
                </effect>
@@ -104,14 +104,14 @@
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <Button fx:id="button_SignUp" layoutX="99.0" layoutY="280.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
-            <Label fx:id="error_username" layoutX="38.0" layoutY="252.0" prefHeight="17.0" prefWidth="179.0" text="Username already taken" textFill="#c93232" visible="false" />
-            <Label fx:id="error_signup" alignment="CENTER" layoutX="1.0" layoutY="60.0" prefHeight="38.0" prefWidth="290.0" textAlignment="CENTER" textFill="#ee0404" visible="false" wrapText="true">
+            <Button fx:id="button_SignUp" layoutX="135.0" layoutY="375.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
+            <Label fx:id="error_username" layoutX="35.0" layoutY="336.0" prefHeight="31.0" prefWidth="162.0" text="Username already taken" textFill="#c93232" visible="false" />
+            <Label fx:id="error_signup" alignment="CENTER" layoutX="48.0" layoutY="425.0" prefHeight="38.0" prefWidth="279.0" textAlignment="CENTER" textFill="#ee0404" visible="false" wrapText="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="425.0">
                <font>
                   <Font size="11.0" />
                </font>
             </Label>
-            <DatePicker fx:id="birthday" accessibleText="Please Pick a Date " layoutX="165.0" layoutY="167.0" prefHeight="27.0" prefWidth="108.0" style="-fx-background-radius: 5;" />
+            <DatePicker fx:id="birthday" accessibleText="Please Pick a Date " layoutX="195.0" layoutY="206.0" prefHeight="31.0" prefWidth="128.0" style="-fx-background-radius: 5;" />
          </children>
       </AnchorPane>
    </children>

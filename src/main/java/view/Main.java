@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
         primaryStage.setTitle("Vacation4U");
-        Scene scene = new Scene(root, 800  , 600);
+        Scene scene = new Scene(root, 1280  , 720);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
         primaryStage.setScene(scene);
 //        controller.setStage(primaryStage);
