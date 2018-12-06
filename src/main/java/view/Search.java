@@ -5,10 +5,15 @@ import Entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,7 +47,14 @@ public class Search implements Initializable, IView {
     }
 
 
+    private void centerStage(Stage stage, double width, double height) {
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((screenBounds.getWidth() - width) / 2);
+        stage.setY((screenBounds.getHeight() - height) / 2);
+    }
+
     public void Search_click(ActionEvent actionEvent) throws IOException {
+        //setSearchScene();
         if (!(field_search.getText().equals(""))) {
             mc.setPrefHeightSearch(tablepane.getPrefHeight());
             mc.setPrefWidthSerach(tablepane.getPrefWidth());
@@ -58,13 +70,23 @@ public class Search implements Initializable, IView {
                     noResult.setVisible(false);
                 } else
                     noResult.setVisible(true);
-            }
-            else if(search_options.getValue().equals("vacation")){
-                AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
+            } else if (search_options.getValue().equals("vacation")) {
+                AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
                 tablepane.getChildren().setAll(pane11);
                 noResult.setVisible(false);
             }
         }
+    }
+
+    private void setSearchScene() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
+        Stage primaryStage = mc.getStage();
+        primaryStage.setTitle("Vacation4U");
+        Scene scene = new Scene(root, 1600  , 800);
+        centerStage(primaryStage,1600,800);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 

@@ -1,4 +1,4 @@
-package view;
+package test;
 
 import Contrroller.MasterController;
 import javafx.application.Application;
@@ -7,20 +7,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import static javafx.application.Application.launch;
 
-public class Main extends Application {
+public class testVacation extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShowVacationFxml.fxml"));
         primaryStage.setTitle("Vacation4U");
         Scene scene = new Scene(root, 1280  , 720);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
         primaryStage.setScene(scene);
-//        controller.setStage(primaryStage);
-//        Database d = new Database();
-//        d.createNewDatabase("vacation4u");
-//        d.connect();
         MasterController.getInstance().setStage(primaryStage);
         primaryStage.show();
     }
@@ -30,3 +27,4 @@ public class Main extends Application {
         launch(args);
     }
 }
+

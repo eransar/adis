@@ -7,9 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,6 +44,12 @@ public class MainController implements Initializable, IView {
     public AnchorPane searchAncer;
     public Label unCorrect;
     public Label error_signup;
+    public Button button_SignUpSearch;
+    public AnchorPane ancer_SignUp;
+
+
+
+
 
     public static User getUser() {
         return user;
@@ -63,10 +72,10 @@ public class MainController implements Initializable, IView {
             e.printStackTrace();
         }
         date_before_18_years=LocalDate.now().minusYears(18);
-
+        button_SignUpSearch.setVisible(false);
 //        LocalDate currentDate = LocalDate.now();
 //         date_before_18_years = Date.from(currentDate.minusYears(18).atStartOfDay(ZoneId.systemDefault()).toInstant());
-        System.out.println(date_before_18_years);
+        //System.out.println(date_before_18_years);
     }
 
     public void BuildUserEntity(){
@@ -183,11 +192,6 @@ public class MainController implements Initializable, IView {
             BuildUserEntity();
             mc.insert(user);
         }
-
-
-
-        //setSign_up();
-//    model.Insert();
     }
 
     /*

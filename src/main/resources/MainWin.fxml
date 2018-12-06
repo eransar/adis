@@ -52,9 +52,10 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <Button fx:id="button_SignUpSearch" layoutX="1006.0" layoutY="38.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="46.0" prefWidth="128.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up now" />
          </children></AnchorPane>
       <AnchorPane fx:id="searchAncer" layoutX="53.0" layoutY="185.0" opacity="0.81" prefHeight="462.0" prefWidth="703.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" AnchorPane.bottomAnchor="72.60000000000002" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="523.8" AnchorPane.topAnchor="185.0" />
-      <AnchorPane layoutX="818.0" layoutY="174.0" opacity="0.84" prefHeight="473.0" prefWidth="390.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <AnchorPane fx:id="ancer_SignUp" layoutX="818.0" layoutY="174.0" opacity="0.84" prefHeight="473.0" prefWidth="390.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" AnchorPane.rightAnchor="40.0">
          <children>
             <TextField fx:id="lastName" layoutX="195.0" layoutY="131.0" prefHeight="55.0" prefWidth="136.0" promptText="Last Name" style="-fx-background-radius: 30;">
                <effect>

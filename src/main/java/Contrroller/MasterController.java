@@ -1,8 +1,10 @@
 package Contrroller;
 
 import Entities.IEntity;
+import javafx.stage.Stage;
 import model.Model;
 import view.IView;
+import view.MainController;
 
 import java.util.ArrayList;
 
@@ -10,16 +12,38 @@ public class MasterController {
     private static MasterController ourInstance = new MasterController();
     private Model model = Model.getInstance();
     private IView iview;
+    //set search size
     private double PrefWidthSerach =0;
     private double PrefHeightSearch =0;
+    //the current stage
+    private Stage stage;
 
+    private String howSearchNow;
+
+
+
+
+
+
+    public String getHowSearchNow() {
+        return howSearchNow;
+    }
+
+    public void setHowSearchNow(String howSearchNow) {
+        this.howSearchNow = howSearchNow;
+    }
 
     public static MasterController getInstance() {
         return ourInstance;
     }
 
-    private MasterController() {
+    public Stage getStage() {
+        return stage;
+    }
 
+    public void setStage(Stage stage) {
+
+        this.stage = stage;
     }
 
     public void setIview(IView iview) {

@@ -10,3 +10,8 @@
 .choice-box .context-menu {
     -fx-pref-width: 150; /* Your width for the context menu background shown */
 }
+
+#ancer_show{
+    -fx-background-image: url("/images/aa.jpg");
+    -fx-background-size: cover;
+}
