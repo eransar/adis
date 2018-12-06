@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -26,6 +27,7 @@ public class Search implements Initializable, IView {
     public AnchorPane tablepane;
     public Label noResult;
     public AnchorPane pane;
+    public Button button_Search;
     private MasterController mc;
     private User search_user;
     private  ArrayList<String> result;
@@ -35,6 +37,7 @@ public class Search implements Initializable, IView {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //set ChoiceSearch
+        button_Search.setId("button_Search");
         mc = MasterController.getInstance();
         result = new ArrayList<String>();
         Users = new ArrayList<User>();

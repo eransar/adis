@@ -1,27 +1,29 @@
 
 #mainAncer{
     -fx-background-image: url("/images/homebg.jpg");
-
     -fx-background-size: cover;
 }
 .choice-box {
     -fx-pref-width: 150;
 }
 
-#anchor_title{
-    fx
-    -fx-opacity: 0.3
+#anchor_header, #searchAncer {
+    -fx-background-color: rgba(255,255,255,0.3);
 
 }
+#searchAncer {
+    -fx-background-radius: 30;
+}
+
 
 .choice-box .context-menu {
     -fx-pref-width: 150; /* Your width for the context menu background shown */
 }
 
-#ancer_show{
-    -fx-background-image: url("/images/aa.jpg");
-    -fx-background-size: cover;
+.button {
+-fx-opacity: 1.0;
+-fx-background-color:   #FFE4B5;
 }
-#button_LogIN {
+#button_Search {
     -fx-opacity: 1.0;
 }

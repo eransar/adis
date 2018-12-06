@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -26,7 +27,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button fx:id="button_Search" layoutX="405.0" layoutY="19.0" mnemonicParsing="false" onAction="#Search_click" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Search" />
+      <Button id="button_Search" fx:id="button_Search" layoutX="405.0" layoutY="19.0" mnemonicParsing="false" onAction="#Search_click" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5 #FFE4B5;" text="Search" />
       <AnchorPane fx:id="tablepane" layoutY="139.0" prefHeight="323.0" prefWidth="703.0" style="-fx-background-radius: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="139.0" />
       <Label fx:id="noResult" layoutX="405.0" layoutY="76.0" prefHeight="16.0" prefWidth="55.0" text="No Result" textFill="RED">
          <font>
@@ -35,4 +36,7 @@
       </Label>
       <ChoiceBox fx:id="search_options" layoutX="173.0" layoutY="92.0" prefWidth="150.0" />
    </children>
+   <stylesheets>
+      <URL value="@Search.css" />
+   </stylesheets>
 </AnchorPane>

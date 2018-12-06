@@ -3,6 +3,10 @@ package view;
 import Contrroller.Handlers.LoginHandler;
 import Contrroller.MasterController;
 import Entities.User;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +49,14 @@ public class MainController implements Initializable, IView {
     public Label unCorrect;
     public Label error_signup;
     public Button button_SignUpSearch;
-    public AnchorPane ancer_SignUp;
+    public AnchorPane anchor_header;
+    public ComboBox<String> combo_search;
+    public JFXDatePicker vacation_startdate;
+    public JFXDatePicker vacation_enddate;
+    public JFXTextField vacation_price;
+    public JFXTextField vacation_location;
+
+
 
 
 
@@ -65,6 +76,9 @@ public class MainController implements Initializable, IView {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        anchor_header.setId("anchor_header");
+        searchAncer.setId("searchAncer");
+        combo_search.getItems().addAll("User","Vacation");
         unCorrect.setVisible(false);
         try {
             Search();
@@ -73,6 +87,7 @@ public class MainController implements Initializable, IView {
         }
         date_before_18_years=LocalDate.now().minusYears(18);
         button_SignUpSearch.setVisible(false);
+
 //        LocalDate currentDate = LocalDate.now();
 //         date_before_18_years = Date.from(currentDate.minusYears(18).atStartOfDay(ZoneId.systemDefault()).toInstant());
         //System.out.println(date_before_18_years);
@@ -194,12 +209,30 @@ public class MainController implements Initializable, IView {
         }
     }
 
+    public void set_searchComboBox(){
+        System.out.println(combo_search.getSelectionModel().getSelectedItem());
+        if(combo_search.getSelectionModel().getSelectedItem().equals("Vacation")){
+            vacation_price.setVisible(true);
+            vacation_location.setVisible(true);
+            vacation_enddate.setVisible(true);
+            vacation_startdate.setVisible(true);
+        }
+        else{
+            vacation_price.setVisible(false);
+            vacation_location.setVisible(false);
+            vacation_enddate.setVisible(false);
+            vacation_startdate.setVisible(false);
+        }
+//
+    }
+
     /*
         search fxml
      */
     public void Search() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
-        searchAncer.getChildren().setAll(pane);
+//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
+//        searchAncer.getChildren().setAll(pane);
+
     }
 
     /*
@@ -209,6 +242,7 @@ public class MainController implements Initializable, IView {
 
         button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
     }
+
 
     @Override
     public void setCurrentView() {
