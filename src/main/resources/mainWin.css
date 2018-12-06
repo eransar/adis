@@ -1,10 +1,17 @@
 
 #mainAncer{
-    -fx-background-image: url("/images/aa.jpg");
+    -fx-background-image: url("/images/homebg.jpg");
+
     -fx-background-size: cover;
 }
 .choice-box {
     -fx-pref-width: 150;
+}
+
+#anchor_title{
+    fx
+    -fx-opacity: 0.3
+
 }
 
 .choice-box .context-menu {
@@ -14,4 +21,7 @@
 #ancer_show{
     -fx-background-image: url("/images/aa.jpg");
     -fx-background-size: cover;
+}
+#button_LogIN {
+    -fx-opacity: 1.0;
 }

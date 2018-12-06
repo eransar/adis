@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -13,14 +14,14 @@
 
 <AnchorPane fx:id="mainAncer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainController">
    <children>
-      <AnchorPane opacity="0.41" prefHeight="118.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="anchor_title" prefHeight="118.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="68.0" fitWidth="194.0" layoutX="56.0" layoutY="8.0" pickOnBounds="true">
                <image>
                   <Image url="@images/logoNew.png" />
                </image>
             </ImageView>
-            <TextField fx:id="logIn_User" layoutX="328.0" layoutY="44.0" prefHeight="31.0" prefWidth="142.0" style="-fx-background-radius: 30;">
+            <TextField fx:id="logIn_User" layoutX="328.0" layoutY="44.0" prefHeight="31.0" prefWidth="142.0" style="-fx-background-radius: 30; -fx-opacity: 1;">
                <effect>
                   <Blend />
                </effect>
@@ -38,7 +39,6 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="button_LogIN" layoutX="661.0" layoutY="41.0" mnemonicParsing="false" onAction="#LogInClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Log In" />
             <PasswordField fx:id="logIn_Password" layoutX="505.0" layoutY="42.0" prefHeight="31.0" prefWidth="136.0" style="-fx-background-radius: 30;">
                <effect>
                   <Blend />
@@ -53,67 +53,15 @@
                </font>
             </Label>
             <Button fx:id="button_SignUpSearch" layoutX="1006.0" layoutY="38.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="46.0" prefWidth="128.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up now" />
+            <Button fx:id="button_LogIN" layoutX="685.0" layoutY="39.0" mnemonicParsing="false" onAction="#LogInClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Log In" />
          </children></AnchorPane>
-      <AnchorPane fx:id="searchAncer" layoutX="53.0" layoutY="185.0" opacity="0.81" prefHeight="462.0" prefWidth="703.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" AnchorPane.bottomAnchor="72.60000000000002" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="523.8" AnchorPane.topAnchor="185.0" />
-      <AnchorPane fx:id="ancer_SignUp" layoutX="818.0" layoutY="174.0" opacity="0.84" prefHeight="473.0" prefWidth="390.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" AnchorPane.rightAnchor="40.0">
-         <children>
-            <TextField fx:id="lastName" layoutX="195.0" layoutY="131.0" prefHeight="55.0" prefWidth="136.0" promptText="Last Name" style="-fx-background-radius: 30;">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </TextField>
-            <Label alignment="CENTER" layoutX="135.0" layoutY="60.0" prefHeight="38.0" prefWidth="115.0" style="-fx-background-radius: 30;" text="Sign Up">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
-            <TextField fx:id="firstName" layoutX="54.0" layoutY="131.0" prefHeight="55.0" prefWidth="128.0" promptText="First Name" style="-fx-background-radius: 30;">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="city" layoutX="54.0" layoutY="194.0" prefHeight="55.0" prefWidth="128.0" promptText="City" style="-fx-background-radius: 30;">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="userName" layoutX="54.0" layoutY="267.0" prefHeight="55.0" prefWidth="128.0" promptText="User Name" style="-fx-background-radius: 30;">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="password" layoutX="191.0" layoutY="267.0" prefHeight="55.0" prefWidth="136.0" promptText="Password" style="-fx-background-radius: 30;">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </PasswordField>
-            <Button fx:id="button_SignUp" layoutX="135.0" layoutY="375.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
-            <Label fx:id="error_username" layoutX="35.0" layoutY="336.0" prefHeight="31.0" prefWidth="162.0" text="Username already taken" textFill="#c93232" visible="false" />
-            <Label fx:id="error_signup" alignment="CENTER" layoutX="48.0" layoutY="425.0" prefHeight="38.0" prefWidth="279.0" textAlignment="CENTER" textFill="#ee0404" visible="false" wrapText="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="425.0">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="birthday" accessibleText="Please Pick a Date " layoutX="195.0" layoutY="206.0" prefHeight="31.0" prefWidth="128.0" style="-fx-background-radius: 5;" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="searchAncer" layoutX="161.0" layoutY="201.0" opacity="0.5" prefHeight="509.0" prefWidth="1102.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="201.0" />
+      <JFXTextField layoutX="507.0" layoutY="143.0" prefHeight="25.0" prefWidth="313.0" promptText="Search for vacation">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </JFXTextField>
+      <AnchorPane layoutX="-2.0" layoutY="117.0" prefHeight="611.0" prefWidth="150.0" />
+      <JFXComboBox layoutX="820.0" layoutY="166.0" prefHeight="25.0" prefWidth="87.0" />
    </children>
 </AnchorPane>
