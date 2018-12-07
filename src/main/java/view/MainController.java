@@ -231,8 +231,8 @@ public class MainController implements Initializable, IView {
         search fxml
      */
     public void Search() throws IOException {
-//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
-//        searchAncer.getChildren().setAll(pane);
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
+        searchAncer.getChildren().setAll(pane);
 
     }
 

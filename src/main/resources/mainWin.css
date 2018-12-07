@@ -1,6 +1,7 @@
 
 #mainAncer{
     -fx-background-image: url("/images/homebg.jpg");
+    -fx-background-color: rgba(255,255,255,1);
     -fx-background-size: cover;
 }
 .choice-box {
@@ -8,7 +9,7 @@
 }
 
 #anchor_header, #searchAncer {
-    -fx-background-color: rgba(255,255,255,0.3);
+    -fx-background-color: rgba(255,255,255,0.4);
 
 }
 #searchAncer {

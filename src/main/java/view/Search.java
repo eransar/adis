@@ -2,6 +2,7 @@ package view;
 
 import Contrroller.MasterController;
 import Entities.User;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,16 +14,18 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Search implements Initializable, IView {
-    public ChoiceBox<String> search_options;
+    public JFXComboBox<String> search_options;
     public TextField field_search;
     public AnchorPane tablepane;
     public Label noResult;
@@ -30,7 +33,7 @@ public class Search implements Initializable, IView {
     public Button button_Search;
     private MasterController mc;
     private User search_user;
-    private  ArrayList<String> result;
+    private  ArrayList<List<String>> result;
     private static ArrayList<User> Users;
 
 
@@ -39,7 +42,7 @@ public class Search implements Initializable, IView {
         //set ChoiceSearch
         button_Search.setId("button_Search");
         mc = MasterController.getInstance();
-        result = new ArrayList<String>();
+        result = new ArrayList<List<String>>();
         Users = new ArrayList<User>();
         search_options.setValue("user");
         search_options.getItems().addAll("user","vacation");
@@ -64,13 +67,23 @@ public class Search implements Initializable, IView {
             if (search_options.getValue().equals("user")) {
                 /////master controller?
                 search_user = new User(field_search.getText());
-//                result = mc.read(search_user, "username", field_search.getText());
+                result = mc.read(search_user, "username", field_search.getText());
                 Users = listToUser(result);
                 ////
                 if (result.size() > 0) {
-                    AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
-                    tablepane.getChildren().setAll(pane11);
-                    noResult.setVisible(false);
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("UserTableView.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root, 410  , 460);
+                    scene.getStylesheets().add(getClass().getClassLoader().getResource("Signup.css").toExternalForm());
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setOpacity(1);
+                    stage.setTitle("User Search");
+                    stage.setScene(scene);
+                    stage.showAndWait();
+//                    AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
+//                    tablepane.getChildren().setAll(pane11);
+//                    noResult.setVisible(false);
                 } else
                     noResult.setVisible(true);
             } else if (search_options.getValue().equals("vacation")) {
@@ -93,16 +106,17 @@ public class Search implements Initializable, IView {
     }
 
 
-    private ArrayList<User> listToUser(ArrayList<String> arrayList){
+    private ArrayList<User> listToUser(ArrayList<List<String>> arrayList){
 
         ArrayList<String> temp = new ArrayList<String>();
-        for (int i = 0; i <arrayList.size()/search_user.getFields().size() ; i++) {
-            for (int j = 0; j < search_user.getFields().size() ; j++) {
-                temp.add(arrayList.get(j));
+        for (int i = 0; i <arrayList.size() ; i++) {
+            for (int j = 0; j <arrayList.get(i).size() ; j++) {
+                temp.add(arrayList.get(i).get(j));
             }
             Users.add(new User(temp));
             temp.clear();
         }
+
         return Users;
     }
 
