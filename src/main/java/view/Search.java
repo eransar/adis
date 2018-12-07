@@ -64,7 +64,7 @@ public class Search implements Initializable, IView {
             if (search_options.getValue().equals("user")) {
                 /////master controller?
                 search_user = new User(field_search.getText());
-                result = mc.read(search_user, "username", field_search.getText());
+//                result = mc.read(search_user, "username", field_search.getText());
                 Users = listToUser(result);
                 ////
                 if (result.size() > 0) {

@@ -4,6 +4,7 @@ import Entities.IEntity;
 import com.sun.xml.internal.fastinfoset.algorithm.IEEE754FloatingPointEncodingAlgorithm;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /*
 Representing the Model class in our project.
@@ -27,7 +28,7 @@ public class Model {
     public void InsertToDB(IEntity entity){
         db.Insert(entity);
     }
-    public ArrayList<String> ReadFromDB(IEntity entity,String search,String searchFor){
+    public ArrayList<List<String>> ReadFromDB(IEntity entity, String search, String searchFor){
         return db.read(entity,search,searchFor);
     }
     public boolean isExist(IEntity entity){return db.isExist(entity);}

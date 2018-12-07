@@ -47,6 +47,8 @@ public class Vacation extends AEntity {
         return result;
     }
 
+    public Vacation(){};
+
     @Override
     public String GetDBName() {
         return "vacations";

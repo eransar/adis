@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static java.lang.Thread.sleep;
@@ -22,11 +23,13 @@ public class testdb {
         Model model = Model.getInstance();
 //        Vacation v = new Vacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
 //        Vacation e = new Vacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
-        Deal d = new Deal("idannn","merhav","1000000","99");
-        Deal e = new Deal("idannn","merhav","1000000","99");
-        Database db = new Database();
-        model.InsertToDB(d);
-        model.InsertToDB(e);
+//        Deal d = new Deal("idannn","merhav","1000000","99");
+//        Deal e = new Deal("idannn","merhav","1000000","99");
+//        Database db = new Database();
+//        model.InsertToDB(d);
+//        model.InsertToDB(e);
+        ArrayList<List<String>> test =model.ReadFromDB(new Vacation(),"location","Pari");
+        int i =5 ;
 
 //        model.delete(u1);
 //        model.update(u2);

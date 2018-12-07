@@ -7,6 +7,7 @@ import view.IView;
 import view.MainController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MasterController {
     private static MasterController ourInstance = new MasterController();
@@ -53,7 +54,7 @@ public class MasterController {
     public void insert(IEntity entity){
         model.InsertToDB(entity);
     }
-    public ArrayList<String> read(IEntity entity,String search,String searchFor){
+    public ArrayList<List<String>> read(IEntity entity, String search, String searchFor){
         return model.ReadFromDB(entity,search,searchFor);
     }
 

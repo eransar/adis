@@ -80,11 +80,12 @@ param @IEntity - interface for the objects in the database
     param @IEntity - interface for the objects in the database
     returns arraylist with the rows
      */
-    public ArrayList<String> read(IEntity entity, String searchName,String searchFor){
+    public ArrayList<List<String>> read(IEntity entity, String searchName,String searchFor){
         ArrayList<String> read = new ArrayList<String>();
+        ArrayList<List<String>> return_list = new ArrayList<>();
         ArrayList<String> fields_name = entity.getFields();
         String sql = "SELECT * FROM "+entity.GetDBName()+" "
-                +"WHERE "+searchName+"=\""+searchFor+"\"";
+                +"WHERE "+searchName+" like " +"\""+searchFor+"%"+"\"";
 
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -93,8 +94,10 @@ param @IEntity - interface for the objects in the database
             // loop through the result set
 
             for (int j = 0; rs.next(); j++) {
+                return_list.add(new ArrayList<>());
                 for (int k = 0; k < entity.getFields().size() ; k++) {
-                    read.add(rs.getString(fields_name.get(k)));
+                    return_list.get(j).add(rs.getString(fields_name.get(k)));
+//                    read.add(rs.getString(fields_name.get(k)));
                 }
             }
 
@@ -107,7 +110,7 @@ param @IEntity - interface for the objects in the database
             String k = e.getMessage();
             System.out.println(e.getMessage());
         }
-        return read;
+        return return_list;
     }
 
     public boolean isExist(IEntity entity) {

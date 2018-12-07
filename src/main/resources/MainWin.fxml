@@ -68,10 +68,10 @@
          </font>
       </JFXTextField>
       <AnchorPane layoutX="-2.0" layoutY="117.0" prefHeight="611.0" prefWidth="150.0" />
-      <JFXComboBox fx:id="combo_search" layoutX="504.0" layoutY="167.0" onAction="#set_searchComboBox" prefHeight="27.0" prefWidth="150.0" promptText="Search Parameter" />
+      <JFXComboBox fx:id="combo_search" layoutX="504.0" layoutY="167.0" onAction="#set_searchComboBox" prefHeight="27.0" prefWidth="150.0" promptText="Search Parameter" unFocusColor="#363434" />
       <JFXDatePicker fx:id="vacation_startdate" cache="true" defaultColor="#23b2b2" layoutX="820.0" layoutY="106.0" promptText="Start Date" visible="false" />
       <JFXDatePicker fx:id="vacation_enddate" cache="true" defaultColor="#34bfbf" layoutX="1005.0" layoutY="107.0" visible="false" />
-      <JFXTextField fx:id="vacation_location" layoutX="794.0" layoutY="155.0" prefHeight="31.0" prefWidth="257.0" promptText="Location">
+      <JFXTextField fx:id="vacation_location" layoutX="794.0" layoutY="155.0" prefHeight="31.0" prefWidth="257.0" promptText="Location" visible="false">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
