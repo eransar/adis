@@ -39,7 +39,7 @@ public class UserController implements Initializable, IView {
         Image im = new Image("images/sumemrfun.jpg",false);
         profileImage.setFill(new ImagePattern((im)));
         profileImage.setEffect(new DropShadow(+25d ,0d,+2d,Color.SNOW));
-        userLabel.setText(MainController.getUser().getUsername());
+        userLabel.setText(mc.getUser().getUsername());
         //Search Scene
         AnchorPane pane = null;
         try {
@@ -75,7 +75,7 @@ public class UserController implements Initializable, IView {
         Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
         s.setScene(scene);
         s.show();
-        MainController.setUser(null);
+        mc.setUser(null);
     }
 
     @Override

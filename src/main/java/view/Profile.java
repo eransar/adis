@@ -33,31 +33,31 @@ public class Profile implements Initializable, IView {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.mc = MasterController.getInstance();
-        name.setText(MainController.getUser().getFirst_name());
-        last.setText(MainController.getUser().getLast_name());
-        city.setText(MainController.getUser().getCity());
-        birth.setText(MainController.getUser().getBirth());
-        userPro.setText(MainController.getUser().getUsername());
-        pass.setText(MainController.getUser().getPassword());
+        name.setText(mc.getUser().getFirst_name());
+        last.setText(mc.getUser().getLast_name());
+        city.setText(mc.getUser().getCity());
+        birth.setText(mc.getUser().getBirth());
+        userPro.setText(mc.getUser().getUsername());
+        pass.setText(mc.getUser().getPassword());
         userPro.setDisable(true);
     }
 
     public void updateProfile(ActionEvent event){
         User user = new User(userPro.getText(),pass.getText(),birth.getText(),city.getText(),name.getText(),last.getText());
-        MainController.setUser(user);
+        mc.setUser(user);
 
         mc.update(user);
     }
 
     public void deleteProfile(ActionEvent event) throws IOException {
-        mc.delete(MainController.getUser());
+        mc.delete(mc.getUser());
         Parent a = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
         Scene scene = new Scene(a);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
         Stage s = (Stage)((Node)event.getSource()).getScene().getWindow();
         s.setScene(scene);
         s.show();
-        MainController.setUser(null);
+        mc.setUser(null);
     }
 
     @Override

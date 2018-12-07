@@ -1,6 +1,7 @@
 package Contrroller;
 
 import Entities.IEntity;
+import Entities.User;
 import javafx.stage.Stage;
 import model.Model;
 import view.IView;
@@ -18,8 +19,11 @@ public class MasterController {
     private double PrefHeightSearch =0;
     //the current stage
     private Stage stage;
-
     private String howSearchNow;
+
+
+
+    private User user;
 
 
 
@@ -62,6 +66,8 @@ public class MasterController {
     /**
      * Search init size
      * @param prefWidthSerach
+     *
+     *
      */
     public void setPrefWidthSerach(double prefWidthSerach) {
         this.PrefWidthSerach = prefWidthSerach;
@@ -80,7 +86,13 @@ public class MasterController {
     }
 
     ///////////////////////////////////////////////////////////////
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public boolean isExist(IEntity entity){return model.isExist(entity);}
     public void delete(IEntity entity){model.delete(entity);}
