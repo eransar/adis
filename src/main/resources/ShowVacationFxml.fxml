@@ -3,48 +3,209 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancer_show" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShowVacation">
+<AnchorPane fx:id="ancer_show" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="1102.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShowVacation">
    <children>
-      <VBox layoutX="21.0" layoutY="131.0" prefHeight="250.0" prefWidth="338.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff;">
+      <AnchorPane fx:id="ancer_3" layoutX="31.0" layoutY="264.0" prefHeight="226.0" prefWidth="402.0" style="-fx-background-color: #ffffff;">
          <children>
-            <ImageView fitHeight="89.0" fitWidth="323.0" pickOnBounds="true">
+            <ImageView fx:id="image_3" fitHeight="226.0" fitWidth="209.0" layoutX="193.0" pickOnBounds="true">
                <image>
                   <Image url="@images/paris.jpg" />
                </image>
             </ImageView>
-            <AnchorPane prefHeight="82.0" prefWidth="301.0">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="16.0" prefHeight="34.0" prefWidth="78.0" text="price" textAlignment="CENTER" textFill="#999999">
-                     <font>
-                        <Font name="Arial" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="45.0" prefHeight="34.0" prefWidth="78.0" text="begin" textAlignment="CENTER" textFill="#999999">
-                     <font>
-                        <Font name="Arial" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="3.0" prefHeight="34.0" prefWidth="93.0" text="location" textAlignment="CENTER" textFill="#999999">
-                     <font>
-                        <Font name="Arial" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="46.0" prefHeight="34.0" prefWidth="60.0" text="end" textAlignment="CENTER" textFill="#999999">
-                     <font>
-                        <Font name="Arial" size="16.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="button_1" layoutX="223.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="buy" />
-               </children>
-            </AnchorPane>
-            <TextField prefHeight="66.0" prefWidth="330.0" />
+            <Label fx:id="price_3" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="9.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="location_3" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="49.0" prefHeight="34.0" prefWidth="167.0" text="location" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonBuy_3" layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#buyVacation" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/shopping-cart2-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="text_3" alignment="TOP_LEFT" editable="false" layoutX="1.0" layoutY="136.0" prefHeight="90.0" prefWidth="188.0" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: transparent, white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label fx:id="date_3" alignment="CENTER" contentDisplay="CENTER" layoutY="83.0" prefHeight="34.0" prefWidth="188.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
-      </VBox>
+      </AnchorPane>
+      <AnchorPane fx:id="deals" layoutX="882.0" layoutY="21.0" prefHeight="390.0" prefWidth="198.0">
+         <children>
+            <ImageView fx:id="image_deal1" fitHeight="150.0" fitWidth="237.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <image>
+                  <Image url="@images/visit-london-london-eye.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="location_deal1" alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="177.0" prefHeight="34.0" prefWidth="148.0" text="Location" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="price_deal1" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="147.0" prefHeight="34.0" prefWidth="86.0" text="Price" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="image_deal2" fitHeight="150.0" fitWidth="200.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <image>
+                  <Image url="@images/Ultimate-Travel-Guide-to-London-1200x800.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="label_recommended" alignment="CENTER" layoutX="14.0" layoutY="9.0" prefHeight="38.0" prefWidth="175.0" text="Recommended" textAlignment="CENTER">
+               <font>
+                  <Font name="Bradley Hand ITC" size="28.0" />
+               </font>
+               <effect>
+                  <Glow level="0.8" />
+               </effect>
+            </Label>
+            <Label fx:id="price_deal2" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="323.0" prefHeight="34.0" prefWidth="86.0" text="Price" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="location_deal2" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="355.0" prefHeight="34.0" prefWidth="148.0" text="Location" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="button_back" alignment="CENTER" layoutX="891.0" layoutY="435.0" mnemonicParsing="false" onAction="#backClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFA500;" text="back" textAlignment="RIGHT">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="23.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back_button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="button_next" contentDisplay="RIGHT" layoutX="999.0" layoutY="435.0" mnemonicParsing="false" onAction="#nextClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFA500;" text="next">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/right.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <AnchorPane fx:id="ancer_1" layoutX="31.0" layoutY="14.0" prefHeight="226.0" prefWidth="402.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fx:id="image_1" fitHeight="226.0" fitWidth="209.0" layoutX="193.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/paris.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="price_1" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="9.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="location_1" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="49.0" prefHeight="34.0" prefWidth="167.0" text="location" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonBuy_1" layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#buyVacation" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/shopping-cart2-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="text_1" alignment="TOP_LEFT" editable="false" layoutX="1.0" layoutY="136.0" prefHeight="90.0" prefWidth="188.0" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: transparent, white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label fx:id="date_1" alignment="CENTER" contentDisplay="CENTER" layoutY="83.0" prefHeight="34.0" prefWidth="188.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ancer_2" layoutX="453.0" layoutY="14.0" prefHeight="226.0" prefWidth="402.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fx:id="image_2" fitHeight="226.0" fitWidth="209.0" layoutX="193.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/paris.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="price_2" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="9.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="location_2" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="49.0" prefHeight="34.0" prefWidth="167.0" text="location" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonBuy_2" layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#buyVacation" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/shopping-cart2-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="text_2" alignment="TOP_LEFT" editable="false" layoutX="1.0" layoutY="136.0" prefHeight="90.0" prefWidth="188.0" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: transparent, white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label fx:id="date_2" alignment="CENTER" contentDisplay="CENTER" layoutY="83.0" prefHeight="34.0" prefWidth="188.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ancer_4" layoutX="453.0" layoutY="264.0" prefHeight="226.0" prefWidth="402.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fx:id="image_4" fitHeight="226.0" fitWidth="209.0" layoutX="193.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/paris.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="price_4" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="9.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="location_4" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="49.0" prefHeight="34.0" prefWidth="167.0" text="location" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonBuy_4" layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#buyVacation" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/shopping-cart2-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="text_4" alignment="TOP_LEFT" editable="false" layoutX="1.0" layoutY="136.0" prefHeight="90.0" prefWidth="188.0" style="-fx-background-radius: 0; -fx-background-insets: 0; -fx-background-color: transparent, white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label fx:id="date_4" alignment="CENTER" contentDisplay="CENTER" layoutY="83.0" prefHeight="34.0" prefWidth="188.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

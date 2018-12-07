@@ -15,7 +15,7 @@ public class testVacation extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShowVacationFxml.fxml"));
         primaryStage.setTitle("Vacation4U");
-        Scene scene = new Scene(root, 1280  , 720);
+        Scene scene = new Scene(root, 1102  , 509);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
         primaryStage.setScene(scene);
         MasterController.getInstance().setStage(primaryStage);
