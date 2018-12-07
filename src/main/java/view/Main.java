@@ -1,6 +1,7 @@
 package view;
 
 import Contrroller.MasterController;
+import com.jfoenix.controls.JFXDialogLayout;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,11 +18,6 @@ public class Main extends Application {
         Scene scene = new Scene(root, 1280  , 720);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
         primaryStage.setScene(scene);
-//        controller.setStage(primaryStage);
-//        Database d = new Database();
-//        d.createNewDatabase("vacation4u");
-//        d.connect();
-        MasterController.getInstance().setStage(primaryStage);
         primaryStage.show();
     }
 

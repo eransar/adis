@@ -1,0 +1,8 @@
+#signup_anchor{
+    /*-fx-background-image: url("/images/signup.png");*/
+    /*-fx-background-color: rgb(131,190,233);*/
+    -fx-background-image: url("/images/travel.jpg");
+    -fx-background-size: cover;
+    -fx-background-size: 100%;
+    -fx-background-repeat: no-repeat;
+}

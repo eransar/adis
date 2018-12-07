@@ -54,7 +54,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="button_SignUpSearch" layoutX="1006.0" layoutY="38.0" mnemonicParsing="false" onAction="#RegisterClick" prefHeight="46.0" prefWidth="128.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up now" />
+            <Button fx:id="button_SignUp" layoutX="924.0" layoutY="35.0" mnemonicParsing="false" onAction="#setSign_up" prefHeight="46.0" prefWidth="128.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5;" text="Sign Up" />
             <Button fx:id="button_LogIN" layoutX="685.0" layoutY="39.0" mnemonicParsing="false" onAction="#LogInClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30;" text="Log In" />
          </children></AnchorPane>
       <AnchorPane id="searchAncer" fx:id="searchAncer" layoutX="161.0" layoutY="201.0" opacity="0.5" prefHeight="509.0" prefWidth="1102.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="201.0">
@@ -62,7 +62,7 @@
             <JFXBadge layoutX="409.0" layoutY="76.0" />
          </children>
       </AnchorPane>
-      <JFXTextField layoutX="193.0" layoutY="150.0" prefHeight="25.0" prefWidth="313.0" promptText="              Search">
+      <JFXTextField layoutX="184.0" layoutY="150.0" prefHeight="25.0" prefWidth="313.0" promptText="              Search">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -71,11 +71,12 @@
       <JFXComboBox fx:id="combo_search" layoutX="504.0" layoutY="167.0" onAction="#set_searchComboBox" prefHeight="27.0" prefWidth="150.0" promptText="Search Parameter" />
       <JFXDatePicker fx:id="vacation_startdate" cache="true" defaultColor="#23b2b2" layoutX="820.0" layoutY="106.0" promptText="Start Date" visible="false" />
       <JFXDatePicker fx:id="vacation_enddate" cache="true" defaultColor="#34bfbf" layoutX="1005.0" layoutY="107.0" visible="false" />
-      <JFXTextField fx:id="vacation_location" layoutX="738.0" layoutY="151.0" prefHeight="25.0" prefWidth="313.0" promptText="Location" visible="false">
+      <JFXTextField fx:id="vacation_location" layoutX="794.0" layoutY="155.0" prefHeight="31.0" prefWidth="257.0" promptText="Location">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXTextField>
       <JFXTextField fx:id="vacation_price" layoutX="1076.0" layoutY="155.0" promptText="Price Range (ex 500)" visible="false" />
+      <Button fx:id="button_Search" layoutX="665.0" layoutY="162.0" mnemonicParsing="false" onAction="#LogInClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30;" text="Search" />
    </children>
 </AnchorPane>

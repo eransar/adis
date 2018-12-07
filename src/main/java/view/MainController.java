@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -86,7 +87,7 @@ public class MainController implements Initializable, IView {
             e.printStackTrace();
         }
         date_before_18_years=LocalDate.now().minusYears(18);
-        button_SignUpSearch.setVisible(false);
+//        button_SignUpSearch.setVisible(false);
 
 //        LocalDate currentDate = LocalDate.now();
 //         date_before_18_years = Date.from(currentDate.minusYears(18).atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -238,9 +239,20 @@ public class MainController implements Initializable, IView {
     /*
         set sign up -
      */
-    public void setSign_up() throws IOException{
+    public void setSign_up() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Signup.fxml"));
+        Parent root = fxmlLoader.load();
 
-        button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
+        Stage stage = new Stage();
+        Scene scene = new Scene(root, 410  , 460);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("Signup.css").toExternalForm());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setOpacity(1);
+        stage.setTitle("Vacation4u Sign Up");
+        stage.setScene(scene);
+        stage.showAndWait();
+
+
     }
 
 

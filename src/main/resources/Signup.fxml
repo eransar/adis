@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="signup_anchor" fx:id="signup_anchor" prefHeight="600.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Signup">
+   <children>
+      <TextField layoutX="248.0" layoutY="231.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="43.0" layoutY="231.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="43.0" layoutY="163.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="242.0" layoutY="163.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="43.0" layoutY="102.0" style="-fx-background-radius: 30;" />
+      <TextField layoutX="239.0" layoutY="102.0" style="-fx-background-radius: 30;" />
+   </children>
+</AnchorPane>
