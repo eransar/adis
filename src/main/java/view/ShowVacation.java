@@ -36,7 +36,10 @@ public class ShowVacation implements Initializable {
     private ArrayList<List<String>> vacation;
     //mc - singleton
     private MasterController mc;
+    //
     public AnchorPane ancer_show;
+    private StackPane paneDialog ;
+    private JFXDialog dialog;
     //vacation 1
     public AnchorPane ancer_1;
     public Button buttonBuy_1;
@@ -86,6 +89,7 @@ public class ShowVacation implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mc = MasterController.getInstance();
+        paneDialog = new StackPane();
         //initVec();
     }
 
@@ -178,23 +182,35 @@ public class ShowVacation implements Initializable {
     }
 
     public void showInfoDialog() {
-        StackPane pane = new StackPane();
-        pane.setPrefWidth(ancer_show.getPrefWidth()/2);
-        pane.setPrefHeight(ancer_show.getPrefHeight()/2);
+        disOrableButtonsVacation(true);
+        paneDialog = new StackPane();
+        paneDialog.setPrefWidth(ancer_show.getPrefWidth()/2);
+        paneDialog.setPrefHeight(ancer_show.getPrefHeight()/2);
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text("Buying Message"));
         content.setBody(new Text("Thank you for your order"+"\n"+"Message have been send to buyer for approve"));
-        JFXDialog dialog = new JFXDialog(pane, content, JFXDialog.DialogTransition.CENTER);
+        dialog = new JFXDialog(paneDialog, content, JFXDialog.DialogTransition.CENTER);
         JFXButton button = new JFXButton("Okay");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 dialog.close();
+                disOrableButtonsVacation(false);
             }
         });
         content.setActions(button);
-        ancer_show.getChildren().add(pane);
+        ancer_show.getChildren().add(paneDialog);
         dialog.show();
     }
+
+    private void disOrableButtonsVacation(boolean b) {
+        buttonBuy_1.setDisable(b);
+        buttonBuy_2.setDisable(b);
+        buttonBuy_3.setDisable(b);
+        buttonBuy_4.setDisable(b);
+        button_next.setDisable(b);
+        button_back.setDisable(b);
+    }
+
 
 }

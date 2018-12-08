@@ -74,7 +74,7 @@ public class Search implements Initializable, IView {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("UserTableView.fxml"));
                     Parent root = fxmlLoader.load();
                     Stage stage = new Stage();
-                    Scene scene = new Scene(root, 410  , 460);
+                    Scene scene = new Scene(root, 410, 460);
                     scene.getStylesheets().add(getClass().getClassLoader().getResource("Signup.css").toExternalForm());
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setOpacity(1);
@@ -87,10 +87,25 @@ public class Search implements Initializable, IView {
                 } else
                     noResult.setVisible(true);
             } else if (search_options.getValue().equals("vacation")) {
-                AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
-                tablepane.getChildren().setAll(pane11);
-                noResult.setVisible(false);
+                //if(result.size()>0){
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("ShowVacationFxml.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root, 1200, 720);
+                scene.getStylesheets().add(getClass().getClassLoader().getResource("showVac.css").toExternalForm());
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setOpacity(1);
+                stage.setTitle("Vacation search");
+                stage.setScene(scene);
+                stage.showAndWait();
+                //AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
+                //tablepane.getChildren().setAll(pane11);
             }
+        //}
+            //else {
+             //   noResult.setVisible(true);
+           // }
+                noResult.setVisible(false);
         }
     }
 
