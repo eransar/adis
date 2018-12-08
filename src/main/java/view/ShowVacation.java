@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 
 public class ShowVacation implements Initializable {
     //list vacation
-    private ArrayList<Vacation> vacation;
+    private ArrayList<List<String>> vacation;
     //mc - singleton
     private MasterController mc;
     public AnchorPane ancer_show;
@@ -89,23 +89,22 @@ public class ShowVacation implements Initializable {
         //initVec();
     }
 
+    public void setVacation(ArrayList<List<String>> arrayList){
+        vacation = arrayList;
+    }
+
     public void initializeFileds() {
         Field[] f = Class.class.getDeclaredFields();
     }
 
     private void initVec() {
-        //if(mc.read() instanceof Vacation){
-        //vacation = (Vacation)mc.read();
 
-        /*Field[] fields = ShowVacation.class.getDeclaredFields();
-        List<Field> fieldList = Arrays.asList(fields).stream().filter(field -> Modifier.isPublic(field.getModifiers())).collect(
-                Collectors.toList());*/
+
 
         if (vacation.size() > vacIndex) {
-            price_1.setText("price: " + vacation.get(vacIndex).getPrice());
-            location_1.setText(vacation.get(vacIndex).getLocation());
-            date_1.setText("from " + vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
-            //image_1.setImage();
+            price_1.setText("price: " + vacation.get(vacIndex).get(4));
+            location_1.setText(vacation.get(vacIndex).get(2));
+            date_1.setText("from " + vacation.get(vacIndex).get(5) + " to " + vacation.get(vacIndex).get(6));
         }
         else{
             ancer_1.setVisible(false);
@@ -114,10 +113,10 @@ public class ShowVacation implements Initializable {
         setNextIndexVec(vacIndex);
 
         if (vacation.size() > vacIndex) {
-            price_2.setText("price: " + vacation.get(vacIndex).getPrice());
-            location_2.setText(vacation.get(vacIndex).getLocation());
-            date_2.setText("from " + vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
-            //image_2.setImage();
+            price_2.setText("price: " + vacation.get(vacIndex).get(4));
+            location_2.setText(vacation.get(vacIndex).get(2));
+            date_2.setText("from " + vacation.get(vacIndex).get(5) + " to " + vacation.get(vacIndex).get(6));
+
         }
         else{
             ancer_2.setVisible(false);
@@ -126,10 +125,10 @@ public class ShowVacation implements Initializable {
         setNextIndexVec(vacIndex);
 
         if (vacation.size() > vacIndex) {
-            price_3.setText("price: " + vacation.get(vacIndex).getPrice());
-            location_3.setText(vacation.get(vacIndex).getLocation());
-            date_3.setText("from " + vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
-            //image_3.setImage();
+            price_3.setText("price: " + vacation.get(vacIndex).get(4));
+            location_3.setText(vacation.get(vacIndex).get(2));
+            date_3.setText("from " + vacation.get(vacIndex).get(5) + " to " + vacation.get(vacIndex).get(6));
+
         }
         else{
             ancer_3.setVisible(false);
@@ -138,10 +137,10 @@ public class ShowVacation implements Initializable {
         setNextIndexVec(vacIndex);
 
         if (vacation.size() > vacIndex) {
-            price_4.setText("price: " + vacation.get(vacIndex).getPrice());
-            location_4.setText(vacation.get(vacIndex).getLocation());
-            date_4.setText("from " + vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
-            //image_4.setImage();
+            price_4.setText("price: " + vacation.get(vacIndex).get(4));
+            location_4.setText(vacation.get(vacIndex).get(2));
+            date_4.setText("from " + vacation.get(vacIndex).get(5) + " to " + vacation.get(vacIndex).get(6));
+
         }
         else {
             ancer_4.setVisible(false);
