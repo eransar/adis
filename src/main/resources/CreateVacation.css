@@ -1,0 +1,5 @@
+#vacation_anchor{
+    -fx-background-image: url("/images/homebg.jpg");
+    -fx-background-color: rgba(255,255,255,1);
+    -fx-background-size: cover;
+}

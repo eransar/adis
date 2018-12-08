@@ -63,15 +63,9 @@ public class MainController implements Initializable, IView {
 
 
 
-    public static User getUser() {
-        return user;
-    }
 
-    public static void setUser(User user) {
-        MainController.user = user;
-    }
 
-    private static User user;
+
 
 
 
@@ -79,7 +73,7 @@ public class MainController implements Initializable, IView {
     public void initialize(URL location, ResourceBundle resources) {
         anchor_header.setId("anchor_header");
         searchAncer.setId("searchAncer");
-        combo_search.getItems().addAll("User","Vacation");
+        combo_search.getItems().addAll("User","CreateVacation");
         unCorrect.setVisible(false);
         try {
             Search();
@@ -94,17 +88,6 @@ public class MainController implements Initializable, IView {
         //System.out.println(date_before_18_years);
     }
 
-    public void BuildUserEntity(){
-        this.user=new User(
-                userName.getText(),
-                password.getText(),
-                birthday.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
-                city.getText(),
-                firstName.getText(),
-                lastName.getText()
-        );
-
-    }
     /*
     log to user
      */
@@ -117,9 +100,9 @@ public class MainController implements Initializable, IView {
         }
         else{
             User userLogin = new User(loginList);
-            MainController.setUser(userLogin);
             button_LogIN.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
-            setSign_up();
+//            setSign_up();
+            mc.setUser(userLogin);
 
         }
 //        unCorrect.setVisible(false);
@@ -200,19 +183,16 @@ public class MainController implements Initializable, IView {
 
 
 
-
-
-
         if(register){
             button_SignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
-            BuildUserEntity();
-            mc.insert(user);
+            /*BuildUserEntity();*/
+//            mc.insert(user);
         }
     }
 
     public void set_searchComboBox(){
         System.out.println(combo_search.getSelectionModel().getSelectedItem());
-        if(combo_search.getSelectionModel().getSelectedItem().equals("Vacation")){
+        if(combo_search.getSelectionModel().getSelectedItem().equals("CreateVacation")){
             vacation_price.setVisible(true);
             vacation_location.setVisible(true);
             vacation_enddate.setVisible(true);
@@ -231,8 +211,8 @@ public class MainController implements Initializable, IView {
         search fxml
      */
     public void Search() throws IOException {
-//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
-//        searchAncer.getChildren().setAll(pane);
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
+        searchAncer.getChildren().setAll(pane);
 
     }
 
