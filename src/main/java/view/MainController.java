@@ -73,7 +73,7 @@ public class MainController implements Initializable, IView {
     public void initialize(URL location, ResourceBundle resources) {
         anchor_header.setId("anchor_header");
         searchAncer.setId("searchAncer");
-        combo_search.getItems().addAll("User","Vacation");
+        combo_search.getItems().addAll("User","CreateVacation");
         unCorrect.setVisible(false);
         try {
             Search();
@@ -192,7 +192,7 @@ public class MainController implements Initializable, IView {
 
     public void set_searchComboBox(){
         System.out.println(combo_search.getSelectionModel().getSelectedItem());
-        if(combo_search.getSelectionModel().getSelectedItem().equals("Vacation")){
+        if(combo_search.getSelectionModel().getSelectedItem().equals("CreateVacation")){
             vacation_price.setVisible(true);
             vacation_location.setVisible(true);
             vacation_enddate.setVisible(true);

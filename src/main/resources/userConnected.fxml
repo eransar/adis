@@ -19,7 +19,7 @@
             </ImageView>
          </children></AnchorPane>
       <AnchorPane fx:id="winS" layoutX="379.0" layoutY="141.0" opacity="0.92" prefHeight="538.0" prefWidth="793.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
-      <AnchorPane opacity="0.81" prefHeight="720.0" prefWidth="158.0" style="-fx-background-color: #ffffff;">
+      <AnchorPane opacity="0.8" prefHeight="720.0" prefWidth="158.0" style="-fx-background-color: #ffffff;">
          <children>
             <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="76.0" layoutY="42.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
             <Label fx:id="userLabel" alignment="CENTER" layoutX="37.0" layoutY="81.0" prefHeight="21.0" prefWidth="78.0" text="Label">
@@ -71,5 +71,11 @@
                </image>
             </ImageView>
          </children></AnchorPane>
+      <ImageView fx:id="post_vacation" fitHeight="150.0" fitWidth="200.0" layoutX="170.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/add vacation.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="170.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -21,8 +21,8 @@ public class testdb {
 
     public static void main(String[] args) throws InterruptedException {
         Model model = Model.getInstance();
-//        Vacation v = new Vacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
-//        Vacation e = new Vacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
+//        CreateVacation v = new CreateVacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
+//        CreateVacation e = new CreateVacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
 //        Deal d = new Deal("idannn","merhav","1000000","99");
 //        Deal e = new Deal("idannn","merhav","1000000","99");
 //        Database db = new Database();

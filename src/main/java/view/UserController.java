@@ -11,12 +11,14 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +32,7 @@ public class UserController implements Initializable, IView {
     public AnchorPane winS;
     public Label userLabel;
     private MasterController mc;
+    public ImageView post_vacation;
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,6 +43,7 @@ public class UserController implements Initializable, IView {
         profileImage.setFill(new ImagePattern((im)));
         profileImage.setEffect(new DropShadow(+25d ,0d,+2d,Color.SNOW));
         userLabel.setText(mc.getUser().getUsername());
+        imageHandle();
         //Search Scene
         AnchorPane pane = null;
         try {
@@ -64,6 +68,29 @@ public class UserController implements Initializable, IView {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/Search.fxml"));
         winS.getChildren().setAll(pane);
 
+    }
+    //post vacation
+    public void imageHandle(){
+        post_vacation.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("CreateVacation.fxml"));
+            Parent root = null;
+
+            try {
+                root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root, 450  , 600);
+                scene.getStylesheets().add(getClass().getClassLoader().getResource("CreateVacation.css").toExternalForm());
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setOpacity(1);
+                stage.setTitle("Post your vacation !");
+                stage.setScene(scene);
+                stage.showAndWait();
+                event.consume();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
     }
     /*
     log out screen

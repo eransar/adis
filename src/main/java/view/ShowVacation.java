@@ -94,8 +94,8 @@ public class ShowVacation implements Initializable {
     }
 
     private void initVec() {
-        //if(mc.read() instanceof Vacation){
-        //vacation = (Vacation)mc.read();
+        //if(mc.read() instanceof CreateVacation){
+        //vacation = (CreateVacation)mc.read();
 
         /*Field[] fields = ShowVacation.class.getDeclaredFields();
         List<Field> fieldList = Arrays.asList(fields).stream().filter(field -> Modifier.isPublic(field.getModifiers())).collect(

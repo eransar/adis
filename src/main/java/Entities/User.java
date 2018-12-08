@@ -62,6 +62,7 @@ public class User extends AEntity{
         return result;
     }
 
+
     @Override
     /*
     Returns DB name of the entity

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="vacation_anchor" prefHeight="600.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CreateVacation">
+   <children>
+      <TextField fx:id="location" layoutX="110.0" layoutY="150.0" promptText="Type The Location" style="-fx-background-radius: 30;" />
+      <TextField fx:id="price" layoutX="212.0" layoutY="270.0" promptText="Price" style="-fx-background-radius: 30;" />
+      <TextField fx:id="airline" layoutX="14.0" layoutY="273.0" promptText="Airline" style="-fx-background-radius: 30;" />
+      <DatePicker fx:id="startdate" layoutX="14.0" layoutY="213.0" prefHeight="27.0" prefWidth="167.0" promptText="Start Date" />
+      <DatePicker fx:id="enddate" layoutX="212.0" layoutY="211.0" prefHeight="27.0" prefWidth="167.0" promptText="End Date" />
+      <Label layoutX="79.0" layoutY="68.0" prefHeight="48.0" prefWidth="302.0" text="Post Your Vacation ">
+         <font>
+            <Font name="Brush Script MT Italic" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="button_post" layoutX="156.0" layoutY="448.0" mnemonicParsing="false" onAction="#post" prefHeight="27.0" prefWidth="100.0" style="-fx-background-radius: 30; -fx-background-color: #FFD700#FFD700;" text="Post" />
+      <TextArea fx:id="text" layoutX="63.0" layoutY="316.0" prefHeight="117.0" prefWidth="285.0" promptText="                                                                                                                                                                                                                                               Add More Info" />
+      <AnchorPane layoutX="-2.0" prefHeight="34.0" prefWidth="458.0" style="-fx-background-color: #696969#696969;">
+         <children>
+            <Label fx:id="error" layoutX="11.0" layoutY="9.0" prefHeight="17.0" prefWidth="425.0" textAlignment="CENTER" textFill="#eba105" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
