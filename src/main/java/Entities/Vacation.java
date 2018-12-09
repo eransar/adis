@@ -15,8 +15,9 @@ public class Vacation extends AEntity {
     SimpleStringProperty end_date;
     SimpleStringProperty picture;
     SimpleStringProperty visible;
+    SimpleStringProperty text;
 
-    public Vacation(String creator,String location,String airline, String price, String start_date, String end_date, String picture, String visible){
+    public Vacation(String creator,String location,String airline, String price, String start_date, String end_date, String picture, String visible, String text){
         super();
         counter++;
         this.vacation_id=new SimpleStringProperty(""+(counter));
@@ -28,6 +29,7 @@ public class Vacation extends AEntity {
         this.end_date=new SimpleStringProperty(end_date);
         this.picture=new SimpleStringProperty(picture);
         this.visible=new SimpleStringProperty(visible);
+        this.text=new SimpleStringProperty(text);
     }
 
 
@@ -43,6 +45,7 @@ public class Vacation extends AEntity {
         result.add(this.end_date.getValue());
         result.add(this.picture.getValue());
         result.add(this.visible.getValue());
+        result.add(this.text.getValue());
 
         return result;
     }
@@ -59,6 +62,7 @@ public class Vacation extends AEntity {
         this.start_date=new SimpleStringProperty(LoginArray.get(5));
         this.end_date=new SimpleStringProperty(LoginArray.get(6));
         this.visible=new SimpleStringProperty(LoginArray.get(8));
+        this.text=new SimpleStringProperty(LoginArray.get(9));
     }
 
     @Override
