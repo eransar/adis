@@ -88,6 +88,7 @@ public class CreateVacation implements Initializable {
 
     }
     public void buildVacationEntity(){
+        String id = mc.getMax(new Vacation());
         mc.insert(new Vacation(mc.getUser().getUsername(),location.getText(),airline.getText()
         ,price.getText(),startdate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
                 enddate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),"","1",text.getText()));

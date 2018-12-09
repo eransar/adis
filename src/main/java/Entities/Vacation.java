@@ -1,6 +1,7 @@
 package Entities;
 
 import javafx.beans.property.SimpleStringProperty;
+import model.Model;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class Vacation extends AEntity {
     public Vacation(String creator,String location,String airline, String price, String start_date, String end_date, String picture, String visible, String text){
         super();
         counter++;
+
         this.vacation_id=new SimpleStringProperty(""+(counter));
         this.creator=new SimpleStringProperty(creator);
         this.location=new SimpleStringProperty(location);

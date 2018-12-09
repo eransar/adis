@@ -99,5 +99,6 @@ public class MasterController {
     public void update(IEntity entity){
         model.update(entity);
     }
+    public String getMax(IEntity entity){return model.getMax(entity);}
     public ArrayList<String> login(IEntity entity){ return model.login(entity);}
 }
