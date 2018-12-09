@@ -50,13 +50,17 @@ public class CreateVacation implements Initializable {
                 || start_text.equals("")
                 || end_text.equals("")
                 || text.getText().equals(""))
-        post=false;
+
         {
             //if one of the fields are empty :
             error.setText("Please fill all of the fields");
             error.setVisible(true);
             post=false;
         }
+                else{
+            post=true;
+        }
+
 
         try {
             if(!date || enddate.getValue().isBefore(startdate.getValue())){
@@ -79,6 +83,7 @@ public class CreateVacation implements Initializable {
 
         if(post){
         buildVacationEntity();
+        System.out.println("worked");
         }
 
     }

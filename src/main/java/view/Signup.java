@@ -141,6 +141,7 @@ public class Signup implements Initializable{
             button_signup.addEventHandler(MouseEvent.MOUSE_CLICKED, new CloseStageHandler());
             BuildUserEntity();
             mc.insert(user);
+
         }
 
 
