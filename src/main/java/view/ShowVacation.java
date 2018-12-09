@@ -86,6 +86,7 @@ public class ShowVacation implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mc = MasterController.getInstance();
+        this.vacation=Search.getVacations();
         //initVec();
     }
 

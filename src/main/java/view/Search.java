@@ -2,6 +2,7 @@ package view;
 
 import Contrroller.MasterController;
 import Entities.User;
+import Entities.Vacation;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +36,7 @@ public class Search implements Initializable, IView {
     private User search_user;
     private  ArrayList<List<String>> result;
     private static ArrayList<User> Users;
+    private static ArrayList<Vacation> Vacations;
 
 
     @Override
@@ -44,6 +46,7 @@ public class Search implements Initializable, IView {
         mc = MasterController.getInstance();
         result = new ArrayList<List<String>>();
         Users = new ArrayList<User>();
+        Vacations= new ArrayList<Vacation>();
         search_options.setValue("user");
         search_options.getItems().addAll("user","vacation");
          noResult.setVisible(false);
@@ -57,6 +60,10 @@ public class Search implements Initializable, IView {
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         stage.setX((screenBounds.getWidth() - width) / 2);
         stage.setY((screenBounds.getHeight() - height) / 2);
+    }
+
+    public static ArrayList<Vacation> getVacations() {
+        return Vacations;
     }
 
     public void Search_click(ActionEvent actionEvent) throws IOException {
@@ -87,6 +94,9 @@ public class Search implements Initializable, IView {
                 } else
                     noResult.setVisible(true);
             } else if (search_options.getValue().equals("vacation")) {
+                Vacation search_vacation = new Vacation();
+                result = mc.read(search_vacation,"location", field_search.getText());
+                Vacations = listToVacation(result);
                 AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
                 tablepane.getChildren().setAll(pane11);
                 noResult.setVisible(false);
@@ -118,6 +128,18 @@ public class Search implements Initializable, IView {
         }
 
         return Users;
+    }
+    private ArrayList<Vacation> listToVacation(ArrayList<List<String>> arrayList){
+        ArrayList<String> temp = new ArrayList<String>();
+        for (int i = 0; i <arrayList.size() ; i++) {
+            for (int j = 0; j <arrayList.get(i).size() ; j++) {
+                temp.add(arrayList.get(i).get(j));
+            }
+            Vacations.add(new Vacation(temp));
+            temp.clear();
+        }
+
+        return Vacations;
     }
 
     public static ArrayList<User> getUsers() {

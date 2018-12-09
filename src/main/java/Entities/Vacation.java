@@ -49,6 +49,18 @@ public class Vacation extends AEntity {
 
     public Vacation(){};
 
+    public Vacation(ArrayList<String> LoginArray){
+        super();
+        this.vacation_id=new SimpleStringProperty(LoginArray.get(0));
+        this.creator=new SimpleStringProperty(LoginArray.get(1));
+        this.location =new SimpleStringProperty(LoginArray.get(2));
+        this.airline =new SimpleStringProperty(LoginArray.get(3));
+        this.price =new SimpleStringProperty(LoginArray.get(4));
+        this.start_date=new SimpleStringProperty(LoginArray.get(5));
+        this.end_date=new SimpleStringProperty(LoginArray.get(6));
+        this.visible=new SimpleStringProperty(LoginArray.get(8));
+    }
+
     @Override
     public String GetDBName() {
         return "vacations";
