@@ -96,18 +96,22 @@ public class Search implements Initializable, IView {
             } else if (search_options.getValue().equals("vacation")) {
                 Vacation search_vacation = new Vacation();
                 result = mc.read(search_vacation,"location", field_search.getText());
-                Vacations = listToVacation(result);
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("ShowVacationFxml.fxml"));
-                Parent root = fxmlLoader.load();
-                Stage stage = new Stage();
-                Scene scene = new Scene(root, 1200, 509);
-                scene.getStylesheets().add(getClass().getClassLoader().getResource("showVac.css").toExternalForm());
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setOpacity(1);
-                stage.setTitle("Vacation search");
-                stage.setScene(scene);
-                stage.showAndWait();
-                noResult.setVisible(false);
+                if(result.size()>0) {
+                    Vacations = listToVacation(result);
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("ShowVacationFxml.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root, 1200, 509);
+                    scene.getStylesheets().add(getClass().getClassLoader().getResource("showVac.css").toExternalForm());
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setOpacity(1);
+                    stage.setTitle("Vacation search");
+                    stage.setScene(scene);
+                    stage.showAndWait();
+                    noResult.setVisible(false);
+                }
+                else
+                noResult.setVisible(true);
             }
         }
     }

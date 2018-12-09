@@ -1,5 +1,6 @@
 package view;
 
+import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.MasterController;
 import Entities.Vacation;
 import com.jfoenix.controls.JFXButton;
@@ -13,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -93,6 +95,8 @@ public class ShowVacation implements Initializable {
         text_3.setWrapText(true);
         text_4.setWrapText(true);
         initVec();
+
+
     }
 
     public void initializeFileds() {
@@ -160,8 +164,6 @@ public class ShowVacation implements Initializable {
         else {
             ancer_4.setVisible(false);
         }
-
-
 
     }
 

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="509.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Search">
+<AnchorPane fx:id="pane" prefHeight="509.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Search">
    <children>
       <Label alignment="CENTER" layoutX="270.0" layoutY="23.0" prefHeight="31.0" prefWidth="115.0" style="-fx-background-radius: 30;" text="Search">
          <effect>
@@ -20,9 +20,9 @@
          </font>
       </Label>
       <Button id="button_Search" fx:id="button_Search" layoutX="513.0" layoutY="137.0" mnemonicParsing="false" onAction="#Search_click" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFE4B5 #FFE4B5;" text="Search" />
-      <Label fx:id="noResult" layoutX="293.0" layoutY="97.0" prefHeight="16.0" prefWidth="55.0" text="No Result" textFill="RED">
+      <Label fx:id="noResult" layoutX="293.0" layoutY="97.0" prefHeight="20.0" prefWidth="79.0" text="No Result" textFill="RED">
          <font>
-            <Font size="11.0" />
+            <Font size="16.0" />
          </font>
       </Label>
       <JFXTextField fx:id="field_search" layoutX="14.0" layoutY="125.0" prefHeight="25.0" prefWidth="313.0" promptText="              Search for">
