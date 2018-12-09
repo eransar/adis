@@ -95,8 +95,6 @@ public class ShowVacation implements Initializable {
         text_3.setWrapText(true);
         text_4.setWrapText(true);
         initVec();
-
-
     }
 
     public void initializeFileds() {
