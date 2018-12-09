@@ -1,5 +1,6 @@
 package view;
 
+import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.Handlers.LoginHandler;
 import Contrroller.MasterController;
 import Entities.User;
@@ -46,10 +47,6 @@ public class Signup implements Initializable{
 
     }
 
-    public void signup_action(){
-
-        button_signup.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
-    }
 
     public void BuildUserEntity(){
         this.user=new User(
@@ -60,6 +57,7 @@ public class Signup implements Initializable{
                 firstname.getText(),
                 lastname.getText()
         );
+        mc.setUser(this.user);
 
     }
 
@@ -140,7 +138,7 @@ public class Signup implements Initializable{
 
 
         if(register){
-            button_signup.addEventHandler(MouseEvent.MOUSE_CLICKED, new LoginHandler());
+            button_signup.addEventHandler(MouseEvent.MOUSE_CLICKED, new CloseStageHandler());
             BuildUserEntity();
             mc.insert(user);
         }
