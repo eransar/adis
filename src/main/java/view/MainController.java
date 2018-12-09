@@ -222,7 +222,6 @@ public class MainController implements Initializable, IView {
     public void setSign_up() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Signup.fxml"));
         Parent root = fxmlLoader.load();
-
         Stage stage = new Stage();
         Scene scene = new Scene(root, 410  , 460);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("Signup.css").toExternalForm());
@@ -231,8 +230,11 @@ public class MainController implements Initializable, IView {
         stage.setTitle("Vacation4u Sign Up");
         stage.setScene(scene);
         stage.showAndWait();
-
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("System Massage");
+        alert.setHeaderText("Register Massage");
+        alert.setContentText("Thank you for your Register\nNow you can Log In to your User");
+        alert.show();
     }
 
 
