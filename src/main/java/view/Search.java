@@ -97,8 +97,16 @@ public class Search implements Initializable, IView {
                 Vacation search_vacation = new Vacation();
                 result = mc.read(search_vacation,"location", field_search.getText());
                 Vacations = listToVacation(result);
-                AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
-                tablepane.getChildren().setAll(pane11);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("ShowVacationFxml.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root, 1200, 509);
+                scene.getStylesheets().add(getClass().getClassLoader().getResource("showVac.css").toExternalForm());
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setOpacity(1);
+                stage.setTitle("Vacation search");
+                stage.setScene(scene);
+                stage.showAndWait();
                 noResult.setVisible(false);
             }
         }

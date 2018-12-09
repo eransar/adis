@@ -52,6 +52,18 @@ public class Vacation extends AEntity {
 
     public Vacation(){};
 
+    public String getText() {
+        return text.get();
+    }
+
+    public SimpleStringProperty textProperty() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text.set(text);
+    }
+
     public Vacation(ArrayList<String> LoginArray){
         super();
         this.vacation_id=new SimpleStringProperty(LoginArray.get(0));

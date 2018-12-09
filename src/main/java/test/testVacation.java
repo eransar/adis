@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static javafx.application.Application.launch;
@@ -36,6 +37,7 @@ public class testVacation extends Application {
         lists.add(new ArrayList<>());
         lists.add(new ArrayList<>());
         lists.add(new ArrayList<>());
+
 
     }
 }
