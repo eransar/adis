@@ -24,6 +24,7 @@ public class CreateVacation implements Initializable {
     public TextArea text;
     public Label error;
     public MasterController mc;
+    public boolean post;
 
 
 
@@ -49,23 +50,35 @@ public class CreateVacation implements Initializable {
                 || start_text.equals("")
                 || end_text.equals("")
                 || text.getText().equals(""))
+        post=false;
         {
             //if one of the fields are empty :
             error.setText("Please fill all of the fields");
             error.setVisible(true);
+            post=false;
         }
 
         try {
             if(!date || enddate.getValue().isBefore(startdate.getValue())){
                 error.setText("End date cant be before start date");
                 error.setVisible(true);
+                post=false;
             }
-            if(!date || startdate.getValue().isBefore(LocalDate.now())){
+            else if(!date || startdate.getValue().isBefore(LocalDate.now())){
                 error.setText("Start date cant be earlier than today");
                 error.setVisible(true);
+                post=false;
+            }
+            else {
+                post=true;
             }
         } catch (Exception e) {
             error.setText("Please fill start date and end date");
+            post=false;
+        }
+
+        if(post){
+        buildVacationEntity();
         }
 
     }
@@ -75,6 +88,7 @@ public class CreateVacation implements Initializable {
                 enddate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),"","1",text.getText()));
 
     }
+
 
 
 
