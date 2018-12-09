@@ -71,8 +71,7 @@ public class ShowVacation implements Initializable {
     public Button button_back;
     public Button button_next;
     private boolean nextPage = true;
-    private boolean backPage = false;
-    int vacIndex = 0;
+    int vacIndex = 1;
     //Deals
     public ImageView image_deal1;
     public ImageView image_deal2;
@@ -102,79 +101,94 @@ public class ShowVacation implements Initializable {
 
     private void initVec() {
 
-        if (vacation.size() > vacIndex) {
-            price_1.setText(vacation.get(vacIndex).getPrice());
-            location_1.setText(vacation.get(vacIndex).getLocation());
-            date_1.setText(vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
-            text_1.setText(vacation.get(vacIndex).getText());
+        if (vacation.size() > vacIndex-1) {
+            price_1.setText(vacation.get(vacIndex-1).getPrice());
+            location_1.setText(vacation.get(vacIndex-1).getLocation());
+            date_1.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
+            text_1.setText(vacation.get(vacIndex-1).getText());
+            vacIndex++;
+            //setNextIndexVec(vacIndex);
+            ancer_1.setVisible(true);
             //image_1.setImage();
         }
         else{
             ancer_1.setVisible(false);
         }
 
-        setNextIndexVec(vacIndex);
-
-        if (vacation.size() > vacIndex) {
-            price_2.setText(vacation.get(vacIndex).getPrice());
-            location_2.setText(vacation.get(vacIndex).getLocation());
-            date_2.setText(vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
-            text_2.setText(vacation.get(vacIndex).getText());
+        if (vacation.size() > vacIndex-1) {
+            price_2.setText(vacation.get(vacIndex-1).getPrice());
+            location_2.setText(vacation.get(vacIndex-1).getLocation());
+            date_2.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
+            text_2.setText(vacation.get(vacIndex-1).getText());
+            //setNextIndexVec(vacIndex);
+            vacIndex++;
+            ancer_2.setVisible(true);
             //image_2.setImage();
         }
         else{
             ancer_2.setVisible(false);
         }
 
-        setNextIndexVec(vacIndex);
 
-        if (vacation.size() > vacIndex) {
-            price_3.setText(vacation.get(vacIndex).getPrice());
-            location_3.setText(vacation.get(vacIndex).getLocation());
-            date_3.setText(vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
-            text_3.setText(vacation.get(vacIndex).getText());
+
+        if (vacation.size() > vacIndex-1) {
+            price_3.setText(vacation.get(vacIndex-1).getPrice());
+            location_3.setText(vacation.get(vacIndex-1).getLocation());
+            date_3.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
+            text_3.setText(vacation.get(vacIndex-1).getText());
+            vacIndex++;
+            //setNextIndexVec(vacIndex);
+            ancer_3.setVisible(true);
             //image_3.setImage();
         }
         else{
             ancer_3.setVisible(false);
         }
 
-        setNextIndexVec(vacIndex);
 
-        if (vacation.size() > vacIndex) {
-            price_4.setText(vacation.get(vacIndex).getPrice());
-            location_4.setText(vacation.get(vacIndex).getLocation());
-            date_4.setText(vacation.get(vacIndex).getStart_date() + " to " + vacation.get(vacIndex).getEnd_date());
+
+        if (vacation.size() > vacIndex-1) {
+            price_4.setText(vacation.get(vacIndex-1).getPrice());
+            location_4.setText(vacation.get(vacIndex-1).getLocation());
+            date_4.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
+            text_4.setText(vacation.get(vacIndex-1).getText());
+            vacIndex++;
+            //setNextIndexVec(vacIndex);
+            ancer_4.setVisible(true);
             //image_4.setImage();
         }
         else {
             ancer_4.setVisible(false);
         }
 
-        setNextIndexVec(vacIndex);
 
-        nextPage = false;
-        backPage = false;
-        //}
+
     }
 
     private void setNextIndexVec(int Index) {
-        if (nextPage)
+        if (nextPage) {
             vacIndex++;
-        else
+        }
+        else {
             vacIndex--;
+        }
     }
 
     public void backClick(javafx.event.ActionEvent event) {
-        if(vacIndex>2){
-            //initVec();
+        if(vacIndex!=4){
+            vacIndex = vacIndex - vacIndex%4 -3 ;
+            nextPage =false;
+            initVec();
         }
     }
 
     public void nextClick(ActionEvent event){
-        if(vacIndex<vacation.size()){
-            //initVec();
+        if(vacIndex<=vacation.size()){
+            nextPage = true;
+            initVec();
         }
+        else
+            event.consume();
     }
 
     public void buyVacation() throws IOException {
