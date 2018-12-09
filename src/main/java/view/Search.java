@@ -61,6 +61,7 @@ public class Search implements Initializable, IView {
 
     public void Search_click(ActionEvent actionEvent) throws IOException {
         //setSearchScene();
+        noResult.setVisible(false);
         if (!(field_search.getText().equals(""))) {
             mc.setPrefHeightSearch(tablepane.getPrefHeight());
             mc.setPrefWidthSerach(tablepane.getPrefWidth());
@@ -81,11 +82,13 @@ public class Search implements Initializable, IView {
                     stage.setTitle("User Search");
                     stage.setScene(scene);
                     stage.showAndWait();
+                }
+                else{
+                    noResult.setVisible(true);
+                }
 //                    AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/UserTableView.fxml"));
 //                    tablepane.getChildren().setAll(pane11);
 //                    noResult.setVisible(false);
-                } else
-                    noResult.setVisible(true);
             } else if (search_options.getValue().equals("vacation")) {
                 //if(result.size()>0){
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("ShowVacationFxml.fxml"));
@@ -101,13 +104,10 @@ public class Search implements Initializable, IView {
                 //AnchorPane pane11 = FXMLLoader.load(getClass().getResource("/ShowVacationFxml.fxml"));
                 //tablepane.getChildren().setAll(pane11);
             }
-        //}
-            //else {
-             //   noResult.setVisible(true);
-           // }
-                noResult.setVisible(false);
-        }
+        } else
+            noResult.setVisible(true);
     }
+
 
     private void setSearchScene() throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainWin.fxml"));
