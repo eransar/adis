@@ -46,7 +46,7 @@ public class EditVacation implements Initializable{
     }
 
     public void save(){
-        Vacation vacation = new Vacation(vacations.getCreator(),edit_location.getText(),vacations.getAirline(),edit_price.getText(),edit_start.getText(),edit_end.getText(),vacations.getPicture(),"true",edit_freeText.getText());
+        Vacation vacation = new Vacation(Integer.parseInt(vacations.getVacation_id()),vacations.getCreator(),edit_location.getText(),vacations.getAirline(),edit_price.getText(),edit_start.getText(),edit_end.getText(),vacations.getPicture(),"true",edit_freeText.getText());
         mc.update(vacation);
     }
 
