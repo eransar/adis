@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ShowUserVacation implements Initializable {
@@ -87,8 +88,11 @@ public class ShowUserVacation implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        vacation = new ArrayList<>();
+        fourVac = new ArrayList<>();
         mc = MasterController.getInstance();
-        this.vacation=Search.getVacations();
+        listToVacation(mc.getData(new Vacation(),"creator",mc.getUser().getUsername()));
+        //this.vacation=Search.getVacations();
         text_1.setWrapText(true);
         text_2.setWrapText(true);
         text_3.setWrapText(true);
@@ -97,19 +101,31 @@ public class ShowUserVacation implements Initializable {
     }
 
 
+    private void listToVacation(ArrayList<List<String>> arrayList) {
+        ArrayList<String> temp = new ArrayList<String>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                temp.add(arrayList.get(i).get(j));
+            }
+            vacation.add(new Vacation(temp));
+            temp.clear();
+        }
+    }
+
+
     public void initializeFileds() {
         Field[] f = Class.class.getDeclaredFields();
     }
 
     private void initVec() {
-
+        fourVac.clear();
         if (vacation.size() > vacIndex-1) {
             price_1.setText(vacation.get(vacIndex-1).getPrice());
             location_1.setText(vacation.get(vacIndex-1).getLocation());
             date_1.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_1.setText(vacation.get(vacIndex-1).getText());
+            fourVac.add(0,vacation.get(vacIndex-1));
             vacIndex++;
-            fourVac.add(vacation.get(vacIndex-1));
             //setNextIndexVec(vacIndex);
             ancer_1.setVisible(true);
             //image_1.setImage();
@@ -124,8 +140,8 @@ public class ShowUserVacation implements Initializable {
             date_2.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_2.setText(vacation.get(vacIndex-1).getText());
             //setNextIndexVec(vacIndex);
+            fourVac.add(1,vacation.get(vacIndex-1));
             vacIndex++;
-            fourVac.add(vacation.get(vacIndex-1));
             ancer_2.setVisible(true);
             //image_2.setImage();
         }
@@ -140,8 +156,8 @@ public class ShowUserVacation implements Initializable {
             location_3.setText(vacation.get(vacIndex-1).getLocation());
             date_3.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_3.setText(vacation.get(vacIndex-1).getText());
+            fourVac.add(2,vacation.get(vacIndex-1));
             vacIndex++;
-            fourVac.add(vacation.get(vacIndex-1));
             //setNextIndexVec(vacIndex);
             ancer_3.setVisible(true);
             //image_3.setImage();
@@ -157,8 +173,8 @@ public class ShowUserVacation implements Initializable {
             location_4.setText(vacation.get(vacIndex-1).getLocation());
             date_4.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_4.setText(vacation.get(vacIndex-1).getText());
+            fourVac.add(3,vacation.get(vacIndex-1));
             vacIndex++;
-            fourVac.add(vacation.get(vacIndex-1));
             //setNextIndexVec(vacIndex);
             ancer_4.setVisible(true);
             //image_4.setImage();
@@ -198,7 +214,7 @@ public class ShowUserVacation implements Initializable {
     public void buyVacation(ActionEvent event) throws IOException {
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
-        EditVacation.setVacations(fourVac.get(a));
+        EditVacation.setVacations(fourVac.get(Integer.parseInt(""+a)-1));
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("EditVacation.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();

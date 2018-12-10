@@ -18,12 +18,16 @@ public class CRUDvacationHandler implements EventHandler {
     @Override
     public void handle(Event event) {
         final String s1 =s;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("showUserVacation.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(s1));
         Parent root = null;
         try {
             root = fxmlLoader.load();
             Stage stage = new Stage();
-            Scene scene = new Scene(root, 450, 600);
+            Scene scene=null;
+            if(s1.equals("CreateVacation.fxml"))
+               scene = new Scene(root, 450, 600);
+            else if(s1.equals("showUserVacation.fxml"))
+                scene = new Scene(root, 1200, 509);
             scene.getStylesheets().add(getClass().getClassLoader().getResource("CreateVacation.css").toExternalForm());
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setOpacity(1);
