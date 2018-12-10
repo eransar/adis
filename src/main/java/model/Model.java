@@ -37,5 +37,5 @@ public class Model {
         db.update(entity);
     }
     public ArrayList<String> login(IEntity entity){return db.login(entity);}
-    public String getMax(IEntity entity){return db.getMax(entity);}
+    public int getMax(IEntity entity){return db.getMax(entity);}
 }

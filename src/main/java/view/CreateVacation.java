@@ -1,11 +1,12 @@
 package view;
 
+import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.MasterController;
 import Entities.Vacation;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.input.MouseEvent;
 
 
 import java.net.URL;
@@ -82,16 +83,18 @@ public class CreateVacation implements Initializable {
         }
 
         if(post){
-        buildVacationEntity();
-        System.out.println("worked");
+            button_post.addEventHandler(MouseEvent.MOUSE_CLICKED, new CloseStageHandler());
+            buildVacationEntity();
+
         }
 
     }
     public void buildVacationEntity(){
-        String id = mc.getMax(new Vacation());
-        mc.insert(new Vacation(mc.getUser().getUsername(),location.getText(),airline.getText()
+        int id = mc.getMax(new Vacation())+1;
+        mc.insert(new Vacation(id,mc.getUser().getUsername(),location.getText(),airline.getText()
         ,price.getText(),startdate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
                 enddate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),"","1",text.getText()));
+
 
     }
 

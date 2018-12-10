@@ -209,29 +209,24 @@ param @IEntity - interface for the objects in the database
 
     }
 
-    public String getMax(IEntity entity){
-        String result = "";
+    public int getMax(IEntity entity){
         String SQL ="select max("+entity.getPrimaryKeyName()+")"+" " +"FROM "+entity.GetDBName();
+        int max=0;
 
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL)) {
-
-            // set the corresponding param
-            ResultSet rs=pstmt.executeQuery(SQL);
-
-
-            result = ""+rs.getInt("MAX("+entity.getPrimaryKeyName()+")");
-
+        try {
+            Connection conn = this.connect();
+            Statement statement = conn.createStatement();
+//        String sql = "SELECT MAX(GiaSP) from tbsanpham where manhom = '"+manhom+"'";
+            ResultSet rs = statement.executeQuery(SQL);
+            if (rs.next()) {
+                max = rs.getInt(1);
+            }
+            conn.close();
         } catch (SQLException e) {
-
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
-
-
-        return result;
-
-
+        return max;
     }
 
 

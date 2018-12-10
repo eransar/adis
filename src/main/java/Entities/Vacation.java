@@ -6,7 +6,6 @@ import model.Model;
 import java.util.ArrayList;
 
 public class Vacation extends AEntity {
-    private static int counter;
     SimpleStringProperty vacation_id;
     SimpleStringProperty creator;
     SimpleStringProperty location;
@@ -18,11 +17,11 @@ public class Vacation extends AEntity {
     SimpleStringProperty visible;
     SimpleStringProperty text;
 
-    public Vacation(String creator,String location,String airline, String price, String start_date, String end_date, String picture, String visible, String text){
+    public Vacation(int id,String creator,String location,String airline, String price, String start_date, String end_date, String picture, String visible, String text){
         super();
-        counter++;
 
-        this.vacation_id=new SimpleStringProperty(""+(counter));
+
+        this.vacation_id=new SimpleStringProperty(""+(id));
         this.creator=new SimpleStringProperty(creator);
         this.location=new SimpleStringProperty(location);
         this.airline=new SimpleStringProperty(airline);
@@ -89,13 +88,6 @@ public class Vacation extends AEntity {
         return vacation_id.getValue();
     }
 
-    public static int getCounter() {
-        return counter;
-    }
-
-    public static void setCounter(int counter) {
-        Vacation.counter = counter;
-    }
 
     public String getVacation_id() {
         return vacation_id.get();
