@@ -109,6 +109,7 @@ public class Search implements Initializable, IView {
                     stage.setScene(scene);
                     stage.showAndWait();
                     noResult.setVisible(false);
+
                 }
                 else
                 noResult.setVisible(true);
@@ -129,7 +130,6 @@ public class Search implements Initializable, IView {
 
 
     private ArrayList<User> listToUser(ArrayList<List<String>> arrayList){
-
         ArrayList<String> temp = new ArrayList<String>();
         for (int i = 0; i <arrayList.size() ; i++) {
             for (int j = 0; j <arrayList.get(i).size() ; j++) {
@@ -142,6 +142,7 @@ public class Search implements Initializable, IView {
         return Users;
     }
     private ArrayList<Vacation> listToVacation(ArrayList<List<String>> arrayList){
+        Vacations.clear();
         ArrayList<String> temp = new ArrayList<String>();
         for (int i = 0; i <arrayList.size() ; i++) {
             for (int j = 0; j <arrayList.get(i).size() ; j++) {
