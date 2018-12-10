@@ -20,6 +20,7 @@ public class Transaction extends AEntity {
         this.statuscode=new SimpleStringProperty(statuscode);
 
     }
+    public Transaction(){}
 
     @Override
     public ArrayList<String> getFieldsValue() {

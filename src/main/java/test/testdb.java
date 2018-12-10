@@ -1,5 +1,6 @@
 package test;
 
+import Entities.Transaction;
 import Entities.Vacation;
 import model.Model;
 
@@ -20,9 +21,11 @@ public class testdb {
 //        Database db = new Database();
 //        model.InsertToDB(d);
 //        model.InsertToDB(e);
-        ArrayList<List<String>> test =model.ReadFromDB(new Vacation(),"location","Pari");
-        int i =5 ;
-        ArrayList<List<String>> e = model.getData(new Vacation(),"creator","erantest");
+       int i= model.getMax(new Transaction());
+
+//        ArrayList<List<String>> test =model.ReadFromDB(new Vacation(),"location","Pari");
+//        int i =5 ;
+//        ArrayList<List<String>> e = model.getData(new Vacation(),"creator","erantest");
 
 //        model.delete(u1);
 //        model.update(u2);
