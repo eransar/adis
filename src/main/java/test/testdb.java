@@ -1,18 +1,10 @@
 package test;
 
-import Entities.Deal;
-import Entities.IEntity;
-import Entities.User;
 import Entities.Vacation;
-import model.Database;
 import model.Model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 import static java.lang.Thread.sleep;
 
@@ -23,8 +15,8 @@ public class testdb {
         Model model = Model.getInstance();
 //        CreateVacation v = new CreateVacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
 //        CreateVacation e = new CreateVacation("idan","Paris","ElAl","2$","11/27/2018","11/27/2019","","true");
-//        Deal d = new Deal("idannn","merhav","1000000","99");
-//        Deal e = new Deal("idannn","merhav","1000000","99");
+//        Transaction d = new Transaction("idannn","merhav","1000000","99");
+//        Transaction e = new Transaction("idannn","merhav","1000000","99");
 //        Database db = new Database();
 //        model.InsertToDB(d);
 //        model.InsertToDB(e);
