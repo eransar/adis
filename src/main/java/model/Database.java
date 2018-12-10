@@ -315,4 +315,37 @@ param @IEntity - interface for the objects in the database
             System.out.println(e.getMessage());
         }
     }
+    public ArrayList<List<String>> getData(IEntity entity, String field, String tofind){
+        ArrayList<String> read = new ArrayList<String>();
+        ArrayList<List<String>> return_list = new ArrayList<>();
+        ArrayList<String> fields_name = entity.getFields();
+        String sql = "SELECT * FROM "+entity.GetDBName()+" "
+                +"WHERE "+field+" = "+"\""+tofind+"\"";
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            ResultSetMetaData rsMetaData = rs.getMetaData(); // for debug purposes
+            // loop through the result set
+
+            for (int j = 0; rs.next(); j++) {
+                return_list.add(new ArrayList<>());
+                for (int k = 0; k < entity.getFields().size() ; k++) {
+                    return_list.get(j).add(rs.getString(fields_name.get(k)));
+//                    read.add(rs.getString(fields_name.get(k)));
+                }
+            }
+
+
+//            for (int i = 0; rs.next() ; i++) {
+//                dict_read.put(fields_name.get(i),rs.getString(i+1));
+//                System.out.println("added "+i);
+//            }
+        } catch (SQLException e) {
+            String k = e.getMessage();
+            System.out.println(e.getMessage());
+        }
+        return return_list;
+
+    }
 }

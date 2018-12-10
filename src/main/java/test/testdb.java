@@ -30,6 +30,7 @@ public class testdb {
 //        model.InsertToDB(e);
         ArrayList<List<String>> test =model.ReadFromDB(new Vacation(),"location","Pari");
         int i =5 ;
+        ArrayList<List<String>> e = model.getData(new Vacation(),"creator","erantest");
 
 //        model.delete(u1);
 //        model.update(u2);

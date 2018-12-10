@@ -38,4 +38,7 @@ public class Model {
     }
     public ArrayList<String> login(IEntity entity){return db.login(entity);}
     public int getMax(IEntity entity){return db.getMax(entity);}
+    public ArrayList<List<String>> getData(IEntity entity, String field, String find){
+        return db.getData(entity,field,find);
+    };
 }
