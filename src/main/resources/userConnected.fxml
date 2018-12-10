@@ -76,6 +76,9 @@
             <Image url="@images/add vacation.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="170.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageButton_myPost" fitHeight="49.0" fitWidth="200.0" layoutX="167.0" layoutY="282.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/myposts.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>

@@ -1,12 +1,15 @@
 package view;
 
 
+import Contrroller.Handlers.CRUDvacationHandler;
+import Contrroller.Handlers.LoginHandler;
 import Contrroller.MasterController;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -21,6 +24,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,6 +37,7 @@ public class UserController implements Initializable, IView {
     public Label userLabel;
     private MasterController mc;
     public ImageView post_vacation;
+    public ImageView imageButton_myPost;
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -70,27 +75,9 @@ public class UserController implements Initializable, IView {
 
     }
     //post vacation
-    public void imageHandle(){
-        post_vacation.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("CreateVacation.fxml"));
-            Parent root = null;
-
-            try {
-                root = fxmlLoader.load();
-                Stage stage = new Stage();
-                Scene scene = new Scene(root, 450  , 600);
-                scene.getStylesheets().add(getClass().getClassLoader().getResource("CreateVacation.css").toExternalForm());
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setOpacity(1);
-                stage.setTitle("Post your vacation !");
-                stage.setScene(scene);
-                stage.showAndWait();
-                event.consume();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        });
+    public void imageHandle() {
+        post_vacation.addEventHandler(MouseEvent.MOUSE_CLICKED, new CRUDvacationHandler("CreateVacation.fxml"));
+        imageButton_myPost.addEventHandler(MouseEvent.MOUSE_CLICKED, new CRUDvacationHandler("showUserVacation.fxml"));
     }
     /*
     log out screen

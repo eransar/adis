@@ -1,39 +1,38 @@
 package view;
 
-import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.MasterController;
 import Entities.Vacation;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
-public class ShowVacation implements Initializable {
+public class ShowUserVacation implements Initializable {
+
     //list vacation
     private ArrayList<Vacation> vacation;
+    private ArrayList<Vacation> fourVac;
     //mc - singleton
     private MasterController mc;
     public AnchorPane ancer_show;
@@ -97,6 +96,7 @@ public class ShowVacation implements Initializable {
         initVec();
     }
 
+
     public void initializeFileds() {
         Field[] f = Class.class.getDeclaredFields();
     }
@@ -109,6 +109,7 @@ public class ShowVacation implements Initializable {
             date_1.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_1.setText(vacation.get(vacIndex-1).getText());
             vacIndex++;
+            fourVac.add(vacation.get(vacIndex-1));
             //setNextIndexVec(vacIndex);
             ancer_1.setVisible(true);
             //image_1.setImage();
@@ -124,6 +125,7 @@ public class ShowVacation implements Initializable {
             text_2.setText(vacation.get(vacIndex-1).getText());
             //setNextIndexVec(vacIndex);
             vacIndex++;
+            fourVac.add(vacation.get(vacIndex-1));
             ancer_2.setVisible(true);
             //image_2.setImage();
         }
@@ -139,6 +141,7 @@ public class ShowVacation implements Initializable {
             date_3.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_3.setText(vacation.get(vacIndex-1).getText());
             vacIndex++;
+            fourVac.add(vacation.get(vacIndex-1));
             //setNextIndexVec(vacIndex);
             ancer_3.setVisible(true);
             //image_3.setImage();
@@ -155,6 +158,7 @@ public class ShowVacation implements Initializable {
             date_4.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_4.setText(vacation.get(vacIndex-1).getText());
             vacIndex++;
+            fourVac.add(vacation.get(vacIndex-1));
             //setNextIndexVec(vacIndex);
             ancer_4.setVisible(true);
             //image_4.setImage();
@@ -174,7 +178,7 @@ public class ShowVacation implements Initializable {
         }
     }
 
-    public void backClick(javafx.event.ActionEvent event) {
+    public void backClick(ActionEvent event) {
         if(vacIndex!=4){
             vacIndex = vacIndex - vacIndex%4 -3 ;
             nextPage =false;
@@ -192,28 +196,18 @@ public class ShowVacation implements Initializable {
     }
 
     public void buyVacation(ActionEvent event) throws IOException {
-        //ask for permission
-        showInfoDialog();
+        String s = (((Button) event.getSource()).getId());
+        char a = s.charAt(s.length()-1);
+        EditVacation.setVacations(fourVac.get(a));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("EditVacation.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(root, 450  , 600);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Vacation4u Edit Vacation");
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
-    public void showInfoDialog() {
-        StackPane pane = new StackPane();
-        pane.setPrefWidth(ancer_show.getPrefWidth()/2);
-        pane.setPrefHeight(ancer_show.getPrefHeight()/2);
-        JFXDialogLayout content = new JFXDialogLayout();
-        content.setHeading(new Text("Buying Message"));
-        content.setBody(new Text("Thank you for your order"+"\n"+"Message have been send to buyer for approve"));
-        JFXDialog dialog = new JFXDialog(pane, content, JFXDialog.DialogTransition.CENTER);
-        JFXButton button = new JFXButton("Okay");
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                dialog.close();
-            }
-        });
-        content.setActions(button);
-        ancer_show.getChildren().add(pane);
-        dialog.show();
-    }
 
 }
