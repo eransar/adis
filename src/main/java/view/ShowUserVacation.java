@@ -1,5 +1,6 @@
 package view;
 
+import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.MasterController;
 import Entities.Vacation;
 import com.jfoenix.controls.JFXButton;
@@ -16,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -212,6 +214,7 @@ public class ShowUserVacation implements Initializable {
     }
 
     public void buyVacation(ActionEvent event) throws IOException {
+        Stage stage1 = (Stage) ancer_show.getScene().getWindow();
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
         EditVacation.setVacations(fourVac.get(Integer.parseInt(""+a)-1));
@@ -222,7 +225,8 @@ public class ShowUserVacation implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Vacation4u Edit Vacation");
         stage.setScene(scene);
-        stage.showAndWait();
+        stage.show();
+        stage1.close();
     }
 
 
