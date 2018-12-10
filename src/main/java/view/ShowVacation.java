@@ -2,6 +2,7 @@ package view;
 
 import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.MasterController;
+import Entities.Transaction;
 import Entities.Vacation;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -193,7 +194,12 @@ public class ShowVacation implements Initializable {
 
     public void buyVacation(ActionEvent event) throws IOException {
         //ask for permission
+        String s = (((Button) event.getSource()).getId());
+        char a = s.charAt(s.length()-1);
+        Vacation v = vacation.get(Integer.parseInt(""+a)-1);
+        mc.insert(new Transaction(mc.getMax(new Transaction())+1,v.getCreator(),mc.getUser().getUsername(),v.getPrice(),v.getVacation_id(),"1"));
         showInfoDialog();
+
     }
 
     public void showInfoDialog() {
@@ -209,6 +215,7 @@ public class ShowVacation implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 dialog.close();
+                ancer_show.getScene().getWindow().hide();
             }
         });
         content.setActions(button);
