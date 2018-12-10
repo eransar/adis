@@ -101,4 +101,5 @@ public class MasterController {
     }
     public int getMax(IEntity entity){return model.getMax(entity);}
     public ArrayList<String> login(IEntity entity){ return model.login(entity);}
+    public ArrayList<List<String>> getData(IEntity entity, String field, String search){return model.getData(entity,field,search);};
 }
