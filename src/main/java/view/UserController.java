@@ -74,6 +74,12 @@ public class UserController implements Initializable, IView {
         winS.getChildren().setAll(pane);
 
     }
+
+    public void activitis(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Activitis.fxml"));
+        winS.getChildren().setAll(pane);
+    }
+
     //post vacation
     public void imageHandle() {
         post_vacation.addEventHandler(MouseEvent.MOUSE_CLICKED, new CRUDvacationHandler("CreateVacation.fxml"));
@@ -95,6 +101,5 @@ public class UserController implements Initializable, IView {
     @Override
     public void setCurrentView() {
         mc.setIview(this);
-
     }
 }

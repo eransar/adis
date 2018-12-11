@@ -17,10 +17,9 @@ public class testVacation extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Payment.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("testfx.fxml"));
         primaryStage.setTitle("Vacation4U");
-        Scene scene = new Scene(root, 1102, 509);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("mainWin.css").toExternalForm());
+        Scene scene = new Scene(root, 600, 600);
         primaryStage.setScene(scene);
         MasterController.getInstance().setStage(primaryStage);
         primaryStage.show();

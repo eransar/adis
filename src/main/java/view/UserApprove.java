@@ -1,40 +1,36 @@
 package view;
 
-import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.MasterController;
 import Entities.Transaction;
 import Entities.Vacation;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
-public class ShowVacation implements Initializable {
+public class UserApprove implements Initializable{
+
+
     //list vacation
+    private ArrayList<Transaction> transactions;
     private ArrayList<Vacation> vacation;
+    private ArrayList<Vacation> fourVac;
     //mc - singleton
     private MasterController mc;
     public AnchorPane ancer_show;
@@ -89,8 +85,12 @@ public class ShowVacation implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        transactions = new ArrayList<>();
+        vacation = new ArrayList<>();
+        fourVac = new ArrayList<>();
         mc = MasterController.getInstance();
-        this.vacation=Search.getVacations();
+        loadVacation();
+        //this.vacation=Search.getVacations();
         text_1.setWrapText(true);
         text_2.setWrapText(true);
         text_3.setWrapText(true);
@@ -98,17 +98,33 @@ public class ShowVacation implements Initializable {
         initVec();
     }
 
-    public void initializeFileds() {
-        Field[] f = Class.class.getDeclaredFields();
+    private void loadVacation() {
+        for (Transaction t: transactions) {
+            listToVacation(mc.read(new Vacation(),"vacation_id",t.getTransaction_id()));
+        }
     }
 
-    private void initVec() {
 
+    private void listToVacation(ArrayList<List<String>> arrayList) {
+        ArrayList<String> temp = new ArrayList<String>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                temp.add(arrayList.get(i).get(j));
+            }
+            vacation.add(new Vacation(temp));
+            temp.clear();
+        }
+    }
+
+
+    private void initVec() {
+        fourVac.clear();
         if (vacation.size() > vacIndex-1) {
             price_1.setText(vacation.get(vacIndex-1).getPrice());
             location_1.setText(vacation.get(vacIndex-1).getLocation());
             date_1.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_1.setText(vacation.get(vacIndex-1).getText());
+            fourVac.add(0,vacation.get(vacIndex-1));
             vacIndex++;
             //setNextIndexVec(vacIndex);
             ancer_1.setVisible(true);
@@ -124,6 +140,7 @@ public class ShowVacation implements Initializable {
             date_2.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_2.setText(vacation.get(vacIndex-1).getText());
             //setNextIndexVec(vacIndex);
+            fourVac.add(1,vacation.get(vacIndex-1));
             vacIndex++;
             ancer_2.setVisible(true);
             //image_2.setImage();
@@ -139,6 +156,7 @@ public class ShowVacation implements Initializable {
             location_3.setText(vacation.get(vacIndex-1).getLocation());
             date_3.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_3.setText(vacation.get(vacIndex-1).getText());
+            fourVac.add(2,vacation.get(vacIndex-1));
             vacIndex++;
             //setNextIndexVec(vacIndex);
             ancer_3.setVisible(true);
@@ -155,6 +173,7 @@ public class ShowVacation implements Initializable {
             location_4.setText(vacation.get(vacIndex-1).getLocation());
             date_4.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_4.setText(vacation.get(vacIndex-1).getText());
+            fourVac.add(3,vacation.get(vacIndex-1));
             vacIndex++;
             //setNextIndexVec(vacIndex);
             ancer_4.setVisible(true);
@@ -175,7 +194,7 @@ public class ShowVacation implements Initializable {
         }
     }
 
-    public void backClick(javafx.event.ActionEvent event) {
+    public void backClick(ActionEvent event) {
         if(vacIndex!=4){
             vacIndex = vacIndex - vacIndex%4 -3 ;
             nextPage =false;
@@ -192,40 +211,18 @@ public class ShowVacation implements Initializable {
             event.consume();
     }
 
-    public void buyVacation(ActionEvent event) throws IOException {
-        //ask for permission
+    public void clickButton(ActionEvent event) throws IOException {
+        Stage stage1 = (Stage) ancer_show.getScene().getWindow();
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
-        Vacation v = vacation.get(Integer.parseInt(""+a)-1);
-        if(mc.getUser()!=null) {
-            mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, v.getCreator(), mc.getUser().getUsername(), v.getVacation_id(), "1"));
-            showInfoDialog("Buying Message","Thank you for your order"+"\n"+"Message have been send to buyer for approve");
-        }
-        else{
-            showInfoDialog("System Massage","You have to be connecting\nPlease SignUP or Register");
-        }
-
-    }
-
-    public void showInfoDialog(String Heading,String Body) {
-        StackPane pane = new StackPane();
-        pane.setPrefWidth(ancer_show.getPrefWidth()/2);
-        pane.setPrefHeight(ancer_show.getPrefHeight()/2);
-        JFXDialogLayout content = new JFXDialogLayout();
-        content.setHeading(new Text(Heading));
-        content.setBody(new Text(Body));
-        JFXDialog dialog = new JFXDialog(pane, content, JFXDialog.DialogTransition.CENTER);
-        JFXButton button = new JFXButton("Okay");
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                dialog.close();
-                ancer_show.getScene().getWindow().hide();
-            }
-        });
-        content.setActions(button);
-        ancer_show.getChildren().add(pane);
-        dialog.show();
+        Vacation v = fourVac.get(Integer.parseInt(""+a)-1);
+        Transaction t = transactions.get(Integer.parseInt(""+a)-1);
+        mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"2"));
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Approval Message");
+        alert.setHeaderText("Approval Massage");
+        alert.setContentText("Thank you for your Approval\nThe request has been sent. Please wait for approval of payment");
+        alert.show();
     }
 
 }
