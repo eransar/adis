@@ -100,7 +100,7 @@ public class PayVacation implements Initializable{
 
 
     private void SellerOrBuyer() {
-        ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "1");
+        ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "2");
         listToTransaction(list);
     }
 

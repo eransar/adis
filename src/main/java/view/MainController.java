@@ -230,11 +230,7 @@ public class MainController implements Initializable, IView {
         stage.setTitle("Vacation4u Sign Up");
         stage.setScene(scene);
         stage.showAndWait();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("System Massage");
-        alert.setHeaderText("Register Massage");
-        alert.setContentText("Thank you for your Register\nNow you can Log In to your User");
-        alert.show();
+
     }
 
 

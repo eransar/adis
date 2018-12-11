@@ -138,9 +138,25 @@ public class Signup implements Initializable{
 
 
         if(register){
-            button_signup.addEventHandler(MouseEvent.MOUSE_CLICKED, new CloseStageHandler());
-            BuildUserEntity();
-            mc.insert(user);
+            if(mc.getData(new User(),"username",username.getText()).size() > 0){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("System Massage");
+                alert.setHeaderText("Register Massage");
+                alert.setContentText("You already registered");
+                alert.showAndWait();
+
+            }
+            else{
+                button_signup.addEventHandler(MouseEvent.MOUSE_CLICKED, new CloseStageHandler());
+                BuildUserEntity();
+                mc.insert(user);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("System Massage");
+                alert.setHeaderText("Register Massage");
+                alert.setContentText("Thank you for your Register\nNow you can Log In to your User");
+                alert.showAndWait();
+
+            }
 
         }
 

@@ -136,6 +136,8 @@ boolean pay;
         else{
             mc.insert(new Payment(mc.getMax(new Payment())+1,currentVacation.getCreator(),mc.getUser().getUsername(),currentVacation.getPrice(),Integer.parseInt(currentVacation.getVacation_id()),0,"","",LocalDate.now().toString(),"paypal",paypal_username.getText()));
             mc.update(new Transaction(Integer.parseInt(currenttransaction.getTransaction_id()),currenttransaction.getSeller(),currenttransaction.getBuyer(),currenttransaction.getVacation_id(),"3"));
+            currentVacation.setVisible("1");
+            mc.update(currentVacation);
             showAlert("Thank you for purchasing "+currentVacation.getVacation_id()
                     +" To"+currentVacation.getLocation()+" "+System.lineSeparator()
                     +" By Paying "+currentVacation.getPrice()+System.lineSeparator()
@@ -182,6 +184,8 @@ boolean pay;
             mc.insert(new Payment(mc.getMax(new Payment())+1,currentVacation.getCreator(),mc.getUser().getUsername(),currentVacation.getPrice(),Integer.parseInt(currentVacation.getVacation_id()),
                     Integer.parseInt(credit_id.getText()),credit_cvv.getText(),credit_month.getSelectionModel().getSelectedItem().toString()+" "+credit_year.getSelectionModel().getSelectedItem().toString(), LocalDate.now().toString(),"credit",""));
             mc.update(new Transaction(Integer.parseInt(currenttransaction.getTransaction_id()),currenttransaction.getSeller(),currenttransaction.getBuyer(),currenttransaction.getVacation_id(),"3"));
+            currentVacation.setVisible("1");
+            mc.update(currentVacation);
 
 
             showAlert("Thank you for purchasing "+"Vacation number "+currentVacation.getVacation_id()

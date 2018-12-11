@@ -95,7 +95,13 @@ public class ShowVacation implements Initializable {
         text_2.setWrapText(true);
         text_3.setWrapText(true);
         text_4.setWrapText(true);
+        for (int i = 0; i <vacation.size() ; i++) {
+            if(vacation.get(i).getVisible().equals("1")){
+                vacation.remove(i);
+            }
+        }
         initVec();
+
     }
 
     public void initializeFileds() {
@@ -201,10 +207,14 @@ public class ShowVacation implements Initializable {
             showInfoDialog("System Message","You can't buy your own vacations");
 
         }
+        else if(mc.getDatabyFields(new Transaction(),"buyer",mc.getUser().getUsername(),"vacation_id",v.getVacation_id()).size() >0 ){
+            showInfoDialog("System Message","You already requested this vacation");
+        }
         else if(mc.getUser()!=null) {
             mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, v.getCreator(), mc.getUser().getUsername(), v.getVacation_id(), "1"));
             showInfoDialog("Buying Message","Thank you for your order"+"\n"+"Message have been send to buyer for approve");
         }
+
         else{
             showInfoDialog("System Massage","You have to be connecting\nPlease SignUP or Register");
         }

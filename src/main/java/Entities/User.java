@@ -28,6 +28,7 @@ public class User extends AEntity{
 
 
     }
+    public User(){}
     public User(String username){
         super();
         this.username=new SimpleStringProperty(username);
