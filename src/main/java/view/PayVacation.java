@@ -236,6 +236,7 @@ public class PayVacation implements Initializable{
        /* Transaction t = transactions.get(Integer.parseInt(""+a)-1);
         mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"3"));
         */
+        Payments.currentVacation=v;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Payment.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
@@ -243,7 +244,7 @@ public class PayVacation implements Initializable{
         scene.getStylesheets().add(getClass().getClassLoader().getResource("Activities.css").toExternalForm());
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setOpacity(1);
-        stage.setTitle("Vacation4u Sign Up");
+        stage.setTitle("Vacation4u Payments");
         stage.setScene(scene);
         stage.showAndWait();
     }

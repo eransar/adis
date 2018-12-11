@@ -11,7 +11,6 @@ public class Payment extends AEntity{
     private SimpleStringProperty amount;
     private SimpleStringProperty vacation_id;
     private SimpleStringProperty buyer_id;
-    private SimpleStringProperty buyer_cardtype;
     private SimpleStringProperty buyer_cvv;
     private SimpleStringProperty buyer_cardexpiration;
     private SimpleStringProperty purchasedate;
@@ -19,7 +18,7 @@ public class Payment extends AEntity{
     private SimpleStringProperty paypal_username;
 
     public Payment(int payment_id,String seller,String buyer,String amount
-    ,int vacation_id,int buyer_id, String buyer_cardtype, String buyer_cvv
+    ,int vacation_id,int buyer_id, String buyer_cvv
     ,String buyer_cardexpiration, String purchasedate, String method, String paypal_username){
         this.payment_id=new SimpleStringProperty(""+payment_id);
         this.seller=new SimpleStringProperty(seller);
@@ -27,7 +26,6 @@ public class Payment extends AEntity{
         this.amount=new SimpleStringProperty(amount);
         this.vacation_id=new SimpleStringProperty(""+vacation_id);
         this.buyer_id=new SimpleStringProperty(""+buyer_id);
-        this.buyer_cardtype=new SimpleStringProperty(buyer_cardtype);
         this.buyer_cvv=new SimpleStringProperty(buyer_cvv);
         this.buyer_cardexpiration=new SimpleStringProperty(buyer_cardexpiration);
         this.purchasedate=new SimpleStringProperty(purchasedate);
@@ -42,12 +40,11 @@ public class Payment extends AEntity{
         this.amount=new SimpleStringProperty(LoginArray.get(3));
         this.vacation_id=new SimpleStringProperty(LoginArray.get(4));
         this.buyer_id=new SimpleStringProperty(LoginArray.get(5));
-        this.buyer_cardtype=new SimpleStringProperty(LoginArray.get(6));
-        this.buyer_cvv=new SimpleStringProperty(LoginArray.get(7));
-        this.buyer_cardexpiration=new SimpleStringProperty(LoginArray.get(8));
-        this.purchasedate=new SimpleStringProperty(LoginArray.get(9));
-        this.method=new SimpleStringProperty(LoginArray.get(10));
-        this.paypal_username=new SimpleStringProperty(LoginArray.get(11));
+        this.buyer_cvv=new SimpleStringProperty(LoginArray.get(6));
+        this.buyer_cardexpiration=new SimpleStringProperty(LoginArray.get(7));
+        this.purchasedate=new SimpleStringProperty(LoginArray.get(8));
+        this.method=new SimpleStringProperty(LoginArray.get(9));
+        this.paypal_username=new SimpleStringProperty(LoginArray.get(10));
     }
     public Payment(){}
 
@@ -60,7 +57,6 @@ public class Payment extends AEntity{
         result.add(this.amount.getValue());
         result.add(this.vacation_id.getValue());
         result.add(this.buyer_id.getValue());
-        result.add(this.buyer_cardtype.getValue());
         result.add(this.buyer_cvv.getValue());
         result.add(this.buyer_cardexpiration.getValue());
         result.add(this.purchasedate.getValue());
