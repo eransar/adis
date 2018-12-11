@@ -58,8 +58,10 @@ public class CreateVacation implements Initializable {
             error.setVisible(true);
             post=false;
         }
-                else{
-            post=true;
+        if(isAllnumbers(price.getText())){
+            error.setText("Price must contain numbers only");
+            error.setVisible(true);
+            post=false;
         }
 
 
@@ -74,9 +76,7 @@ public class CreateVacation implements Initializable {
                 error.setVisible(true);
                 post=false;
             }
-            else {
-                post=true;
-            }
+
         } catch (Exception e) {
             error.setText("Please fill start date and end date");
             post=false;
@@ -96,6 +96,17 @@ public class CreateVacation implements Initializable {
                 enddate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),"","1",text.getText()));
 
 
+    }
+
+
+
+    public boolean isAllnumbers(String text){
+        String regex = "[0-9]+";
+        if(text.matches(regex)){
+            return true;
+        }
+
+        return false;
     }
 
 
