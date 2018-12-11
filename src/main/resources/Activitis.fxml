@@ -6,17 +6,17 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Activitis">
    <children>
-      <ImageView fx:id="seller_approval" fitHeight="43.0" fitWidth="277.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seller_approval" fitHeight="43.0" fitWidth="277.0" layoutX="258.0" layoutY="107.0" onMouseClicked="#setSeller_approval" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/button%20Approval.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="your_approval" fitHeight="51.0" fitWidth="277.0" layoutX="258.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="your_approval" fitHeight="51.0" fitWidth="277.0" layoutX="258.0" layoutY="187.0" onMouseClicked="#setYour_approval" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/your%20approval.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="payment" fitHeight="109.0" fitWidth="277.0" layoutX="258.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="payment" fitHeight="109.0" fitWidth="277.0" layoutX="258.0" layoutY="269.0" onMouseClicked="#setPayment" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/button%20payment.png" />
          </image>

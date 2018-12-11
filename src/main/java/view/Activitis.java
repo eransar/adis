@@ -24,12 +24,21 @@ public class Activitis implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ButtonCLick();
+
     }
 
-    public void ButtonCLick(){
-        payment.addEventHandler(MouseEvent.MOUSE_CLICKED, new ActivitiesHandler(""));
-        your_approval.addEventHandler(MouseEvent.MOUSE_CLICKED, new ActivitiesHandler("UserApprove.fxml"));
-        seller_approval.addEventHandler(MouseEvent.MOUSE_CLICKED, new ActivitiesHandler(""));
+    public void setPayment(MouseEvent event){
+        ActivitiesHandler handler = new ActivitiesHandler("payment.fxml",false);
+        handler.handle1();
+    }
+
+    public void setYour_approval(MouseEvent event){
+        ActivitiesHandler handler = new ActivitiesHandler("UserApprove.fxml",true);
+        handler.handle1();
+    }
+
+    public void setSeller_approval(MouseEvent event){
+        ActivitiesHandler handler = new ActivitiesHandler("UserApprove.fxml",false);
+        handler.handle1();
     }
 }

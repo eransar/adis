@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 public class UserApprove implements Initializable{
 
 
+    public static boolean isSeller=true;
     //list vacation
     private ArrayList<Transaction> transactions;
     private ArrayList<Vacation> vacation;
@@ -89,13 +90,51 @@ public class UserApprove implements Initializable{
         vacation = new ArrayList<>();
         fourVac = new ArrayList<>();
         mc = MasterController.getInstance();
-        loadVacation();
         //this.vacation=Search.getVacations();
         text_1.setWrapText(true);
         text_2.setWrapText(true);
         text_3.setWrapText(true);
         text_4.setWrapText(true);
+        SellerOrBuyer();
+        loadVacation();
         initVec();
+    }
+
+    private void SellerOrBuyer() {
+        transactions.clear();
+        vacation.clear();
+        if(!isSeller){
+            ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(),"buyer",mc.getUser().getUsername(),"statuscode","1");
+            listToTransaction(list);
+            buttonBuy_1.setVisible(false);
+            buttonBuy_2.setVisible(false);
+            buttonBuy_3.setVisible(false);
+            buttonBuy_4.setVisible(false);
+        }
+        else{
+            ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(),"seller",mc.getUser().getUsername(),"statuscode","1");
+            listToTransaction(list);
+        }
+    }
+
+    public static boolean isIsSeller() {
+        return isSeller;
+    }
+
+    public static void setIsSeller(boolean isSeller) {
+        UserApprove.isSeller = isSeller;
+    }
+
+
+    private void listToTransaction(ArrayList<List<String>> arrayList) {
+        ArrayList<String> temp = new ArrayList<String>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                temp.add(arrayList.get(i).get(j));
+            }
+            transactions.add(new Transaction(temp));
+            temp.clear();
+        }
     }
 
     private void loadVacation() {
