@@ -197,7 +197,11 @@ public class ShowVacation implements Initializable {
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
         Vacation v = vacation.get(Integer.parseInt(""+a)-1);
-        if(mc.getUser()!=null) {
+        if(v.getCreator().equals(mc.getUser().getUsername())){
+            showInfoDialog("System Message","You can't buy your own vacations");
+
+        }
+        else if(mc.getUser()!=null) {
             mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, v.getCreator(), mc.getUser().getUsername(), v.getVacation_id(), "1"));
             showInfoDialog("Buying Message","Thank you for your order"+"\n"+"Message have been send to buyer for approve");
         }

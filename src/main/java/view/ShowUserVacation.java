@@ -214,10 +214,14 @@ public class ShowUserVacation implements Initializable {
     }
 
     public void buyVacation(ActionEvent event) throws IOException {
+
         Stage stage1 = (Stage) ancer_show.getScene().getWindow();
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
+        Vacation v = fourVac.get(Integer.parseInt(""+a)-1);
         EditVacation.setVacations(fourVac.get(Integer.parseInt(""+a)-1));
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("EditVacation.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
