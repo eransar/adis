@@ -4,6 +4,7 @@ import Contrroller.Handlers.CloseStageHandler;
 import Contrroller.Handlers.PayPalEventHandler;
 import Contrroller.MasterController;
 import Entities.Payment;
+import Entities.Transaction;
 import Entities.User;
 import Entities.Vacation;
 import javafx.beans.value.ChangeListener;
@@ -31,6 +32,10 @@ public class Payments implements Initializable{
     @FXML
 public ToggleGroup payment;
 public AnchorPane anchor_bg;
+
+
+
+    public static Transaction currenttransaction;
 public static Vacation currentVacation;
 boolean pay;
     public void setCurrentVacation(Vacation currentVacation) {
@@ -130,18 +135,19 @@ boolean pay;
         }
         else{
             mc.insert(new Payment(mc.getMax(new Payment())+1,currentVacation.getCreator(),mc.getUser().getUsername(),currentVacation.getPrice(),Integer.parseInt(currentVacation.getVacation_id()),0,"","",LocalDate.now().toString(),"paypal",paypal_username.getText()));
+            mc.update(new Transaction(Integer.parseInt(currenttransaction.getTransaction_id()),currenttransaction.getSeller(),currenttransaction.getBuyer(),currenttransaction.getVacation_id(),"3"));
             showAlert("Thank you for purchasing "+currentVacation.getVacation_id()
                     +" To"+currentVacation.getLocation()+" "+System.lineSeparator()
                     +" By Paying "+currentVacation.getPrice()+System.lineSeparator()
                     +"Enjoy your vacation");
 
-            sleep(5000);
+
             ((Node)(event.getSource())).getScene().getWindow().hide();
 
         }
 
     }
-    public void credit_onclick(){
+    public void credit_onclick(ActionEvent event) throws InterruptedException {
         pay=true;
         if(        credit_month.getSelectionModel().isEmpty()
                 || credit_year.getSelectionModel().isEmpty()
@@ -174,13 +180,15 @@ boolean pay;
 
         if(pay){
             mc.insert(new Payment(mc.getMax(new Payment())+1,currentVacation.getCreator(),mc.getUser().getUsername(),currentVacation.getPrice(),Integer.parseInt(currentVacation.getVacation_id()),
-                    Integer.parseInt(credit_id.getText()),credit_cvv.getText(),credit_month+" "+credit_year, LocalDate.now().toString(),"credit",""));
+                    Integer.parseInt(credit_id.getText()),credit_cvv.getText(),credit_month.getSelectionModel().getSelectedItem().toString()+" "+credit_year.getSelectionModel().getSelectedItem().toString(), LocalDate.now().toString(),"credit",""));
+            mc.update(new Transaction(Integer.parseInt(currenttransaction.getTransaction_id()),currenttransaction.getSeller(),currenttransaction.getBuyer(),currenttransaction.getVacation_id(),"3"));
 
-            showAlert("Thank you for purchasing "+currentVacation.getVacation_id()
-                    +" To"+currentVacation.getLocation()+" "+System.lineSeparator()
+
+            showAlert("Thank you for purchasing "+"Vacation number "+currentVacation.getVacation_id()
+                    +" To "+currentVacation.getLocation()+" "+System.lineSeparator()
                     +" By Paying "+currentVacation.getPrice()+System.lineSeparator()
                     +"Enjoy your vacation");
-//            ((Node)(event.getSource())).getScene().getWindow().hide();
+            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
 
     }
@@ -203,5 +211,10 @@ boolean pay;
         alert_.setTitle("Payment Massage");
         alert_.setHeaderText("Payment Message");
         alert_.setContentText(alert);
+        alert_.showAndWait();
+    }
+
+    public static void setCurrenttransaction(Transaction currenttransaction) {
+        Payments.currenttransaction = currenttransaction;
     }
 }

@@ -6,6 +6,7 @@ import Entities.Vacation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -233,10 +234,9 @@ public class PayVacation implements Initializable{
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
         Vacation v = fourVac.get(Integer.parseInt(""+a)-1);
-       /* Transaction t = transactions.get(Integer.parseInt(""+a)-1);
-        mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"3"));
-        */
+        Transaction t = transactions.get(Integer.parseInt(""+a)-1);
         Payments.currentVacation=v;
+        Payments.setCurrenttransaction(t);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Payment.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
@@ -247,6 +247,7 @@ public class PayVacation implements Initializable{
         stage.setTitle("Vacation4u Payments");
         stage.setScene(scene);
         stage.showAndWait();
+        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
 }
