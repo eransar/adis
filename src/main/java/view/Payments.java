@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-public class Payment implements Initializable{
+public class Payments implements Initializable{
 
     @FXML
 public ToggleGroup payment;
