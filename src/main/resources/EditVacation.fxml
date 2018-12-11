@@ -35,5 +35,10 @@
          </graphic>
       </Button>
       <TextArea fx:id="edit_freeText" layoutX="66.0" layoutY="249.0" prefHeight="123.0" prefWidth="294.0" />
+      <AnchorPane prefHeight="38.0" prefWidth="450.0" style="-fx-background-color: #65776f;">
+         <children>
+            <Label fx:id="edit_error" layoutX="34.0" layoutY="11.0" prefHeight="17.0" prefWidth="363.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

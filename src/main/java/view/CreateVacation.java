@@ -36,6 +36,7 @@ public class CreateVacation implements Initializable {
 
     public void post(){
         boolean date=true;
+        post=true;
         String start_text = null;
         String end_text = null;
         try {
@@ -58,7 +59,7 @@ public class CreateVacation implements Initializable {
             error.setVisible(true);
             post=false;
         }
-        if(isAllnumbers(price.getText())){
+        if(!isAllnumbers(price.getText())){
             error.setText("Price must contain numbers only");
             error.setVisible(true);
             post=false;
@@ -71,10 +72,14 @@ public class CreateVacation implements Initializable {
                 error.setVisible(true);
                 post=false;
             }
+
             else if(!date || startdate.getValue().isBefore(LocalDate.now())){
                 error.setText("Start date cant be earlier than today");
                 error.setVisible(true);
                 post=false;
+            }
+            else{
+                date=true;
             }
 
         } catch (Exception e) {
