@@ -57,6 +57,7 @@ public Vacation currentVacation;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mc = MasterController.getInstance();
         ToggleGroupListener();
         fillyears();
         fillmonths();
