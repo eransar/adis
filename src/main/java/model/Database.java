@@ -340,4 +340,49 @@ param @IEntity - interface for the objects in the database
     }
 
 
+    public ArrayList<List<String>> getDataByFields(IEntity entity,String ... parameters){
+        ArrayList<String> read = new ArrayList<String>();
+        ArrayList<List<String>> return_list = new ArrayList<>();
+        ArrayList<String> fields_name = entity.getFields();
+        String params="";
+        String SQL = "SELECT * FROM "+entity.GetDBName()+" WHERE ";
+        for (int i = 0; i < parameters.length ; i++) {
+            if(i%2==0){
+                params = params+parameters[i]+" "+"= ";
+            }
+            else{
+                if(i!=parameters.length-1){
+                    params = params+"\""+parameters[i]+"\""+" AND ";
+                }
+                else{
+                    params = params+"\""+parameters[i]+"\"";
+                }
+
+
+            }
+        }
+        SQL=SQL+params;
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(SQL)){
+            ResultSetMetaData rsMetaData = rs.getMetaData(); // for debug purposes
+            // loop through the result set
+
+            for (int j = 0; rs.next(); j++) {
+                return_list.add(new ArrayList<>());
+                for (int k = 0; k < entity.getFields().size() ; k++) {
+                    return_list.get(j).add(rs.getString(fields_name.get(k)));
+                }
+            }
+
+        } catch (SQLException e) {
+            String k = e.getMessage();
+            System.out.println(e.getMessage());
+        }
+        return return_list;
+
+
+    }
+
+
 }

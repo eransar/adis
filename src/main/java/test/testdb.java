@@ -21,7 +21,8 @@ public class testdb {
 //        Database db = new Database();
 //        model.InsertToDB(d);
 //        model.InsertToDB(e);
-       int i= model.getMax(new Transaction());
+//       int i= model.getMax(new Transaction());
+        model.getDatabyFields(new Transaction(),"buyer","erantest","statuscode","1");
 
 //        ArrayList<List<String>> test =model.ReadFromDB(new Vacation(),"location","Pari");
 //        int i =5 ;

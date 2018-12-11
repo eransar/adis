@@ -41,4 +41,7 @@ public class Model {
     public ArrayList<List<String>> getData(IEntity entity, String field, String find){
         return db.getData(entity,field,find);
     };
+    public ArrayList<List<String>> getDatabyFields(IEntity entity,String ... parameters){
+        return db.getDataByFields(entity,parameters);
+    }
 }
