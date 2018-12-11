@@ -33,6 +33,15 @@ public class Transaction extends AEntity {
         return result;
     }
 
+    public Transaction(ArrayList<String> LoginArray){
+        super();
+        this.transaction_id=new SimpleStringProperty(LoginArray.get(0));
+        this.seller=new SimpleStringProperty(LoginArray.get(1));
+        this.vacation_id =new SimpleStringProperty(LoginArray.get(2));
+        this.buyer =new SimpleStringProperty(LoginArray.get(3));
+        this.statuscode =new SimpleStringProperty(LoginArray.get(4));
+    }
+
     @Override
     public String GetDBName() {
         return "transactions";
