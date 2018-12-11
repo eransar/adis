@@ -26,10 +26,7 @@ public class ActivitiesHandler{
             root = fxmlLoader.load();
             Stage stage = new Stage();
             Scene scene=null;
-            if(s.equals("payment.fxml"))
-                scene = new Scene(root, 450, 600);
-            else
-                scene = new Scene(root, 1200, 509);
+            scene = new Scene(root, 1200, 509);
             scene.getStylesheets().add(getClass().getClassLoader().getResource("Activities.css").toExternalForm());
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setOpacity(1);

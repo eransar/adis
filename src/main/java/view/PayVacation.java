@@ -12,23 +12,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class UserApprove implements Initializable{
+public class PayVacation implements Initializable{
 
-
-    public static boolean isSeller=true;
     //list vacation
     private ArrayList<Transaction> transactions;
     private ArrayList<Vacation> vacation;
@@ -103,28 +99,8 @@ public class UserApprove implements Initializable{
 
 
     private void SellerOrBuyer() {
-        transactions.clear();
-        if(!isSeller) {
-            ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "1");
-            listToTransaction(list);
-            buttonBuy_1.setVisible(false);
-            buttonBuy_2.setVisible(false);
-            buttonBuy_3.setVisible(false);
-            buttonBuy_4.setVisible(false);
-
-        }
-        else{
-            ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(),"seller",mc.getUser().getUsername(),"statuscode","1");
-            listToTransaction(list);
-        }
-    }
-
-    public static boolean isIsSeller() {
-        return isSeller;
-    }
-
-    public static void setIsSeller(boolean isSeller) {
-        UserApprove.isSeller = isSeller;
+        ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "1");
+        listToTransaction(list);
     }
 
 
@@ -257,13 +233,19 @@ public class UserApprove implements Initializable{
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
         Vacation v = fourVac.get(Integer.parseInt(""+a)-1);
-        Transaction t = transactions.get(Integer.parseInt(""+a)-1);
-        mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"2"));
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Approval Message");
-        alert.setHeaderText("Approval Massage");
-        alert.setContentText("Thank you for your Approval\nThe request has been sent. Please wait for approval of payment");
-        alert.show();
+       /* Transaction t = transactions.get(Integer.parseInt(""+a)-1);
+        mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"3"));
+        */
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Payment.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(root, 450  , 460);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("Activities.css").toExternalForm());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setOpacity(1);
+        stage.setTitle("Vacation4u Sign Up");
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
 }
