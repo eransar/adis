@@ -102,20 +102,18 @@ boolean pay;
                             credit_anchor.setVisible(false);
                             paypal_anchor.setVisible(true);
                             anchor_bg.setVisible(true);
-                            paypal_pay.addEventHandler(MouseEvent.MOUSE_CLICKED, new PayPalEventHandler(currentVacation,mc.getUser().getUsername(),"Paypal"));
                             break;
 
                         case "creditcard":
                             credit_anchor.setVisible(true);
                             paypal_anchor.setVisible(false);
                             anchor_bg.setVisible(true);
-                            credit_pay.addEventHandler(MouseEvent.MOUSE_CLICKED, new PayPalEventHandler(currentVacation,mc.getUser().getUsername(),"Paypal"));
+
                             break;
                     }
 
 
 
-                    // Do something here with the userData of newly selected radioButton
 
                 }
 
@@ -143,7 +141,7 @@ boolean pay;
         }
 
     }
-    public void credit_onclick() throws InterruptedException {
+    public void credit_onclick(){
         pay=true;
         if(        credit_month.getSelectionModel().isEmpty()
                 || credit_year.getSelectionModel().isEmpty()
@@ -182,7 +180,6 @@ boolean pay;
                     +" To"+currentVacation.getLocation()+" "+System.lineSeparator()
                     +" By Paying "+currentVacation.getPrice()+System.lineSeparator()
                     +"Enjoy your vacation");
-            sleep(5000);
 //            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
 
