@@ -11,7 +11,7 @@ public class Transaction extends AEntity {
     SimpleStringProperty buyer;
     SimpleStringProperty statuscode;
 
-    public Transaction(int id, String seller, String buyer, String price, String vacation_id, String statuscode){
+    public Transaction(int id, String seller, String buyer, String vacation_id, String statuscode){
         super();
         this.transaction_id =new SimpleStringProperty(""+id);
         this.seller=new SimpleStringProperty(seller);
@@ -46,5 +46,65 @@ public class Transaction extends AEntity {
     @Override
     public String getPrimaryKeyName() {
         return "transaction_id";
+    }
+
+    public String getTransaction_id() {
+        return transaction_id.get();
+    }
+
+    public SimpleStringProperty transaction_idProperty() {
+        return transaction_id;
+    }
+
+    public void setTransaction_id(String transaction_id) {
+        this.transaction_id.set(transaction_id);
+    }
+
+    public String getSeller() {
+        return seller.get();
+    }
+
+    public SimpleStringProperty sellerProperty() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller.set(seller);
+    }
+
+    public String getVacation_id() {
+        return vacation_id.get();
+    }
+
+    public SimpleStringProperty vacation_idProperty() {
+        return vacation_id;
+    }
+
+    public void setVacation_id(String vacation_id) {
+        this.vacation_id.set(vacation_id);
+    }
+
+    public String getBuyer() {
+        return buyer.get();
+    }
+
+    public SimpleStringProperty buyerProperty() {
+        return buyer;
+    }
+
+    public void setBuyer(String buyer) {
+        this.buyer.set(buyer);
+    }
+
+    public String getStatuscode() {
+        return statuscode.get();
+    }
+
+    public SimpleStringProperty statuscodeProperty() {
+        return statuscode;
+    }
+
+    public void setStatuscode(String statuscode) {
+        this.statuscode.set(statuscode);
     }
 }
