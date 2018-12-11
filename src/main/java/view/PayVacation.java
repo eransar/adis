@@ -240,7 +240,7 @@ public class PayVacation implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Payment.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
-        Scene scene = new Scene(root, 450  , 460);
+        Scene scene = new Scene(root, 600  , 460);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("Activities.css").toExternalForm());
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setOpacity(1);
