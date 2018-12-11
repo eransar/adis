@@ -37,18 +37,14 @@ Connect to vacation database
             String url = "jdbc:sqlite:vacation4u.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
+            PreparedStatement stmt = conn.prepareStatement("PRAGMA foreign_keys = ON");
+            stmt.execute();
             System.out.println("Connection to SQLite has been established.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
-//            try {
-////                if (conn != null) {
-////                    conn.close();
-////                }
-//            } catch (SQLException ex) {
-//                System.out.println(ex.getMessage());
-//            }
+
         }
         return conn;
     }
@@ -332,15 +328,9 @@ param @IEntity - interface for the objects in the database
                 return_list.add(new ArrayList<>());
                 for (int k = 0; k < entity.getFields().size() ; k++) {
                     return_list.get(j).add(rs.getString(fields_name.get(k)));
-//                    read.add(rs.getString(fields_name.get(k)));
                 }
             }
 
-
-//            for (int i = 0; rs.next() ; i++) {
-//                dict_read.put(fields_name.get(i),rs.getString(i+1));
-//                System.out.println("added "+i);
-//            }
         } catch (SQLException e) {
             String k = e.getMessage();
             System.out.println(e.getMessage());
@@ -348,4 +338,6 @@ param @IEntity - interface for the objects in the database
         return return_list;
 
     }
+
+
 }
