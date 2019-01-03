@@ -33,7 +33,7 @@
                   <Font name="Arial" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="buttonBuy_2" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+            <Button fx:id="buttonBuy_2" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#approveRequest" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -69,7 +69,7 @@
                   <Font name="Arial" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="buttonBuy_1" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+            <Button fx:id="buttonBuy_1" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#approveRequest" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -105,7 +105,7 @@
                   <Font name="Arial" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="buttonBuy_3" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+            <Button fx:id="buttonBuy_3" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#approveRequest" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -159,7 +159,7 @@
                   <Font name="Arial" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="buttonBuy_4" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
+            <Button fx:id="buttonBuy_4" layoutX="102.0" layoutY="324.0" mnemonicParsing="false" onAction="#approveRequest" prefHeight="34.0" prefWidth="65.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>

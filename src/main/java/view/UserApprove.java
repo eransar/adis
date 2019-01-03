@@ -252,7 +252,7 @@ public class UserApprove implements Initializable{
             event.consume();
     }
 
-    public void clickButton(ActionEvent event) throws IOException {
+    public void approveRequest(ActionEvent event) throws IOException {
         Stage stage1 = (Stage) ancer_show.getScene().getWindow();
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);

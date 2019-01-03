@@ -81,6 +81,7 @@ public class UserController implements Initializable, IView {
     }
 
     //post vacation
+    //split
     public void imageHandle() {
         post_vacation.addEventHandler(MouseEvent.MOUSE_CLICKED, new CRUDvacationHandler("CreateVacation.fxml"));
         imageButton_myPost.addEventHandler(MouseEvent.MOUSE_CLICKED, new CRUDvacationHandler("showUserVacation.fxml"));
