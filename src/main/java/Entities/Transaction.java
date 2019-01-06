@@ -10,6 +10,8 @@ public class Transaction extends AEntity {
     SimpleStringProperty vacation_id;
     SimpleStringProperty buyer;
     SimpleStringProperty statuscode;
+    SimpleStringProperty vacation2_id;
+    SimpleStringProperty type;
 
     public Transaction(int id, String seller, String buyer, String vacation_id, String statuscode){
         super();
@@ -18,10 +20,32 @@ public class Transaction extends AEntity {
         this.vacation_id= new SimpleStringProperty(vacation_id);
         this.buyer=new SimpleStringProperty(buyer);
         this.statuscode=new SimpleStringProperty(statuscode);
+        this.vacation2_id=new SimpleStringProperty("");
+        this.type=new SimpleStringProperty("");
 
     }
-    public Transaction(){}
+    public Transaction(int id, String seller, String buyer, String vacation_id, String statuscode, String type){
+        super();
+        this.transaction_id =new SimpleStringProperty(""+id);
+        this.seller=new SimpleStringProperty(seller);
+        this.vacation_id= new SimpleStringProperty(vacation_id);
+        this.buyer=new SimpleStringProperty(buyer);
+        this.statuscode=new SimpleStringProperty(statuscode);
+        this.vacation2_id=new SimpleStringProperty("");
+        this.type=new SimpleStringProperty(type);
 
+    }
+    public Transaction(int id, String seller, String buyer, String vacation_id, String statuscode, String vacation2_id, String type){
+        super();
+        this.transaction_id =new SimpleStringProperty(""+id);
+        this.seller=new SimpleStringProperty(seller);
+        this.vacation_id= new SimpleStringProperty(vacation_id);
+        this.buyer=new SimpleStringProperty(buyer);
+        this.statuscode=new SimpleStringProperty(statuscode);
+        this.vacation2_id=new SimpleStringProperty(vacation2_id);
+        this.type=new SimpleStringProperty(type);
+
+    }
     @Override
     public ArrayList<String> getFieldsValue() {
         ArrayList<String> result = new ArrayList<String>();
@@ -30,6 +54,8 @@ public class Transaction extends AEntity {
         result.add(this.vacation_id.getValue());
         result.add(this.buyer.getValue());
         result.add(this.statuscode.getValue());
+        result.add(this.vacation2_id.getValue());
+        result.add(this.type.getValue());
         return result;
     }
 
@@ -40,7 +66,36 @@ public class Transaction extends AEntity {
         this.vacation_id =new SimpleStringProperty(LoginArray.get(2));
         this.buyer =new SimpleStringProperty(LoginArray.get(3));
         this.statuscode =new SimpleStringProperty(LoginArray.get(4));
+        this.vacation2_id=new SimpleStringProperty(LoginArray.get(5));
+        this.type=new SimpleStringProperty(LoginArray.get(6));
     }
+    public Transaction(){}
+
+    public String getVacation2_id() {
+        return vacation2_id.get();
+    }
+
+    public SimpleStringProperty vacation2_idProperty() {
+        return vacation2_id;
+    }
+
+    public void setVacation2_id(String vacation2_id) {
+        this.vacation2_id.set(vacation2_id);
+    }
+
+    public String getType() {
+        return type.get();
+    }
+
+    public SimpleStringProperty typeProperty() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type.set(type);
+    }
+
+
 
     @Override
     public String GetDBName() {

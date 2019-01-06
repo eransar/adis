@@ -3,36 +3,31 @@ package view;
 import Contrroller.MasterController;
 import Entities.Transaction;
 import Entities.Vacation;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class UserApprove implements Initializable{
-
-
-    public static boolean isSeller=true;
+public class ChooseVacationForTrade implements Initializable{
     //list vacation
-    private ArrayList<Transaction> transactions;
     private ArrayList<Vacation> vacation;
-    private ArrayList<Vacation> fourVac;
+    private Vacation requested_vacation;
     //mc - singleton
     private MasterController mc;
     public AnchorPane ancer_show;
@@ -87,85 +82,33 @@ public class UserApprove implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        transactions = new ArrayList<>();
-        vacation = new ArrayList<>();
-        fourVac = new ArrayList<>();
         mc = MasterController.getInstance();
-        //this.vacation=Search.getVacations();
+        this.vacation=ShowVacation.getVacation_to_pick_for_trade();
+        this.requested_vacation=ShowVacation.getAskforTrade();
         text_1.setWrapText(true);
         text_2.setWrapText(true);
         text_3.setWrapText(true);
         text_4.setWrapText(true);
-        SellerOrBuyer();
-        loadVacation();
+        for (int i = 0; i <vacation.size() ; i++) {
+            if(!vacation.get(i).getVisible().equals("1")){
+                vacation.remove(i);
+            }
+        }
         initVec();
+
     }
 
-
-    private void SellerOrBuyer() {
-        transactions.clear();
-        if(!isSeller) {
-            ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "1");
-            listToTransaction(list);
-            buttonBuy_1.setVisible(false);
-            buttonBuy_2.setVisible(false);
-            buttonBuy_3.setVisible(false);
-            buttonBuy_4.setVisible(false);
-
-        }
-        else{
-            ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(),"seller",mc.getUser().getUsername(),"statuscode","1");
-            listToTransaction(list);
-        }
+    public void initializeFileds() {
+        Field[] f = Class.class.getDeclaredFields();
     }
-
-    public static boolean isIsSeller() {
-        return isSeller;
-    }
-
-    public static void setIsSeller(boolean isSeller) {
-        UserApprove.isSeller = isSeller;
-    }
-
-
-    private void listToTransaction(ArrayList<List<String>> arrayList) {
-        ArrayList<String> temp = new ArrayList<String>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            for (int j = 0; j < arrayList.get(i).size(); j++) {
-                temp.add(arrayList.get(i).get(j));
-            }
-            transactions.add(new Transaction(temp));
-            temp.clear();
-        }
-    }
-
-    private void loadVacation() {
-        for (Transaction t: transactions) {
-            listToVacation(mc.read(new Vacation(),"vacation_id",t.getTransaction_id()));
-        }
-    }
-
-
-    private void listToVacation(ArrayList<List<String>> arrayList) {
-        ArrayList<String> temp = new ArrayList<String>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            for (int j = 0; j < arrayList.get(i).size(); j++) {
-                temp.add(arrayList.get(i).get(j));
-            }
-            vacation.add(new Vacation(temp));
-            temp.clear();
-        }
-    }
-
 
     private void initVec() {
-        fourVac.clear();
+
         if (vacation.size() > vacIndex-1) {
             price_1.setText(vacation.get(vacIndex-1).getPrice());
             location_1.setText(vacation.get(vacIndex-1).getLocation());
             date_1.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_1.setText(vacation.get(vacIndex-1).getText());
-            fourVac.add(0,vacation.get(vacIndex-1));
             vacIndex++;
             //setNextIndexVec(vacIndex);
             ancer_1.setVisible(true);
@@ -181,7 +124,6 @@ public class UserApprove implements Initializable{
             date_2.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_2.setText(vacation.get(vacIndex-1).getText());
             //setNextIndexVec(vacIndex);
-            fourVac.add(1,vacation.get(vacIndex-1));
             vacIndex++;
             ancer_2.setVisible(true);
             //image_2.setImage();
@@ -197,7 +139,6 @@ public class UserApprove implements Initializable{
             location_3.setText(vacation.get(vacIndex-1).getLocation());
             date_3.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_3.setText(vacation.get(vacIndex-1).getText());
-            fourVac.add(2,vacation.get(vacIndex-1));
             vacIndex++;
             //setNextIndexVec(vacIndex);
             ancer_3.setVisible(true);
@@ -214,7 +155,6 @@ public class UserApprove implements Initializable{
             location_4.setText(vacation.get(vacIndex-1).getLocation());
             date_4.setText(vacation.get(vacIndex-1).getStart_date() + " to " + vacation.get(vacIndex-1).getEnd_date());
             text_4.setText(vacation.get(vacIndex-1).getText());
-            fourVac.add(3,vacation.get(vacIndex-1));
             vacIndex++;
             //setNextIndexVec(vacIndex);
             ancer_4.setVisible(true);
@@ -235,7 +175,7 @@ public class UserApprove implements Initializable{
         }
     }
 
-    public void backClick(ActionEvent event) {
+    public void backClick(javafx.event.ActionEvent event) {
         if(vacIndex!=4){
             vacIndex = vacIndex - vacIndex%4 -3 ;
             nextPage =false;
@@ -252,18 +192,47 @@ public class UserApprove implements Initializable{
             event.consume();
     }
 
-    public void approveRequest(ActionEvent event) throws IOException {
-//        Stage stage1 = (Stage) ancer_show.getScene().getWindow();
+    public void pickVacation(ActionEvent event)throws IOException {
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
-        Vacation v = fourVac.get(Integer.parseInt(""+a)-1);
-        Transaction t = transactions.get(Integer.parseInt(""+a)-1);
-        mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"2"));
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Approval Message");
-        alert.setHeaderText("Approval Massage");
-        alert.setContentText("Thank you for your Approval\nThe request has been sent. Please wait for approval of payment");
-        alert.show();
+        Vacation picked_vacation = vacation.get(Integer.parseInt(""+a)-1);
+        // if the requested vacation somehow already transactioned
+         if(mc.getDatabyFields(new Transaction(),"seller",mc.getUser().getUsername(),"vacation_id",picked_vacation.getVacation_id()).size() >0 ){
+            showInfoDialog("System Message","This vacation has already been requsted before. please choose another");
+        }
+        else if(mc.getUser()!=null) {
+            mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, requested_vacation.getCreator(), mc.getUser().getUsername(), requested_vacation.getVacation_id(), "1",picked_vacation.getVacation_id(),"exchange"));
+            showInfoDialog("Exchanging Vacation Message","Thank you for your request"+"\n"+"Message have been send to the user for approve");
+        }
+
+        else{
+            showInfoDialog("System Massage","You have to be connecting\nPlease SignUP or Register");
+        }
+
+    }
+
+
+
+    public void showInfoDialog(String Heading,String Body) {
+        StackPane pane = new StackPane();
+        pane.setPrefWidth(ancer_show.getPrefWidth()/2);
+        pane.setPrefHeight(ancer_show.getPrefHeight()/2);
+        JFXDialogLayout content = new JFXDialogLayout();
+        content.setHeading(new Text(Heading));
+        content.setBody(new Text(Body));
+        JFXDialog dialog = new JFXDialog(pane, content, JFXDialog.DialogTransition.CENTER);
+        JFXButton button = new JFXButton("Okay");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                dialog.close();
+                ancer_show.getScene().getWindow().hide();
+            }
+        });
+        content.setActions(button);
+        ancer_show.getChildren().add(pane);
+        dialog.show();
     }
 
 }
+

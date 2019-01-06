@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancer_show" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChooseVacationForTrade">
+    <children>
+        <AnchorPane fx:id="ancer_2" layoutX="319.0" layoutY="62.0" prefHeight="366.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+            <children>
+                <ImageView fx:id="image_2" fitHeight="126.0" fitWidth="270.0" layoutY="-1.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@images/paris.jpg" />
+                    </image>
+                </ImageView>
+                <Label fx:id="location_2" alignment="CENTER" contentDisplay="CENTER" layoutY="125.0" prefHeight="38.0" prefWidth="270.0" text="location" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="date_2" alignment="CENTER" contentDisplay="CENTER" layoutY="163.0" prefHeight="34.0" prefWidth="270.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="price_2" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="290.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="buttonBuy_2" layoutX="63.0" layoutY="320.0" mnemonicParsing="false" onAction="#pickVacation" prefHeight="34.0" prefWidth="155.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;" text="Choose for trade" />
+                <Line endX="161.0" endY="-1.52587890625E-5" layoutX="106.0" layoutY="208.0" startX="-106.0" startY="-1.52587890625E-5" />
+                <Line endX="161.0" endY="-1.52587890625E-5" layoutX="106.0" layoutY="290.0" startX="-106.0" startY="-1.52587890625E-5" />
+                <TextArea fx:id="text_2" layoutX="1.0" layoutY="208.0" prefHeight="82.0" prefWidth="267.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="ancer_1" layoutX="29.0" layoutY="62.0" prefHeight="366.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="62.0">
+            <children>
+                <ImageView fx:id="image_1" fitHeight="132.0" fitWidth="270.0" layoutY="-1.0" opacity="0.6" pickOnBounds="true">
+                    <image>
+                        <Image url="@images/vacationtemplate.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="location_1" alignment="CENTER" contentDisplay="CENTER" layoutY="125.0" prefHeight="38.0" prefWidth="270.0" text="location" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="date_1" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="166.0" prefHeight="34.0" prefWidth="270.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="price_1" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="290.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="buttonBuy_1" layoutX="51.0" layoutY="324.0" mnemonicParsing="false" onAction="#pickVacation" prefHeight="34.0" prefWidth="155.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;" text="Choose for trade" />
+                <Line endX="152.60003662109375" endY="-1.52587890625E-5" layoutX="112.0" layoutY="208.0" startX="-111.00001525878906" startY="-1.52587890625E-5" />
+                <Line endX="154.60003662109375" endY="-1.52587890625E-5" layoutX="114.0" layoutY="290.0" startX="-111.00001525878906" startY="-1.52587890625E-5" />
+                <TextArea fx:id="text_1" layoutX="2.0" layoutY="208.0" prefHeight="82.0" prefWidth="267.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="ancer_3" layoutX="609.0" layoutY="62.0" prefHeight="366.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+            <children>
+                <ImageView fx:id="image_3" fitHeight="126.0" fitWidth="270.0" layoutY="-1.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@images/paris.jpg" />
+                    </image>
+                </ImageView>
+                <Label fx:id="location_3" alignment="CENTER" contentDisplay="CENTER" layoutY="125.0" prefHeight="38.0" prefWidth="270.0" text="location" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="date_3" alignment="CENTER" contentDisplay="CENTER" layoutY="163.0" prefHeight="34.0" prefWidth="270.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="price_3" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="290.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="buttonBuy_3" layoutX="58.0" layoutY="320.0" mnemonicParsing="false" onAction="#pickVacation" prefHeight="34.0" prefWidth="155.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;" text="Choose for trade" />
+                <Line endX="161.0" endY="-1.52587890625E-5" layoutX="107.0" layoutY="206.0" startX="-106.0" startY="-1.52587890625E-5" />
+                <Line endX="161.0" endY="-1.52587890625E-5" layoutX="108.0" layoutY="290.0" startX="-106.0" startY="-1.52587890625E-5" />
+                <TextArea fx:id="text_3" layoutX="1.0" layoutY="208.0" prefHeight="82.0" prefWidth="267.0" />
+            </children>
+        </AnchorPane>
+        <Button fx:id="button_back" alignment="CENTER" layoutX="494.0" layoutY="448.0" mnemonicParsing="false" onAction="#backClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFA500;" text="back" textAlignment="RIGHT">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="23.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/back_button.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="button_next" contentDisplay="RIGHT" layoutX="609.0" layoutY="448.0" mnemonicParsing="false" onAction="#nextClick" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 30; -fx-background-color: #FFA500;" text="next">
+            <graphic>
+                <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/right.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <AnchorPane fx:id="ancer_4" layoutX="900.0" layoutY="62.0" prefHeight="366.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+            <children>
+                <ImageView fx:id="image_4" fitHeight="126.0" fitWidth="270.0" layoutY="-1.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@images/paris.jpg" />
+                    </image>
+                </ImageView>
+                <Label fx:id="location_4" alignment="CENTER" contentDisplay="CENTER" layoutY="125.0" prefHeight="38.0" prefWidth="270.0" text="location" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="date_4" alignment="CENTER" contentDisplay="CENTER" layoutY="163.0" prefHeight="34.0" prefWidth="270.0" text="start to end" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="price_4" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="290.0" prefHeight="34.0" prefWidth="94.0" text="price" textAlignment="CENTER" textFill="#999999">
+                    <font>
+                        <Font name="Arial" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="buttonBuy_4" layoutX="58.0" layoutY="321.0" mnemonicParsing="false" onAction="#pickVacation" prefHeight="34.0" prefWidth="155.0" style="-fx-background-radius: 30; -fx-background-color: #FFEBCD;" text="Choose for trade" />
+                <Line endX="161.0" endY="-1.52587890625E-5" layoutX="107.0" layoutY="206.0" startX="-106.0" startY="-1.52587890625E-5" />
+                <Line endX="161.0" endY="-1.52587890625E-5" layoutX="108.0" layoutY="290.0" startX="-106.0" startY="-1.52587890625E-5" />
+                <TextArea fx:id="text_4" layoutX="1.0" layoutY="207.0" prefHeight="82.0" prefWidth="267.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

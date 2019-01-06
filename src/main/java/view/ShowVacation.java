@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -35,6 +36,8 @@ import java.util.stream.Collectors;
 public class ShowVacation implements Initializable {
     //list vacation
     private ArrayList<Vacation> vacation;
+    private static ArrayList<Vacation> vacation_to_pick_for_trade;
+    private static Vacation askforTrade;
     //mc - singleton
     private MasterController mc;
     public AnchorPane ancer_show;
@@ -100,12 +103,27 @@ public class ShowVacation implements Initializable {
                 vacation.remove(i);
             }
         }
+        askforTrade = new Vacation();
+        this.vacation_to_pick_for_trade=new ArrayList();
         initVec();
 
     }
 
     public void initializeFileds() {
         Field[] f = Class.class.getDeclaredFields();
+    }
+
+    private ArrayList<Vacation> listToVacation(ArrayList<List<String>> arrayList) {
+        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<Vacation> result = new ArrayList();
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                temp.add(arrayList.get(i).get(j));
+            }
+            result.add(new Vacation(temp));
+            temp.clear();
+        }
+        return result;
     }
 
     private void initVec() {
@@ -221,6 +239,48 @@ public class ShowVacation implements Initializable {
 
     }
 
+    public void tradeVacation(ActionEvent event) throws IOException {
+        String s = (((Button) event.getSource()).getId());
+        char a = s.charAt(s.length()-1);
+        Vacation requested_vacation = vacation.get(Integer.parseInt(""+a)-1);
+        askforTrade=requested_vacation;
+        if(requested_vacation.getCreator().equals(mc.getUser().getUsername())){
+            showInfoDialog("System Message","You can't trade your own vacations");
+        }
+        else if(mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername()).size()<=0){
+            showInfoDialog("System Message","You don't have vacations to trade");
+        }
+        else if(mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername()).size()>0) {
+            ArrayList<List<String>> result = mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername());
+            if (result.size() > 0) {
+                vacation_to_pick_for_trade = listToVacation(result);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("ChooseVacationForTrade.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root, 1200, 509);
+                scene.getStylesheets().add(getClass().getClassLoader().getResource("showVac.css").toExternalForm());
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setOpacity(1);
+                stage.setTitle("Choose Vacation For Trade");
+                stage.setScene(scene);
+                stage.showAndWait();
+
+
+            }
+        }
+//        else if(mc.getUser()!=null) {
+//            mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, v.getCreator(), mc.getUser().getUsername(), v.getVacation_id(), "1"));
+//            showInfoDialog("Buying Message","Thank you for your order"+"\n"+"Message have been send to buyer for approve");
+//        }
+
+        else{
+            showInfoDialog("System Massage","You have to be connecting\nPlease SignUP or Register");
+        }
+
+
+
+    }
+
     public void showInfoDialog(String Heading,String Body) {
         StackPane pane = new StackPane();
         pane.setPrefWidth(ancer_show.getPrefWidth()/2);
@@ -242,4 +302,19 @@ public class ShowVacation implements Initializable {
         dialog.show();
     }
 
+    public static ArrayList<Vacation> getVacation_to_pick_for_trade() {
+        return vacation_to_pick_for_trade;
+    }
+
+    public static void setVacation_to_pick_for_trade(ArrayList<Vacation> vacation_to_pick_for_trade) {
+        ShowVacation.vacation_to_pick_for_trade = vacation_to_pick_for_trade;
+    }
+
+    public static Vacation getAskforTrade() {
+        return askforTrade;
+    }
+
+    public static void setAskforTrade(Vacation askforTrade) {
+        ShowVacation.askforTrade = askforTrade;
+    }
 }
