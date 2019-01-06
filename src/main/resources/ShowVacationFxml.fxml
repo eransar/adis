@@ -60,7 +60,7 @@
          <children>
             <ImageView fx:id="image_1" fitHeight="132.0" fitWidth="270.0" layoutY="-1.0" pickOnBounds="true">
                <image>
-                  <Image url="@images/vacationtemplate.png" />
+                  <Image url="@images/paris.jpg" />
                </image>
             </ImageView>
             <Label fx:id="location_1" alignment="CENTER" contentDisplay="CENTER" layoutY="125.0" prefHeight="38.0" prefWidth="270.0" text="location" textAlignment="CENTER" textFill="#999999">

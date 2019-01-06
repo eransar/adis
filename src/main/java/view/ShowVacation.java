@@ -250,6 +250,9 @@ public class ShowVacation implements Initializable {
         else if(mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername()).size()<=0){
             showInfoDialog("System Message","You don't have vacations to trade");
         }
+        else if(mc.getDatabyFields(new Transaction(),"vacation_id",requested_vacation.getVacation_id(),"buyer",mc.getUser().getUsername()).size() >0){
+            showInfoDialog("System Message","You already requested this vacation");
+        }
         else if(mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername()).size()>0) {
             ArrayList<List<String>> result = mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername());
             if (result.size() > 0) {
