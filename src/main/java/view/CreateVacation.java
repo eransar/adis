@@ -49,8 +49,8 @@ public class CreateVacation implements Initializable {
         if(location.getText().equals("")
                 || airline.getText().equals("")
                 || price.getText().equals("")
-                || start_text.equals("")
-                || end_text.equals("")
+                || (start_text!=null && start_text.equals(""))
+                || (end_text!=null && end_text.equals(""))
                 || text.getText().equals(""))
 
         {
