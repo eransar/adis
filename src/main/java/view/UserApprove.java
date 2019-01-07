@@ -141,7 +141,7 @@ public class UserApprove implements Initializable{
 
     private void loadVacation() {
         for (Transaction t: transactions) {
-            listToVacation(mc.read(new Vacation(),"vacation_id",t.getTransaction_id()));
+            listToVacation(mc.read(new Vacation(),"vacation_id",t.getVacation_id()));
         }
     }
 
