@@ -3,18 +3,21 @@ package view;
 import Contrroller.MasterController;
 import Entities.Transaction;
 import Entities.Vacation;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -22,9 +25,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class PayVacation implements Initializable{
+public class ApprovePayment implements Initializable{
 
     //list vacation
     private ArrayList<Transaction> transactions;
@@ -100,7 +104,7 @@ public class PayVacation implements Initializable{
 
 
     private void SellerOrBuyer() {
-        ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "2");
+        ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "seller", mc.getUser().getUsername(), "statuscode", "2");
         listToTransaction(list);
     }
 
@@ -118,7 +122,7 @@ public class PayVacation implements Initializable{
 
     private void loadVacation() {
         for (Transaction t: transactions) {
-            listToVacation(mc.read(new Vacation(),"vacation_id",t.getTransaction_id()));
+            listToVacation(mc.read(new Vacation(),"vacation_id",t.getVacation_id()));
         }
     }
 
@@ -232,22 +236,54 @@ public class PayVacation implements Initializable{
     public void clickButton(ActionEvent event) throws IOException {
         Stage stage1 = (Stage) ancer_show.getScene().getWindow();
         String s = (((Button) event.getSource()).getId());
-        char a = s.charAt(s.length()-1);
-        Vacation v = fourVac.get(Integer.parseInt(""+a)-1);
-        Transaction t = transactions.get(Integer.parseInt(""+a)-1);
-        Payments.currentVacation=v;
-        Payments.setCurrenttransaction(t);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Payment.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        Scene scene = new Scene(root, 600  , 460);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("Activities.css").toExternalForm());
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setOpacity(1);
-        stage.setTitle("Vacation4u Payments");
-        stage.setScene(scene);
-        stage.showAndWait();
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        char a = s.charAt(s.length() - 1);
+        Vacation v = fourVac.get(Integer.parseInt("" + a) - 1);
+        Transaction t = transactions.get(Integer.parseInt("" + a) - 1);
+        String message ="By clicking OK You agree for getting a payment of "+v.getPrice()+" from "+t.getBuyer();
+        showapprovalInfo("Approve you got the payment",message,t,v);
+
     }
+    public void showapprovalInfo(String headingText, String bodyText, Transaction t,Vacation v) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog with  Actions");
+        alert.setHeaderText(headingText);
+        alert.setContentText(bodyText);
+
+        ButtonType buttonTypeOne = new ButtonType("Cancel",ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType ok = new ButtonType("OK");
+//        ButtonType buttonTypeThree = new ButtonType("Three");
+//        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeOne, ok);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne) {
+            // ... user chose "One"
+        } else if (result.get() == ok) {
+            t.setStatuscode("3"); //closing transaction
+            mc.update(t); //updating database
+            v.setVisible("0");//making vacation not visible
+            mc.update(v); //updating vacation in database
+            alert.close();
+
+        }
+
 
 }
+}
+//        Payments.currentVacation=v;
+//        Payments.setCurrenttransaction(t);
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Payment.fxml"));
+//        Parent root = fxmlLoader.load();
+//        Stage stage = new Stage();
+//        Scene scene = new Scene(root, 600  , 460);
+//        scene.getStylesheets().add(getClass().getClassLoader().getResource("Activities.css").toExternalForm());
+//        stage.initModality(Modality.APPLICATION_MODAL);
+//        stage.setOpacity(1);
+//        stage.setTitle("Vacation4u Payments");
+//        stage.setScene(scene);
+//        stage.showAndWait();
+//        ((Node)(event.getSource())).getScene().getWindow().hide();
+
+
+

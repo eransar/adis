@@ -2,6 +2,7 @@ package Entities;
 
 import javafx.beans.property.SimpleStringProperty;
 import model.Model;
+import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
 
@@ -74,6 +75,7 @@ public class Vacation extends AEntity {
         this.price =new SimpleStringProperty(LoginArray.get(4));
         this.start_date=new SimpleStringProperty(LoginArray.get(5));
         this.end_date=new SimpleStringProperty(LoginArray.get(6));
+        this.picture=new SimpleStringProperty(LoginArray.get(7));
         this.visible=new SimpleStringProperty(LoginArray.get(8));
         this.text=new SimpleStringProperty(LoginArray.get(9));
     }

@@ -8,17 +8,17 @@
    <children>
       <ImageView fx:id="seller_approval" fitHeight="43.0" fitWidth="277.0" layoutX="258.0" layoutY="107.0" onMouseClicked="#setSeller_approval" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/button%20Approval.png" />
+            <Image url="@images/button Approval.png" />
          </image>
       </ImageView>
       <ImageView fx:id="your_approval" fitHeight="51.0" fitWidth="277.0" layoutX="258.0" layoutY="187.0" onMouseClicked="#setYour_approval" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/your%20approval.png" />
+            <Image url="@images/your approval.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="payment" fitHeight="109.0" fitWidth="277.0" layoutX="258.0" layoutY="269.0" onMouseClicked="#setPayment" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="payment" fitHeight="109.0" fitWidth="277.0" layoutX="258.0" layoutY="269.0" onMouseClicked="#approvePayment" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/button%20payment.png" />
+            <Image url="@images/approvePayment.png" />
          </image>
       </ImageView>
    </children>

@@ -99,6 +99,11 @@ public class ShowUserVacation implements Initializable {
         text_2.setWrapText(true);
         text_3.setWrapText(true);
         text_4.setWrapText(true);
+        for (int i = 0; i <vacation.size() ; i++) {
+            if(!vacation.get(i).getVisible().equals("1")){
+                vacation.remove(i);
+            }
+        }
         initVec();
     }
 

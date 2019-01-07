@@ -48,6 +48,28 @@ public class Activitis implements Initializable{
         }
     }
 
+    public void approvePayment(MouseEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("ApprovePayment.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+            Stage stage = new Stage();
+            Scene scene = null;
+            scene = new Scene(root, 1200, 509);
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("Activities.css").toExternalForm());
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setOpacity(1);
+            stage.setTitle("Activities");
+            stage.setScene(scene);
+            stage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     public void setYour_approval(MouseEvent event){
         ActivitiesHandler handler = new ActivitiesHandler("UserApprove.fxml",true);
         handler.handle1();

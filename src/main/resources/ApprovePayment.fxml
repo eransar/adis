@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancer_show" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PayVacation">
+<AnchorPane fx:id="ancer_show" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ApprovePayment">
    <children>
       <AnchorPane fx:id="ancer_2" layoutX="319.0" layoutY="62.0" prefHeight="366.0" prefWidth="270.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
          <children>
@@ -37,7 +37,7 @@
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/pay.png" />
+                        <Image url="@images/approve1.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -73,7 +73,7 @@
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/pay.png" />
+                        <Image url="@images/approve1.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -109,7 +109,7 @@
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/pay.png" />
+                        <Image url="@images/approve1.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -163,7 +163,7 @@
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/pay.png" />
+                        <Image url="@images/approve1.png" />
                      </image>
                   </ImageView>
                </graphic>

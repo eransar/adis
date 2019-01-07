@@ -262,7 +262,7 @@ public class UserApprove implements Initializable{
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Approval Message");
         alert.setHeaderText("Approval Massage");
-        alert.setContentText("Thank you for your Approval\nThe request has been sent. Please wait for approval of payment");
+        alert.setContentText("Thank you for your Approval\n Please use the Payment approval button after you close the deal with "+t.getBuyer());
         alert.show();
     }
 
