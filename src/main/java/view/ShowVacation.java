@@ -27,10 +27,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ShowVacation implements Initializable {
@@ -38,6 +35,7 @@ public class ShowVacation implements Initializable {
     private ArrayList<Vacation> vacation;
     private static ArrayList<Vacation> vacation_to_pick_for_trade;
     private static Vacation askforTrade;
+    private int currentid;
     //mc - singleton
     private MasterController mc;
     public AnchorPane ancer_show;
@@ -225,8 +223,11 @@ public class ShowVacation implements Initializable {
             showInfoDialog("System Message","You can't buy your own vacations");
 
         }
+        else if(mc.getDatabyFields(new Transaction(),"buyer",mc.getUser().getUsername(),"vacation_id",v.getVacation_id(),"type","exchange").size() >0 ){
+            showTradeDialog("System Message","You already requested to trade this vacation. if you want to cancel the request please use the buttons below");
+        }
         else if(mc.getDatabyFields(new Transaction(),"buyer",mc.getUser().getUsername(),"vacation_id",v.getVacation_id()).size() >0 ){
-            showInfoDialog("System Message","You already requested this vacation");
+            showInfoDialog("Buying Message","You already requested to buy this vacation");
         }
         else if(mc.getUser()!=null) {
             mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, v.getCreator(), mc.getUser().getUsername(), v.getVacation_id(), "1"));
@@ -242,6 +243,7 @@ public class ShowVacation implements Initializable {
     public void tradeVacation(ActionEvent event) throws IOException {
         String s = (((Button) event.getSource()).getId());
         char a = s.charAt(s.length()-1);
+        currentid = Integer.parseInt(""+a)-1;
         Vacation requested_vacation = vacation.get(Integer.parseInt(""+a)-1);
         askforTrade=requested_vacation;
         if(requested_vacation.getCreator().equals(mc.getUser().getUsername())){
@@ -250,8 +252,11 @@ public class ShowVacation implements Initializable {
         else if(mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername()).size()<=0){
             showInfoDialog("System Message","You don't have vacations to trade");
         }
-        else if(mc.getDatabyFields(new Transaction(),"vacation_id",requested_vacation.getVacation_id(),"buyer",mc.getUser().getUsername()).size() >0){
+        else if(mc.getDatabyFields(new Transaction(),"vacation_id",requested_vacation.getVacation_id(),"buyer",mc.getUser().getUsername(),"type", "exchange").size() >0){
             showInfoDialog("System Message","You already requested this vacation");
+        }
+        else if(mc.getDatabyFields(new Transaction(),"vacation_id",requested_vacation.getVacation_id(),"buyer",mc.getUser().getUsername()).size() >0){
+            showbuyDialog("System Message","You already requested to buy this vacation. please choose if you want to cancel the request");
         }
         else if(mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername()).size()>0) {
             ArrayList<List<String>> result = mc.getDatabyFields(new Vacation(),"creator",mc.getUser().getUsername());
@@ -283,6 +288,79 @@ public class ShowVacation implements Initializable {
 
 
     }
+    public void showTradeDialog(String headingText, String bodyText) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog with Custom Actions");
+        alert.setHeaderText(headingText);
+        alert.setContentText(bodyText);
+
+        ButtonType buttonTypeOne = new ButtonType("Don't do anything",ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType cancelrequest = new ButtonType("Cancel the request");
+//        ButtonType buttonTypeThree = new ButtonType("Three");
+//        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeOne, cancelrequest);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne) {
+            // ... user chose "One"
+        } else if (result.get() == cancelrequest) {
+
+            ArrayList<Transaction> transaction = listToTransaction(mc.getDatabyFields(new Transaction(), "vacation_id", vacation.get(currentid).getVacation_id(),"buyer",mc.getUser().getUsername()));
+            mc.delete(transaction.get(0));
+            alert.close();
+//            dialog.close();
+            // ... user chose "Two"
+//        } else if (result.get() == buttonTypeThree) {
+            // ... user chose "Three"
+        } else {
+            // ... user ch
+        }
+    }
+    public void showbuyDialog(String headingText, String bodyText) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog with Custom Actions");
+        alert.setHeaderText(headingText);
+        alert.setContentText(bodyText);
+
+        ButtonType buttonTypeOne = new ButtonType("Don't do anything",ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType cancelrequest = new ButtonType("Cancel the request");
+//        ButtonType buttonTypeThree = new ButtonType("Three");
+//        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeOne, cancelrequest);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne) {
+            // ... user chose "One"
+        } else if (result.get() == cancelrequest) {
+
+            ArrayList<Transaction> transaction = listToTransaction(mc.getDatabyFields(new Transaction(), "vacation_id", vacation.get(currentid).getVacation_id(),"buyer",mc.getUser().getUsername()));
+            mc.delete(transaction.get(0));
+            alert.close();
+//            dialog.close();
+            // ... user chose "Two"
+//        } else if (result.get() == buttonTypeThree) {
+            // ... user chose "Three"
+        } else {
+            // ... user ch
+        }
+    }
+
+
+    private ArrayList<Transaction> listToTransaction (ArrayList < List < String >> arrayList) {
+        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<Transaction> result = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                temp.add(arrayList.get(i).get(j));
+            }
+            result.add(new Transaction(temp));
+            temp.clear();
+        }
+        return result;
+    }
+
 
     public void showInfoDialog(String Heading,String Body) {
         StackPane pane = new StackPane();

@@ -44,7 +44,7 @@ public class UserController implements Initializable, IView {
         //Image Profile
         mc = MasterController.getInstance();
         profileImage.setStroke(Color.SEAGREEN);
-        Image im = new Image("images/sumemrfun.jpg",false);
+        Image im = new Image("images/profile.png",false);
         profileImage.setFill(new ImagePattern((im)));
         profileImage.setEffect(new DropShadow(+25d ,0d,+2d,Color.SNOW));
         userLabel.setText(mc.getUser().getUsername());
