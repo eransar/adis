@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -173,5 +174,6 @@
             <TextArea fx:id="text_4" layoutX="1.0" layoutY="207.0" prefHeight="82.0" prefWidth="267.0" />
          </children>
       </AnchorPane>
+      <ComboBox fx:id="choicebox" layoutX="260.0" layoutY="14.0" prefHeight="27.0" prefWidth="366.0" />
    </children>
 </AnchorPane>

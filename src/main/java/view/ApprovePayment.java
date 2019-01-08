@@ -6,6 +6,9 @@ import Entities.Vacation;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +36,16 @@ public class ApprovePayment implements Initializable{
     //list vacation
     private ArrayList<Transaction> transactions;
     private ArrayList<Vacation> vacation;
+    private ArrayList<Vacation> purchase_vacation_as_owner;
+    private ArrayList<Vacation> purchase_vacation_as_requester;
+    private ArrayList<Vacation> trade_vacation_as_owner;
+    private ArrayList<Vacation> trade_vacation_as_requester;
+    private ArrayList<Transaction> purchase_transaction_as_owner;
+    private ArrayList<Transaction> purchase_transaction_as_requester;
+    private ArrayList<Transaction> trade_transaction_as_owner;
+    private ArrayList<Transaction> trade_transaction_as_requester;
     private ArrayList<Vacation> fourVac;
+    public ComboBox<String> choicebox;
     //mc - singleton
     private MasterController mc;
     public AnchorPane ancer_show;
@@ -88,9 +100,30 @@ public class ApprovePayment implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        choicebox.setPromptText("Please Choose an option from the choices below");
+        choicebox.valueProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable,
+                                String oldValue, String newValue) {
+                choicePick(newValue);
+            }
+        });
+        choicebox.getItems().add("Approve Purchase request as owner");
+        choicebox.getItems().add("Approve Purchase request as buyer");
+        choicebox.getItems().add("Approve Trade request as owner");
+        choicebox.getItems().add("Approve Trade request as requester");
         transactions = new ArrayList<>();
         vacation = new ArrayList<>();
         fourVac = new ArrayList<>();
+        purchase_vacation_as_owner = new ArrayList<>();
+        purchase_vacation_as_requester=new ArrayList<>();
+        trade_vacation_as_owner=new ArrayList<>();
+        trade_vacation_as_requester=new ArrayList<>();
+        purchase_transaction_as_owner=new ArrayList<>();;
+        purchase_transaction_as_requester=new ArrayList<>();;
+        trade_transaction_as_owner=new ArrayList<>();;
+        trade_transaction_as_requester=new ArrayList<>();;
         mc = MasterController.getInstance();
         //this.vacation=Search.getVacations();
         text_1.setWrapText(true);
@@ -104,21 +137,76 @@ public class ApprovePayment implements Initializable{
 
 
     private void SellerOrBuyer() {
-        
-        ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "seller", mc.getUser().getUsername(), "statuscode", "2");
-        listToTransaction(list);
+        //creating vacation array as owner in purchase
+        purchase_transaction_as_owner=listToTransaction(mc.getDatabyFields(new Transaction(), "seller", mc.getUser().getUsername(), "statuscode", "2","type","sale"));
+        purchase_transaction_as_requester=listToTransaction(mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "3","type","sale"));
+        trade_transaction_as_owner=listToTransaction(mc.getDatabyFields(new Transaction(), "seller", mc.getUser().getUsername(), "statuscode", "2","type","exchange"));
+        trade_transaction_as_requester=listToTransaction(mc.getDatabyFields(new Transaction(), "buyer", mc.getUser().getUsername(), "statuscode", "3","type","exchange"));
+
+        purchase_vacation_as_owner=initVacationArray(purchase_transaction_as_owner);
+        purchase_vacation_as_requester=initVacationArray(purchase_transaction_as_requester);
+        trade_vacation_as_owner=initVacationArray(trade_transaction_as_owner);
+        trade_vacation_as_requester=initVacationArray(trade_transaction_as_requester);
+
+    }
+
+    public void choicePick(String theChoice){
+
+
+        switch (theChoice){
+            case "Approve Purchase request as owner":
+                    vacation=purchase_vacation_as_owner;
+                    transactions=purchase_transaction_as_owner;
+                    vacIndex=1;
+                    initVec();
+                    break;
+            case "Approve Purchase request as buyer":
+                    vacation=purchase_vacation_as_requester;
+                    transactions=purchase_transaction_as_requester;
+                    vacIndex=1;
+                    initVec();
+                    break;
+            case "Approve Trade request as owner":
+                    vacation=trade_vacation_as_owner;
+                    transactions=trade_transaction_as_owner;
+                    vacIndex=1;
+                    initVec();
+                    break;
+            case "Approve Trade request as requester":
+                    vacation=trade_vacation_as_requester;
+                    transactions=trade_transaction_as_requester;
+                    vacIndex=1;
+                    initVec();
+                    break;
+        }
+
     }
 
 
-    private void listToTransaction(ArrayList<List<String>> arrayList) {
+    private ArrayList<Transaction> listToTransaction(ArrayList<List<String>> arrayList) {
         ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<Transaction> result = new ArrayList<>();
         for (int i = 0; i < arrayList.size(); i++) {
             for (int j = 0; j < arrayList.get(i).size(); j++) {
                 temp.add(arrayList.get(i).get(j));
             }
-            transactions.add(new Transaction(temp));
+            result.add(new Transaction(temp));
             temp.clear();
         }
+        return result;
+    }
+
+    private ArrayList<Vacation> listToVacation(ArrayList<List<String>> arrayList) {
+        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<Vacation> result = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                temp.add(arrayList.get(i).get(j));
+            }
+            result.add(new Vacation(temp));
+            temp.clear();
+        }
+        return result;
     }
 
     private void loadVacation() {
@@ -127,17 +215,17 @@ public class ApprovePayment implements Initializable{
         }
     }
 
-
-    private void listToVacation(ArrayList<List<String>> arrayList) {
-        ArrayList<String> temp = new ArrayList<String>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            for (int j = 0; j < arrayList.get(i).size(); j++) {
-                temp.add(arrayList.get(i).get(j));
-            }
-            vacation.add(new Vacation(temp));
-            temp.clear();
+    private ArrayList<Vacation> initVacationArray(ArrayList<Transaction> toget) {
+            ArrayList<Vacation> result = new ArrayList<>();
+        for (Transaction t: toget) {
+            result.addAll(listToVacation(mc.read(new Vacation(),"vacation_id",t.getVacation_id())));
         }
+
+        return result;
     }
+
+
+
 
 
     private void initVec() {
@@ -240,11 +328,31 @@ public class ApprovePayment implements Initializable{
         char a = s.charAt(s.length() - 1);
         Vacation v = fourVac.get(Integer.parseInt("" + a) - 1);
         Transaction t = transactions.get(Integer.parseInt("" + a) - 1);
+        if(t.getType().equals("sale")){
+            if(t.getStatuscode().equals("2")){
+                String message ="By clicking OK You agree for getting a payment of "+v.getPrice()+" from "+t.getBuyer();
+                showapprovalInfo("Approve you got the payment",message,t,v,2);
+            }
+            else if(t.getStatuscode().equals("3")){
+                String message ="By clicking OK You agree for paying "+v.getPrice()+"$ to "+t.getSeller();
+                showapprovalInfo("Approve you got the payment",message,t,v,3);
+            }
+        }
+        else if(t.getType().equals("exchange")){
+            if(t.getStatuscode().equals("2")){
+                String message ="By clicking OK You agree that you exchanged the vacation to "+ v.getLocation()+" with "+t.getBuyer();
+                showapprovalInfo("Approve you did the trade",message,t,v,2);
+            }
+            else if(t.getStatuscode().equals("3")){
+                String message ="By clicking OK You agree that you exchanged the vacation to "+ v.getLocation()+" with "+t.getSeller();
+                showapprovalInfo("Approve you got the payment",message,t,v,3);
+            }
+        }
         String message ="By clicking OK You agree for getting a payment of "+v.getPrice()+" from "+t.getBuyer();
-        showapprovalInfo("Approve you got the payment",message,t,v);
+
 
     }
-    public void showapprovalInfo(String headingText, String bodyText, Transaction t,Vacation v) {
+    public void showapprovalInfo(String headingText, String bodyText, Transaction t,Vacation v,int status) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog with  Actions");
         alert.setHeaderText(headingText);
@@ -261,17 +369,26 @@ public class ApprovePayment implements Initializable{
         if (result.get() == buttonTypeOne) {
             // ... user chose "One"
         } else if (result.get() == ok) {
-            t.setStatuscode("3"); //closing transaction
-            mc.update(t); //updating database
-//            v.setVisible("0");//making vacation not visible
-//            mc.update(v); //updating vacation in database
+            switch (status){
+                case 2:
+                    t.setStatuscode("3");
+                    mc.update(t);
+                    break;
+                case 3:
+                    t.setStatuscode("4"); //updating db
+                    mc.update(t);
+                    v.setVisible("0");
+                    mc.update(v); //making vacation not visible
+            }
             alert.close();
+            ancer_show.getScene().getWindow().hide();
+        }
 
         }
 
 
 }
-}
+
 //        Payments.currentVacation=v;
 //        Payments.setCurrenttransaction(t);
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Payment.fxml"));

@@ -258,7 +258,9 @@ public class UserApprove implements Initializable{
         char a = s.charAt(s.length()-1);
         Vacation v = fourVac.get(Integer.parseInt(""+a)-1);
         Transaction t = transactions.get(Integer.parseInt(""+a)-1);
-        mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"2"));
+        t.setStatuscode("2");
+        mc.update(t);
+//        mc.update(new Transaction(Integer.parseInt(t.getTransaction_id()),t.getSeller(),t.getBuyer(),t.getVacation_id(),"2"));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Approval Message");
         alert.setHeaderText("Approval Massage");
