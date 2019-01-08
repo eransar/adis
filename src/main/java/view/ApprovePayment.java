@@ -104,6 +104,7 @@ public class ApprovePayment implements Initializable{
 
 
     private void SellerOrBuyer() {
+        
         ArrayList<List<String>> list = mc.getDatabyFields(new Transaction(), "seller", mc.getUser().getUsername(), "statuscode", "2");
         listToTransaction(list);
     }
@@ -262,8 +263,8 @@ public class ApprovePayment implements Initializable{
         } else if (result.get() == ok) {
             t.setStatuscode("3"); //closing transaction
             mc.update(t); //updating database
-            v.setVisible("0");//making vacation not visible
-            mc.update(v); //updating vacation in database
+//            v.setVisible("0");//making vacation not visible
+//            mc.update(v); //updating vacation in database
             alert.close();
 
         }

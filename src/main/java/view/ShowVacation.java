@@ -230,7 +230,7 @@ public class ShowVacation implements Initializable {
             showInfoDialog("Buying Message","You already requested to buy this vacation");
         }
         else if(mc.getUser()!=null) {
-            mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, v.getCreator(), mc.getUser().getUsername(), v.getVacation_id(), "1"));
+            mc.insert(new Transaction(mc.getMax(new Transaction()) + 1, v.getCreator(), mc.getUser().getUsername(), v.getVacation_id(), "1","","sale"));
             showInfoDialog("Buying Message","Thank you for your order"+"\n"+"Message have been send to buyer for approve");
         }
 
