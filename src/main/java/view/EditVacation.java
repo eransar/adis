@@ -62,7 +62,7 @@ public class EditVacation implements Initializable{
         edit_error.setText("Price must contain number only");
         }
         else{
-            Vacation vacation = new Vacation(Integer.parseInt(vacations.getVacation_id()),vacations.getCreator(),edit_location.getText(),vacations.getAirline(),edit_price.getText(),edit_start.getText(),edit_end.getText(),"","true",edit_freeText.getText());
+            Vacation vacation = new Vacation(Integer.parseInt(vacations.getVacation_id()),vacations.getCreator(),edit_location.getText(),vacations.getAirline(),edit_price.getText(),edit_start.getText(),edit_end.getText(),"","1",edit_freeText.getText());
             mc.update(vacation);
             edit_buttonSave.addEventHandler(MouseEvent.MOUSE_CLICKED, new CloseStageHandler());
         }
