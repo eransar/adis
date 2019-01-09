@@ -90,11 +90,13 @@ public class ChooseVacationForTrade implements Initializable {
         text_2.setWrapText(true);
         text_3.setWrapText(true);
         text_4.setWrapText(true);
-        for (int i = 0; i < vacation.size(); i++) {
-            if (!vacation.get(i).getVisible().equals("1")) {
-                vacation.remove(i);
+        ArrayList<Vacation> temp = new ArrayList();
+        for (Vacation v: vacation){
+            if(!v.getVisible().equals("1")){
+                temp.add(v);
             }
         }
+        vacation.removeAll(temp);
         initVec();
 
     }

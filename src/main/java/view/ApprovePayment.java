@@ -331,28 +331,28 @@ public class ApprovePayment implements Initializable{
         if(t.getType().equals("sale")){
             if(t.getStatuscode().equals("2")){
                 String message ="By clicking OK You agree for getting a payment of "+v.getPrice()+" from "+t.getBuyer();
-                showapprovalInfo("Approve you got the payment",message,t,v,2);
+                showapprovalInfo("Approve you got the payment",message,t,v,2,"sale");
             }
             else if(t.getStatuscode().equals("3")){
                 String message ="By clicking OK You agree for paying "+v.getPrice()+"$ to "+t.getSeller();
-                showapprovalInfo("Approve you got the payment",message,t,v,3);
+                showapprovalInfo("Approve you got the payment",message,t,v,3,"sale");
             }
         }
         else if(t.getType().equals("exchange")){
             if(t.getStatuscode().equals("2")){
                 String message ="By clicking OK You agree that you exchanged the vacation to "+ v.getLocation()+" with "+t.getBuyer();
-                showapprovalInfo("Approve you did the trade",message,t,v,2);
+                showapprovalInfo("Approve you did the trade",message,t,v,2,"exchange");
             }
             else if(t.getStatuscode().equals("3")){
                 String message ="By clicking OK You agree that you exchanged the vacation to "+ v.getLocation()+" with "+t.getSeller();
-                showapprovalInfo("Approve you got the payment",message,t,v,3);
+                showapprovalInfo("Approve you got the payment",message,t,v,3,"exchange");
             }
         }
         String message ="By clicking OK You agree for getting a payment of "+v.getPrice()+" from "+t.getBuyer();
 
 
     }
-    public void showapprovalInfo(String headingText, String bodyText, Transaction t,Vacation v,int status) {
+    public void showapprovalInfo(String headingText, String bodyText, Transaction t,Vacation v,int status,String type) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog with  Actions");
         alert.setHeaderText(headingText);
@@ -379,6 +379,14 @@ public class ApprovePayment implements Initializable{
                     mc.update(t);
                     v.setVisible("0");
                     mc.update(v); //making vacation not visible
+                    if(type.equals("exchange")){
+                        String toRemove = t.getVacation2_id();
+                        ArrayList<List<String>> list = mc.getDatabyFields(new Vacation(),"vacation_id",toRemove);
+                        ArrayList<Vacation> vacation_to_remove = listToVacation(list);
+                        Vacation toUpdate=vacation_to_remove.get(0);
+                        toUpdate.setVisible("0");
+                        mc.update(toUpdate);
+                    }
             }
             alert.close();
             ancer_show.getScene().getWindow().hide();
